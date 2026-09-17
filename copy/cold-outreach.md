@@ -38,7 +38,10 @@ self-delete after 72 hours.
 It's been running for a week with a real coaching practice: 41 drafted
 applications across 3 candidates. Happy to show you the cards live.
 
-20 minutes this week?
+You don't need me to start: the demo is free forever — one candidate, no card:
+https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+
+And if you'd rather have a human, 20 minutes this week?
 
 — {{your_name}}
 P.S. It hosts on GitHub Actions for $0 — no server, no card. The demo includes the
@@ -54,6 +57,7 @@ One honest follow-up: the thing coaches ask first is "does it auto-apply?" — n
 Every application is your tap on ✅. Hunta is a pipeline for your judgement,
 not a replacement for it.
 
+The demo is free forever if you'd rather just look: https://king-kunta-cpu.github.io/hunta-marketing/demo.html
 Still worth 20 minutes?
 
 — {{your_name}}
@@ -85,7 +89,8 @@ CareerJunction / the ZW boards?
 I've got a tool that does the hunt + draft and waits for your tap — nothing sends
 without you. Ran 41 applications through it last week, all human-approved.
 
-If that's your world, I'll send the 5-min demo. If not, sorry for the ping 🙏
+Free demo, one candidate, forever, no card: https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+If that's your world I'll set it up with you on a 10-min call. If not, sorry for the ping 🙏
 ```
 
 ## Candidate-side (for coaches recruiting pilot candidates)
@@ -101,7 +106,9 @@ from your phone before anything goes anywhere.
 No CV upload to random websites. Your letter goes out from YOUR email.
 Nothing is ever sent without your yes.
 
-5 spots this month. Reply your name + field (e.g. "Thabo — accounting").
+Actually — it's free for everyone now. One candidate, free forever:
+https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+Reply your name + field and I'll help you set it up.
 ```
 
 ## LinkedIn DM (short)
@@ -110,6 +117,6 @@ Nothing is ever sent without your yes.
 Hi {{name}} — saw your post on {{topic}}. I'm running a small experiment:
 a pipeline that does the board-sweep + letter-drafting part of coaching and
 leaves the approve-tap to the human. 41 applications through it last week,
-zero auto-sends. If that intersects with your practice, I'll gladly show
-you the 5-minute version. If not, carry on 🙂
+zero auto-sends. If that intersects with your practice, the demo is free forever, one candidate, no card: https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+If not, carry on 🙂
 ```

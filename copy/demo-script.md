@@ -42,8 +42,11 @@ cards self-destruct after 72 hours."
 **4:00 — the money (60 s)**
 "No server. It runs on two GitHub Actions workflows on a private repo — $0, no card.
 You're not buying infrastructure; you're buying your Tuesdays back."
-State price. Close: "One candidate, one week, free. If the first three cards aren't
-better than your current Tuesday, walk away."
+State price. Close with the demo stack:
+"The demo is free forever — one candidate, five sends a month, no card.
+Solo is R299 for three candidates when your bench asks for it. Set the demo
+up now while we're on the phone; first card lands by the next hunt slot."
+Landing page (lead capture + download): https://king-kunta-cpu.github.io/hunta-marketing/demo.html
 
 ---
 

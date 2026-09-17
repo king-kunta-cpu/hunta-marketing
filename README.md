@@ -1,54 +1,40 @@
-# hunta-marketing
+# hunta-marketing · v2 (the bible)
 
-Everything needed to market Hunta: brand, copy, scripts, graphics, samples — and one
-file that puts it all in front of you: **`index.html`**.
+Everything to market Hunta, plus the public door for the **free-for-everyone demo**.
 
-## The hub
+## The two pages
 
-```
-open index.html          # locally, right now — fully self-contained
-```
+| Page | What |
+|---|---|
+| **`index.html`** | The bible — 16 tabs: product truth, market/ICP, decided pricing (R0/R299/R799/R2 499), social, outreach, sales scripts, lifecycle, demo & video, FAQ, growth plan, brand, samples, landing/leads, legal, checklist. Every block has a Copy button. Images are embedded (data URIs) so the file works from Pages, a USB stick or a WhatsApp download. |
+| **`demo.html`** | Public landing: hero → how it works → lead form → kit downloads instantly → lead card pings Discord ("Hunta Leads") → human replies <24 h. |
 
-Or serve it properly for the whole team:
-
-1. GitHub → this repo → **Settings → Pages**
-2. Source: *Deploy from a branch* → `main` → `/ (root)` → Save
-3. In ~1 minute: `https://<you>.github.io/hunta-marketing/`
-
-The hub is a single file with embedded styles, inline SVG logo and the sample letter/CV
-rendered in-page, so it also works from a USB stick or a WhatsApp download.
+Serve it: GitHub → Settings → Pages → `main` → `/ (root)` →
+`https://king-kunta-cpu.github.io/hunta-marketing/` (already enabled).
 
 ## Contents
 
 ```
-index.html        THE HUB — every asset on one page, copy buttons on every block
-brand/            logos, icons, og-image, jacaranda-labs marks (+ raw/ concepts)
-graphics/         discord-card-mockup.png  social-card-hero.png  before-after.png
-samples/          sample-cv-za / sample-cover-letter  (.pdf + .html preview mirrors)
-copy/pitch.md             pitches, positioning, stat block, "don't say" list
-copy/social.md            LinkedIn, X thread, Facebook, WhatsApp, community posts
-copy/cold-outreach.md     coach emails 1-3, WhatsApp cold, candidate pilot, LinkedIn DM
-copy/email-sequences.md   day 0/2/7/29/45 + candidate-facing
-copy/demo-script.md       5-min demo, 15-min deep dive, 45-s video, post-demo mail
-copy/faq-objections.md    FAQ + objection handling ("does it auto-apply?" etc.)
-BRAND.md          palette, type, logo rules, voice do/don't
+index.html      the bible (self-contained, ~400 KB with embedded imagery)
+demo.html       lead-capture landing + demo-kit download
+downloads/      hunta-demo-kit.zip · demo-card.html (interactive) · quickstart · pricing
+brand/          logos, icons, og-image (+ raw concepts)
+graphics/       discord mockup · hero card · before/after (PNG masters; index embeds JPGs)
+samples/        sample CV + letter (.pdf real-engine output, .html mirrors)
+copy/           pitch · social · cold-outreach · email-sequences · demo-script
+                faq-objections · sales-scripts (the full library) · pricing (decided)
+BRAND.md        palette, type, logo rules, voice
 ```
 
-## Numbers are live data — refresh before posting
+## The offer, everywhere
 
-All counts in copy come from the production pipeline on **2026-09-17** (41 pending
-applications, 18 board integrations, 11 returning live results). Update them from the
-latest hunt log before each campaign: Actions → hunt → run log.
+Free demo for everyone, forever — 1 candidate, 5 sends/month, no card.
+All CTAs point at `demo.html`. Paid: Solo R299 · Studio R799 · Sovereign R2 499
+(rationale in copy/pricing.md). Annual = 2 months free; affiliates 30%/12 mo.
 
-## Demo persona
+## Before any campaign
 
-Thabo Nkosi (sample CV/letter) is the **example profile shipped in the hunta repo** —
-fictional contact details. Never screenshot a real candidate's card.
-
-## Checklist before a public post
-
-- [ ] numbers refreshed from the latest hunt log
-- [ ] price decided (see the Pricing tab on the hub)
-- [ ] og-image attached (brand/og-image.png)
-- [ ] one CTA only, and it's a reply keyword or a link, never both
-- [ ] read the "Don't say" list in copy/pitch.md
+- Refresh numbers from the latest hunt log (they are dated 2026-09-17).
+- One CTA per post: the demo link.
+- Read the house rules (Start tab) and the "never" list (Brand tab).
+- Demo persona only — never screenshot a real candidate.

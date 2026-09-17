@@ -37,7 +37,8 @@ First week of running it for real: 41 drafted applications across 3 candidates,
 each with its own letter and CV. Zero auto-sends.
 
 If you coach job seekers in ZA, ZW or ZM and this sounds like your Tuesday,
-reply "HUNTA" and I'll show you the card live.
+the demo is free forever — one candidate, no card:
+https://king-kunta-cpu.github.io/hunta-marketing/demo.html
 
 #CareerCoaching #JobSearch #SouthAfrica #Zimbabwe #Zambia #AI #FutureOfWork
 ```
@@ -53,7 +54,7 @@ profile, drafts the letter + CV as PDFs, and drops one card in your Discord:
 
 Nothing sends without your tap. Nothing is invented. Drafts die after 72 h.
 
-Coaches: reply "HUNTA" for a 5-minute demo.
+Demo is free forever, one candidate, no card: https://king-kunta-cpu.github.io/hunta-marketing/demo.html
 ```
 
 ## X / Twitter — thread (8 posts)
@@ -98,7 +99,7 @@ Fly.io died. Oracle is a second job. This is two YAML files.
 zero auto-sends.
 
 If you coach job seekers in southern Africa and want the demo:
-reply "HUNTA".
+the demo is free forever — no card: https://king-kunta-cpu.github.io/hunta-marketing/demo.html
 ```
 
 ## X — single post
@@ -125,8 +126,8 @@ It's been running a week: 41 applications drafted, every single one reviewed by 
 first.
 
 If you're a coach, recruiter or outplacement consultant in SA / Zimbabwe / Zambia
-and this sounds useful, comment below and I'll show you how it works. No pitch —
-I just want feedback from people who actually do this work.
+and this sounds useful, comment below — or skip me entirely and take the free demo (one candidate,
+free forever, no card): https://king-kunta-cpu.github.io/hunta-marketing/demo.html
 ```
 
 ## WhatsApp — broadcast to coach contacts
@@ -139,7 +140,8 @@ It drops ONE card in my Discord and I tap approve — nothing sends without me.
 
 Ran it a week: 41 drafted applications, all reviewed by me first.
 
-If you coach job seekers, reply "show me" and I'll send the 5-min demo.
+Free demo, one candidate, forever, no card: https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+Reply "help" and I'll set it up with you on a 10-min call.
 ```
 
 ## Discord / Telegram community announcement
@@ -156,7 +158,9 @@ Rules of the house:
 • nothing invented — it only uses what's on the profile
 • drafts expire after 72 h; sent/rejected files are deleted immediately
 
-Ask me for onboarding — you need a Discord webhook and 10 minutes.
+Free demo for every member — one candidate, free forever:
+https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+Onboarding is a Discord webhook + 10 minutes.
 ```
 
 ## Hashtag set
