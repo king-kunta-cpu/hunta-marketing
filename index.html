@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunta — Marketing Hub</title>
+<link rel="icon" href="brand/favicon.ico">
+<meta property="og:title" content="Hunta — jobs found, applications drafted, you tap approve">
+<meta property="og:description" content="Marketing hub: brand, copy, scripts, samples — everything on one page.">
+<meta property="og:image" content="brand/og-image.png">
+<style>
+  :root{
+    --purple:#7B5EA7; --charcoal:#2B2B2B; --lilac:#F4EEF9; --muted:#6E6A75;
+    --green:#1E8E3E; --red:#B00020; --card:#FFFFFF; --line:#E4DCEf;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Poppins','Montserrat','Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+       color:var(--charcoal); background:#FBFAFD; line-height:1.55}
+  header{position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--line)}
+  .bar{max-width:1120px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; gap:16px}
+  .bar .logo{height:34px; flex:0 0 auto}
+  .tag{color:var(--muted); font-size:13px; margin-left:4px}
+  nav{max-width:1120px; margin:0 auto; padding:0 20px 10px; display:flex; gap:6px; flex-wrap:wrap}
+  nav button{border:1px solid var(--line); background:#fff; color:var(--charcoal); border-radius:999px;
+             padding:6px 14px; font-size:13px; font-weight:600; cursor:pointer}
+  nav button.on{background:var(--purple); border-color:var(--purple); color:#fff}
+  main{max-width:1120px; margin:0 auto; padding:28px 20px 80px}
+  section{display:none}
+  section.on{display:block}
+  h1{font-size:34px; letter-spacing:-0.8px; line-height:1.15}
+  h2{font-size:22px; margin:34px 0 10px; letter-spacing:-0.3px}
+  h3{font-size:15px; margin:18px 0 6px}
+  p.lede{color:var(--muted); font-size:16px; margin-top:10px; max-width:70ch}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:18px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px}
+  .card b{color:var(--purple)}
+  .stat{font-size:26px; font-weight:700; color:var(--purple)}
+  .card .sub{color:var(--muted); font-size:13px}
+  .copyblock{position:relative; background:var(--lilac); border:1px solid var(--line); border-radius:12px;
+             padding:14px 14px 14px 14px; margin:10px 0}
+  .copyblock pre{white-space:pre-wrap; font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;
+                 font-size:12.5px; line-height:1.5; color:#3A3440; overflow:auto; max-height:480px}
+  .copybtn{position:absolute; top:8px; right:8px; border:1px solid var(--purple); color:var(--purple);
+           background:#fff; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:700; cursor:pointer}
+  .copybtn.ok{background:var(--green); color:#fff; border-color:var(--green)}
+  .pillrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+  .pill{border:1.5px solid var(--purple); color:var(--purple); border-radius:999px; padding:5px 14px;
+        font-size:13px; font-weight:600; background:#fff}
+  .imgwrap{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff; margin:10px 0}
+  .imgwrap img{display:block; width:100%; height:auto}
+  .cap{color:var(--muted); font-size:12.5px; padding:8px 12px; border-top:1px solid var(--line)}
+  .swatches{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+  .sw{border:1px solid var(--line); border-radius:10px; overflow:hidden; width:150px; background:#fff}
+  .sw .c{height:52px}
+  .sw .t{padding:6px 10px; font-size:12px}
+  table{border-collapse:collapse; width:100%; margin:12px 0; background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden}
+  th,td{padding:9px 12px; text-align:left; font-size:13.5px; border-bottom:1px solid var(--line); vertical-align:top}
+  th{background:var(--lilac); color:var(--purple)}
+  tr:last-child td{border-bottom:none}
+  details{background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 16px; margin:8px 0}
+  summary{font-weight:700; cursor:pointer; color:var(--purple)}
+  details p{margin-top:8px; font-size:14px}
+  .page{background:#fff; border:1px solid var(--line); box-shadow:0 8px 28px rgba(43,43,43,.08);
+        border-radius:6px; max-width:720px; margin:16px auto; padding:46px 52px; font-size:13px; color:#2B2B2B}
+  .page h1{font-size:22px; margin-bottom:2px}
+  .page .muted{color:#7a7a7a; font-size:11.5px; margin-bottom:14px}
+  .page h2{font-size:13.5px; margin:16px 0 6px; color:var(--purple)}
+  .page table{border:none; margin:6px 0}
+  .page th{background:none}
+  .page th,.page td{font-size:12px; padding:3px 8px}
+  .badge{display:inline-block; background:var(--lilac); color:var(--purple); border-radius:6px;
+         padding:2px 8px; font-size:11px; font-weight:700; margin-right:6px}
+  .foot{color:var(--muted); font-size:12.5px; margin-top:26px; border-top:1px solid var(--line); padding-top:14px}
+  .tick{list-style:none}
+  .tick li{padding:6px 0 6px 26px; position:relative; font-size:14.5px}
+  .tick li::before{content:"☐"; position:absolute; left:2px; color:var(--purple); font-weight:700}
+  a{color:var(--purple)}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  @media(max-width:860px){.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <svg class="logo" viewBox="0 0 400 116" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hunta">
+      <g fill="none" stroke="#7B5EA7" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="40" cy="40" r="27"/><path d="M59 59 L72 72"/><path d="M72 72 L108 48 L88 106 L78 84 Z"/><path d="M78 84 L108 48"/>
+      </g>
+      <text x="132" y="80" font-family="Poppins, Montserrat, 'Segoe UI', Arial, sans-serif" font-weight="600" font-size="68" letter-spacing="-1.5" fill="#2B2B2B">Hunta</text>
+    </svg>
+    <span class="tag">marketing hub · by Jacaranda Labs</span>
+  </div>
+  <nav id="nav">
+    <button data-s="start" class="on">Start here</button>
+    <button data-s="social">Social</button>
+    <button data-s="outreach">Outreach</button>
+    <button data-s="emails">Lifecycle</button>
+    <button data-s="demo">Demo & video</button>
+    <button data-s="faq">FAQ & objections</button>
+    <button data-s="pricing">Pricing</button>
+    <button data-s="brand">Brand</button>
+    <button data-s="samples">Samples</button>
+    <button data-s="launch">Launch checklist</button>
+  </nav>
+</header>
+<main>
+
+<!-- ============================== START ============================== -->
+<section id="start" class="on">
+  <h1>Jobs found. Applications drafted.<br>You tap approve. It sends.</h1>
+  <p class="lede">Hunta is a human-in-the-loop job-hunting pipeline for career coaches in
+  South Africa, Zimbabwe and Zambia. This hub keeps every marketing asset one click away —
+  copy blocks have a <b>Copy</b> button.</p>
+
+  <div class="grid">
+    <div class="card"><div class="stat">18</div><div class="sub">board integrations · ZA ZW ZM + remote<br>11 returned live results on the last run</div></div>
+    <div class="card"><div class="stat">0</div><div class="sub">auto-sends, by design — every application is a human tap</div></div>
+    <div class="card"><div class="stat">72 h</div><div class="sub">PDF self-destruct; deleted instantly on send/reject</div></div>
+    <div class="card"><div class="stat">$0</div><div class="sub">hosting — two GitHub Actions workflows, no server, no card</div></div>
+    <div class="card"><div class="stat">1</div><div class="sub">LLM call per job: score + letter + tailored CV together</div></div>
+    <div class="card"><div class="stat">20/day</div><div class="sub">send cap per candidate, protecting their Gmail reputation</div></div>
+  </div>
+
+  <h2>The 30-second pitch</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hunta is a job-hunting copilot for career coaches in South Africa, Zimbabwe and Zambia.
+It sweeps 18 job boards on a schedule — PNet, CareerJunction, JobMail, VacancyMail,
+iHarareJobs, GoZambiaJobs and more — matches every ad against your candidate's real profile,
+scores the fit, then drafts a tailored cover letter and a country-formatted CV as PDFs.
+The whole thing lands in your Discord as a single card with a ✅ and a ❌. Tap approve and it
+sends the application from the candidate's own Gmail. Nothing ever goes out without your tap.</pre></div>
+
+  <h2>One-liners</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hunta finds the jobs, drafts the application, and waits for your tap. You stay the professional in the loop; Hunta does the forty-tabs part.</pre></div>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Your candidates aren't losing to better candidates. They're losing to the 40 open tabs. Hunta hunts, drafts, and asks before it sends.</pre></div>
+
+  <h2>The card — the whole product</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>🔎 Hunta — new application ready
+Bookkeeper @ Elite Search & Selection
+Match 90% — SAIPA-registered, Sage Pastel and full-cycle bookkeeping match the core requirements.
+https://www.careerjunction.co.za/…
+Candidate thabo01 · ref 04aa74fbbd
+
+[✅ Approve & send]   [❌ Reject]
++ 04aa74fbbd_cv.pdf   + 04aa74fbbd_letter.pdf</pre></div>
+
+  <h2>Graphics</h2>
+  <div class="imgwrap"><img src="graphics/discord-card-mockup.png" alt="Discord card mockup"><div class="cap">graphics/discord-card-mockup.png — the card, as your buyers will see it</div></div>
+  <div class="two">
+    <div class="imgwrap"><img src="graphics/social-card-hero.png" alt="Hero social card"><div class="cap">social-card-hero.png (1200×630)</div></div>
+    <div class="imgwrap"><img src="graphics/before-after.png" alt="Before / after"><div class="cap">before-after.png — the pain visual</div></div>
+  </div>
+  <div class="foot">Numbers are production data from 2026-09-17 — refresh from the latest hunt log before each campaign.</div>
+</section>
+
+<!-- ============================== SOCIAL ============================== -->
+<section id="social">
+  <h1>Social copy</h1>
+  <p class="lede">Paste-ready. Every figure is live data; swap in fresh numbers before posting. Full set also in <code>copy/social.md</code>.</p>
+
+  <h2>LinkedIn — launch post</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>I built a small machine that does the worst part of job hunting.
+
+Not the interviews. The 40 open tabs.
+
+A coach I work with spends her week doing this by hand: open PNet, CareerJunction,
+VacancyMail, iHarareJobs. Read every ad. Decide "is this Thabo?" Rewrite the same cover
+letter for the 30th time. Attach the CV. Send. Repeat across 6 boards, 3 candidates,
+4 hours a day.
+
+So I built Hunta. It runs on a schedule, sweeps 18 job boards across South Africa,
+Zimbabwe and Zambia, matches every ad against the candidate's real profile, scores the
+fit, and drafts a tailored cover letter + a country-formatted CV — both as PDFs.
+
+Then it posts ONE card to a private Discord channel:
+
+🔎 Bookkeeper @ Elite Search & Selection
+Match 90% — SAIPA-registered, Sage Pastel, full-cycle bookkeeping.
+[✅ Approve & send]  [❌ Reject]
+
+The coach taps one button. That's the whole workflow.
+
+What it will NOT do: it never sends anything without the tap, it never invents a
+qualification, and it deletes its own drafts after 72 hours. The human stays in the
+loop — that's the product.
+
+First week of running it for real: 41 drafted applications across 3 candidates,
+each with its own letter and CV. Zero auto-sends.
+
+If you coach job seekers in ZA, ZW or ZM and this sounds like your Tuesday,
+reply "HUNTA" and I'll show you the card live.
+
+#CareerCoaching #JobSearch #SouthAfrica #Zimbabwe #Zambia #AI #FutureOfWork</pre></div>
+
+  <h2>LinkedIn — short version</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>The 40 open tabs are why good candidates lose.
+
+Hunta sweeps 18 job boards in ZA·ZW·ZM, scores each ad against the candidate's real
+profile, drafts the letter + CV as PDFs, and drops one card in your Discord:
+[✅ Approve & send] [❌ Reject].
+
+Nothing sends without your tap. Nothing is invented. Drafts die after 72 h.
+
+Coaches: reply "HUNTA" for a 5-minute demo.</pre></div>
+
+  <h2>X — launch thread (1/8 shown; full thread in copy/social.md)</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>1/ Your candidates aren't losing to better candidates.
+They're losing to the 40 open tabs.
+
+I built Hunta — a job-hunting copilot for coaches in ZA, ZW, ZM.
+Here's the whole loop in 7 posts 🧵</pre></div>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>5/ Everything lands in a private Discord channel as ONE card:
+🔎 Bookkeeper @ Elite Search & Selection — Match 90%
+[✅ Approve & send]  [❌ Reject]
+with both PDFs attached.
+The coach is the product. The tap is the product.</pre></div>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>8/ Week one, running for real: 41 drafted applications, 41 PDF pairs,
+zero auto-sends.
+
+If you coach job seekers in southern Africa and want the demo:
+reply "HUNTA".</pre></div>
+
+  <h2>X — single post</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hunta sweeps 18 job boards in ZA·ZW·ZM, drafts the letter + CV, and posts one card
+to your Discord. [✅ Approve & send] [❌ Reject]. Nothing sends without your tap.
+The 40 tabs die today.</pre></div>
+
+  <h2>Facebook — community group</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hi everyone 🙋 I coach job seekers and I got tired of doing the same thing every
+week: opening six job sites, reading every advert, rewriting the same cover letter
+for each candidate.
+
+So I built a little tool (with my developer) that does the boring part for me. It
+checks the boards on a schedule, shortlists the ads that actually match a candidate,
+and writes a proper letter and CV for the ones worth it. Then it sends me ONE card
+on Discord with an Approve button — nothing goes anywhere unless I tap it.
+
+It's been running a week: 41 applications drafted, every single one reviewed by me
+first.
+
+If you're a coach, recruiter or outplacement consultant in SA / Zimbabwe / Zambia
+and this sounds useful, comment below and I'll show you how it works. No pitch —
+I just want feedback from people who actually do this work.</pre></div>
+
+  <h2>WhatsApp — broadcast</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hey! Quick one 🙌 I've been testing a tool that does the job-hunt grind for my
+candidates: it checks the big boards (PNet, CareerJunction, JobMail, VacancyMail...)
+on a schedule, shortlists what matches each candidate, and drafts the letter + CV.
+It drops ONE card in my Discord and I tap approve — nothing sends without me.
+
+Ran it a week: 41 drafted applications, all reviewed by me first.
+
+If you coach job seekers, reply "show me" and I'll send the 5-min demo.</pre></div>
+
+  <h2>Hashtags</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>#CareerCoaching #JobSearch #JobHunting #SouthAfrica #Zimbabwe #Zambia #Outplacement #HRTech #FutureOfWork #Recruitment #AItools #SADC</pre></div>
+</section>
+
+<!-- ============================== OUTREACH ============================== -->
+<section id="outreach">
+  <h1>Cold outreach</h1>
+  <p class="lede">Buyer = the coach. Full set in <code>copy/cold-outreach.md</code>.</p>
+
+  <h2>Email 1 — first touch</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Subject: the 40 open tabs
+
+Hi {{first_name}},
+
+I'll keep this short because your week looks like this: PNet, CareerJunction,
+VacancyMail, iHarareJobs — read every ad, decide "is this Thabo?", rewrite the same
+cover letter for the 30th time, attach, send, repeat.
+
+That's the job nobody bills for.
+
+I run a small tool called Hunta that does that part. It checks 18 job boards across
+South Africa, Zimbabwe and Zambia on a schedule, matches every advert against each
+candidate's real profile, scores the fit, and drafts a tailored cover letter + a
+country-formatted CV as PDFs.
+
+It lands in a private Discord channel as one card:
+
+   🔎 Bookkeeper @ Elite Search & Selection — Match 90%
+   [✅ Approve & send]   [❌ Reject]
+
+You tap. That's it. Nothing sends without you, nothing is invented, drafts
+self-delete after 72 hours.
+
+It's been running for a week with a real coaching practice: 41 drafted
+applications across 3 candidates. Happy to show you the cards live.
+
+20 minutes this week?
+
+— {{your_name}}
+P.S. It hosts on GitHub Actions for $0 — no server, no card. The demo includes the
+boring "how much does this cost me" slide up front.</pre></div>
+
+  <h2>Email 2 — day 3</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hi {{first_name}},
+
+One honest follow-up: the thing coaches ask first is "does it auto-apply?" — no.
+Every application is your tap on ✅. Hunta is a pipeline for your judgement,
+not a replacement for it.
+
+Still worth 20 minutes?
+
+— {{your_name}}</pre></div>
+
+  <h2>WhatsApp cold</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hi {{name}}, {{your_name}} here. I build tools for career coaches. Quick question:
+how many hours a week do you spend rewriting the same cover letter across PNet /
+CareerJunction / the ZW boards?
+
+I've got a tool that does the hunt + draft and waits for your tap — nothing sends
+without you. Ran 41 applications through it last week, all human-approved.
+
+If that's your world, I'll send the 5-min demo. If not, sorry for the ping 🙏</pre></div>
+
+  <h2>Candidate pilot recruit</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>FREE pilot for 5 job seekers
+
+I'm testing Hunta — it hunts jobs for you across the big boards in
+{{country}}, shortlists what actually matches your profile, and writes a
+tailored letter + CV for each one. You approve every single application
+from your phone before anything goes anywhere.
+
+No CV upload to random websites. Your letter goes out from YOUR email.
+Nothing is ever sent without your yes.
+
+5 spots this month. Reply your name + field (e.g. "Thabo — accounting").</pre></div>
+
+  <h2>LinkedIn DM</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hi {{name}} — saw your post on {{topic}}. I'm running a small experiment:
+a pipeline that does the board-sweep + letter-drafting part of coaching and
+leaves the approve-tap to the human. 41 applications through it last week,
+zero auto-sends. If that intersects with your practice, I'll gladly show
+you the 5-minute version. If not, carry on 🙂</pre></div>
+</section>
+
+<!-- ============================== LIFECYCLE ============================== -->
+<section id="emails">
+  <h1>Lifecycle emails</h1>
+  <p class="lede">Day 0 → 45, plus the candidate-facing mail. Full set in <code>copy/email-sequences.md</code>.</p>
+
+  <h2>Day 0 — welcome + setup</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Subject: Hunta is live for {{tenant}} — 3 clicks to first card
+
+Hi {{name}},
+
+Welcome. Your pipeline already has a home; it just needs three things from you:
+
+1. DISCORD (2 min)
+   In your server: #hunta → Edit Channel → Integrations → Webhooks → New Webhook.
+   Paste the URL into your tenant config.
+
+2. GMAIL APP PASSWORD (2 min)
+   Switch on 2-step verification, then myaccount.google.com/apppasswords →
+   create one → 16 characters. It lives encrypted; there is no Google Cloud
+   project and no OAuth anywhere.
+
+3. YOUR FIRST CANDIDATE (5 min)
+   One YAML: name, country, location, keywords, exclusions. Copy the example —
+   "accountant / bookkeeper / Johannesburg" is a proven starter.
+
+That's it. Hunts run 06:00 / 10:00 / 14:00 / 18:00 (SAST), Mon–Sat.
+Your first card should land within a few hours.
+
+— The Hunta desk</pre></div>
+
+  <h2>Day 2 — expectations</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Subject: what a good first 48 hours looks like
+
+Hi {{name}},
+
+Two days in, here's what "normal" looks like:
+
+- A handful of cards, not hundreds. Hunta pre-scores every ad for free and only
+  spends AI attention on the shortlist. Quiet days are healthy days.
+- Some cards you'll reject. That's the system learning your taste — rejections
+  cost nothing and delete their own PDFs.
+- Your first "holy cow it named the company" moment, usually on card 2 or 3.
+
+Tuning tip: exclusions beat keywords. "intern", "unpaid", "commission only"
+remove more garbage than any keyword adds.
+
+— The Hunta desk</pre></div>
+
+  <h2>Day 7 — nudge</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Subject: your week in cards
+
+Hi {{name}},
+
+Your numbers: {{cards}} cards, {{approved}} approved, {{rejected}} rejected.
+
+One thing worth 5 minutes: open the rejected cards and check WHY they were
+rejected. If the match reasons read wrong, tighten min_relevance or add an
+exclusion — 5 minutes now saves a week of noise.
+
+And if a candidate got an interview, I'd genuinely like to hear about it.
+
+— The Hunta desk</pre></div>
+
+  <h2>Day 29 — renewal courtesy</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Subject: month 2 of Hunta for {{tenant}}
+
+Hi {{name}},
+
+Month two begins tomorrow — {{price}} renews via Whop, same as month one.
+
+Your month: {{cards}} cards, {{sends}} sends, {{hours_saved}} coaching hours
+back (cards × 25 min of manual hunt-and-rewrite, our honest yardstick).
+
+Change plan, pause, or cancel from your Whop library — no email required,
+no retention call. We'd rather you stay because the cards are good.
+
+— The Hunta desk</pre></div>
+
+  <h2>Day 45 — win-back</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Subject: the boards kept running
+
+Hi {{name}},
+
+No pitch. One honest line: the boards didn't stop posting when you paused —
+PNet and CareerJunction alone move ~70 finance ads a week in Gauteng.
+
+If the reason you left was noise, the fix is exclusions (5 minutes).
+If it was price, tell me the number that works and I'll see what I can do.
+
+Either way, your candidate files were never held hostage — they're YAMLs,
+and they're yours.
+
+— {{your_name}}</pre></div>
+</section>
+
+<!-- ============================== DEMO ============================== -->
+<section id="demo">
+  <h1>Demo & video scripts</h1>
+  <p class="lede">The 5-minute demo is the whole sales motion. Full scripts in <code>copy/demo-script.md</code>.</p>
+
+  <h2>The 5-minute demo — beats</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>0:00  THE PAIN        "Show me your Tuesday. Six boards, forty tabs, the same
+                      letter rewritten per candidate. That's the job nobody
+                      bills for."
+0:30  THE CARD        Open Discord. Read it slowly: board + role, one-sentence
+                      match reason, both PDFs, the two buttons.
+2:00  THE TAP         Approve one live → "sent from the candidate's own Gmail".
+                      Reject one → "deleted on the spot; untouched cards
+                      self-destruct at 72 h".
+3:00  THE 3 FEARS     1. Does it auto-apply? No — every send is your tap.
+                      2. Invent things? Can't — it only reuses the profile.
+                      3. Spam? Own mailbox, 20/day cap, human-approved.
+4:00  THE MONEY       "$0 hosting — two GitHub Actions workflows."
+                      Price. Close: "One candidate, one week, free. If the
+                      first three cards aren't better than your current
+                      Tuesday, walk away."</pre></div>
+
+  <h2>45-second video — shot list</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>SHOT 1 0:00-0:08  Screen: 12 browser tabs, clock ticking.
+                  CAPTION "Tuesday, 6 boards, 40 tabs."
+SHOT 2 0:08-0:18  Discord: a card appears.
+                  CAPTION "Hunta hunted so I didn't. One card. Match 90%."
+SHOT 3 0:18-0:28  Open the letter PDF, scroll.
+                  CAPTION "Letter + CV from the candidate's real profile. Nothing invented."
+SHOT 4 0:28-0:36  Phone: tap ✅. Sent confirmation.
+                  CAPTION "My tap. Their inbox. Sent from their own Gmail."
+SHOT 5 0:36-0:45  Logo on lilac.
+                  "Hunta. Jobs found. Applications drafted. You tap approve. It sends."</pre></div>
+
+  <h2>15-minute deep dive — agenda</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre> 0-5   the 5-min demo
+ 5-7   coverage matrix: ZA PNet·CareerJunction·JobMail·Careers24·Bizcommunity·LinkedIn·remote
+       ZW VacancyMail·iHarareJobs·JobsZimbabwe  ZM GoZambiaJobs  (+ remote Jobicy·Remotive)
+ 7-9   economics: rules+pre-score throw out ~85% for free; ONE LLM call per shortlist job
+ 9-11  data posture: {job_url,status,timestamp}; 72 h purge; YAML = right to erasure
+11-13  billing rails: Whop · Lightning/coinos · Mukuru grant
+13-15  hosted vs self-hosted (read-only on expiry, never bricked)</pre></div>
+
+  <h2>Post-demo email</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Great speaking, {{first_name}}.
+
+What you saw, in one line: Hunta hunts 18 boards, drafts the letter + CV,
+and waits for your tap.
+
+Attached/below: the sample CV + letter, the guard-rails list, pricing.
+
+The pilot stands: one candidate, one week, free. I'll set your webhook on
+the call — onboarding is ~10 minutes.
+
+— {{your_name}}</pre></div>
+</section>
+
+<!-- ============================== FAQ ============================== -->
+<section id="faq">
+  <h1>FAQ & objections</h1>
+
+  <details open><summary>Does it apply automatically?</summary>
+  <p>No. Every application requires a human tap on ✅. Design guarantee — there is no
+  "auto" mode. Hunta is a pipeline for your judgement.</p></details>
+  <details><summary>Will the AI invent experience?</summary>
+  <p>No. The writer prompt hard-forbids inventing qualifications, employers, dates or skills;
+  it may only reorder and rephrase the profile. Check the sample CV against the sample letter.</p></details>
+  <details><summary>Will my Gmail get flagged as spam?</summary>
+  <p>Sends go from the candidate's own mailbox, to real ads, human-approved, capped at
+  20/candidate/day. The opposite of spray-and-pray.</p></details>
+  <details><summary>What happens to the data?</summary>
+  <p>The store keeps only <code>{job_url, status, timestamp}</code>. PDFs die on send/reject;
+  untouched drafts self-delete at 72 h. Deleting the candidate YAML is the right to erasure.</p></details>
+  <details><summary>Does it need my LinkedIn?</summary>
+  <p>No login, no profile scraping. Public job search only.</p></details>
+  <details><summary>Which boards?</summary>
+  <p>18 integrations: PNet, CareerJunction, JobMail, Careers24, Bizcommunity, VacancyMail,
+  iHarareJobs, JobsZimbabwe, GoZambiaJobs, LinkedIn jobs search, Jobicy, Remotive, UNjobs,
+  Impactpool. CVs render ZA / ZW / ZM conventions.</p></details>
+  <details><summary>What does it cost to run?</summary>
+  <p>$0 default: two GitHub Actions workflows on a private repo. Customer brings a free-tier
+  LLM key and a Gmail app password — no Google Cloud project, no OAuth, no card.</p></details>
+  <details><summary>"AI cover letters are generic."</summary>
+  <p>Show the sample. Second paragraph names the company and mirrors two real requirements;
+  every fact traces to the CV. Generic is what <em>they</em> wrote at 11pm — same letter, thirty employers.</p></details>
+  <details><summary>"Mass applications get people blacklisted."</summary>
+  <p>Agree, then contrast: 20/day cap, human approval on every send, candidate's own address,
+  relevance threshold. "This isn't volume; it's coverage. Every send is still a decision."</p></details>
+  <details><summary>"We already use an ATS / agency."</summary>
+  <p>An ATS is for employers; an agency is for sourcing. You're on the candidate's side —
+  Hunta is the candidate-side desk.</p></details>
+  <details><summary>"Why not just use ChatGPT?"</summary>
+  <p>You can — and then also maintain the sweepers, scoring, three countries of PDF templates,
+  expiry logic, approval channel and the 4am cron. Hunta is the difference between a prompt
+  and a pipeline.</p></details>
+</section>
+
+<!-- ============================== PRICING ============================== -->
+<section id="pricing">
+  <h1>Pricing</h1>
+  <p class="lede">No public number is baked into the product yet — the frames below are ready
+  to take your prices. Anchors: one agency placement fee ≈ a year of Hunta; a coach bills
+  ~R600–R1500 per CV-and-letter bundle Hunta produces in minutes.</p>
+
+  <div class="grid">
+    <div class="card"><h3>Solo</h3><p class="sub">1 coach · 3 candidates · hosted</p>
+      <p style="margin-top:8px"><b>R <i>[your price]</i> / month</b><br>Whop subscription · Lightning for ZW/ZM</p></div>
+    <div class="card"><h3>Studio</h3><p class="sub">1 coach · 15 candidates · hosted</p>
+      <p style="margin-top:8px"><b>R <i>[your price]</i> / month</b><br>+ white-label PDFs with your brand</p></div>
+    <div class="card"><h3>Sovereign</h3><p class="sub">agency / career centre · own box</p>
+      <p style="margin-top:8px"><b>R <i>[your price]</i> / month</b><br>licence-checked, read-only on expiry, data never leaves</p></div>
+  </div>
+
+  <h2>Money one-liners</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>• No server, no card: it runs on GitHub Actions' free tier — ~100 minutes a month.
+• The customer brings a free-tier LLM key and their own Gmail; your margin is the coaching.
+• Pay how you already pay: Whop (card/PayPal/crypto), Lightning via coinos, or Mukuru.
+• Pilots free while HUNTA_FREE_MODE is on — say "free week", not "free product".</pre></div>
+</section>
+
+<!-- ============================== BRAND ============================== -->
+<section id="brand">
+  <h1>Brand</h1>
+  <h2>Palette</h2>
+  <div class="swatches">
+    <div class="sw"><div class="c" style="background:#7B5EA7"></div><div class="t">Jacaranda #7B5EA7</div></div>
+    <div class="sw"><div class="c" style="background:#2B2B2B"></div><div class="t">Charcoal #2B2B2B</div></div>
+    <div class="sw"><div class="c" style="background:#F4EEF9"></div><div class="t">Lilac #F4EEF9</div></div>
+    <div class="sw"><div class="c" style="background:#1E8E3E"></div><div class="t">Approve #1E8E3E</div></div>
+    <div class="sw"><div class="c" style="background:#B00020"></div><div class="t">Reject #B00020</div></div>
+  </div>
+
+  <h2>Logos</h2>
+  <div class="two">
+    <div class="imgwrap" style="background:#fff"><img src="brand/hunta-logo.svg" alt="Hunta logo" style="padding:22px"><div class="cap">hunta-logo.svg — default on light</div></div>
+    <div class="imgwrap" style="background:#7B5EA7"><img src="brand/hunta-logo-white.svg" alt="Hunta logo white" style="padding:22px"><div class="cap">hunta-logo-white.svg — on jacaranda / charcoal</div></div>
+    <div class="imgwrap" style="background:#fff"><img src="brand/hunta-icon-512.png" alt="icon" style="width:120px; margin:18px auto"><div class="cap">hunta-icon-512.png — avatars / Telegram bot</div></div>
+    <div class="imgwrap"><img src="brand/og-image.png" alt="og image"><div class="cap">og-image.png — 1200×630 share card</div></div>
+  </div>
+
+  <h2>Voice — do / don't</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>DO   lead with the card (the product) and the tap (the trust)
+DO   show the 72 h purge and the 20/day cap unprompted — they answer the two fears
+DO   southern-African specifics: SAIPA, SARS eFiling, VAT201, NRC, EcoCash
+DON'T "revolutionise", "game-changer", "AI-powered future", "guaranteed interviews"
+DON'T call it a "bot" with buyers — "pipeline" / "copilot"
+DON'T screenshot a real candidate — the demo persona only</pre></div>
+</section>
+
+<!-- ============================== SAMPLES ============================== -->
+<section id="samples">
+  <h1>Sample outputs</h1>
+  <p class="lede">Rendered by the <b>real engine</b> (same templates, same letter text as a live
+  production application). Demo persona: Thabo Nkosi — the fictional example profile shipped
+  in the repo. PDFs: <a href="samples/sample-cv-za.pdf">sample-cv-za.pdf</a> ·
+  <a href="samples/sample-cover-letter.pdf">sample-cover-letter.pdf</a></p>
+
+  <div class="page">
+    <h1>Thabo Nkosi</h1>
+    <div class="muted">Johannesburg, Gauteng · +27 82 000 0000 · thabo.nkosi@example.com</div>
+    <h2>Personal Details</h2>
+    <table class="kv"><tr><th>ID Number</th><td>9001015800085</td></tr>
+    <tr><th>EE Status</th><td>African Male</td></tr>
+    <tr><th>Driver's Licence</th><td>Code B</td></tr>
+    <tr><th>Languages</th><td>English, isiZulu, Sesotho</td></tr></table>
+    <h2>Profile</h2>
+    <p>SAIPA-registered accountant with six years' experience across full-cycle bookkeeping,
+    month-end close and statutory submissions for SMEs and logistics groups.</p>
+    <h2>Key Skills</h2>
+    <p>Sage Pastel · Sage 300 People · Xero · VAT201 &amp; EMP201 · Month-end close ·
+    Management accounts · Payroll (140 staff) · Excel (advanced) · CaseWare</p>
+    <h2>Experience</h2>
+    <p><strong>Accountant — Mzansi Logistics (Pty) Ltd</strong> <span class="muted">2021-02 – Present</span><br>
+    • Own month-end close for 3 entities; reduced close from 12 to 6 working days<br>
+    • Prepare VAT201, EMP201 and annual financial statements<br>
+    • Manage payroll for 140 staff on Sage 300 People</p>
+    <p><strong>Junior Accountant — KPL Auditors</strong> <span class="muted">2018-01 – 2021-01</span><br>
+    • Bookkeeping to trial balance for 25 SME clients<br>• Assisted with SARS audits and objections</p>
+    <h2>Education</h2>
+    <p>BCom Accounting, University of Johannesburg — 2017</p>
+  </div>
+
+  <div class="page">
+    <h1>Thabo Nkosi</h1>
+    <div class="muted">Johannesburg, Gauteng · +27 82 000 0000 · thabo.nkosi@example.com</div>
+    <p>The Hiring Manager<br>Elite Search &amp; Selection</p>
+    <p><strong>Re: Bookkeeper</strong></p>
+    <p>Dear Hiring Manager,</p>
+    <p>I am excited to apply for the Bookkeeper role at Elite Search &amp; Selection. The hybrid
+    setup and focus on a small, dynamic finance team align perfectly with my career goals
+    and work style.</p>
+    <p>With six years of SAIPA-registered accounting experience, I have managed full-cycle
+    bookkeeping for multiple entities, performed month-end close, and prepared VAT201 and
+    EMP201 submissions via SARS eFiling. My daily use of Sage Pastel and payroll processing
+    on Sage platforms directly matches the core requirements of this position.</p>
+    <p>I am confident that my strong Excel skills, attention to detail, and ability to juggle
+    priorities independently will add immediate value to your team. I look forward to
+    contributing to Elite Search &amp; Selection's continued growth.</p>
+    <p>Kind regards,<br><br>Thabo Nkosi</p>
+  </div>
+</section>
+
+<!-- ============================== LAUNCH ============================== -->
+<section id="launch">
+  <h1>Launch checklist</h1>
+  <ul class="tick">
+    <li>Numbers refreshed from the latest hunt log (Actions → hunt → run log)</li>
+    <li>Price decided and typed into the Pricing section + email 29</li>
+    <li>Discord webhook live for the demo tenant (GET webhook → 200, name "hunta")</li>
+    <li>og-image.png attached to every social post (brand/og-image.png)</li>
+    <li>One CTA only — a reply keyword or a link, never both</li>
+    <li>Read the "Don't say" list in the Brand tab</li>
+    <li>LinkedIn launch post + X thread on the same morning; WhatsApp broadcast same day</li>
+    <li>Demo slot links ready: "reply HUNTA" → calendar</li>
+    <li>Pilot terms written down: 1 candidate, 1 week, free; then price in the open</li>
+  </ul>
+
+  <h2>Publish this hub</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>GitHub → this repo → Settings → Pages
+Source: Deploy from a branch → main → / (root) → Save
+→ https://&lt;you&gt;.github.io/hunta-marketing/   (live in ~1 minute)
+
+Or locally, right now:   open index.html</pre></div>
+
+  <div class="foot">hunta-marketing · by Jacaranda Labs · palette #7B5EA7 / #2B2B2B / #F4EEF9 ·
+  numbers are production data, 2026-09-17</div>
+</section>
+
+</main>
+
+<script>
+  // tab switching
+  const nav=document.getElementById('nav');
+  nav.addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    nav.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    document.querySelectorAll('main > section').forEach(s=>s.classList.remove('on'));
+    document.getElementById(b.dataset.s).classList.add('on');
+    window.scrollTo({top:0});
+  });
+  // copy buttons
+  document.querySelectorAll('.copybtn').forEach(btn=>{
+    btn.addEventListener('click',async()=>{
+      const txt=btn.parentElement.querySelector('pre').innerText;
+      let ok=true;
+      try{ await navigator.clipboard.writeText(txt); }
+      catch(_){
+        ok=false;
+        const ta=document.createElement('textarea');
+        ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try{ ok=document.execCommand('copy'); }catch(e){ ok=false; }
+        ta.remove();
+      }
+      const old=btn.textContent;
+      btn.textContent=ok?'Copied ✓':'Select manually';
+      btn.classList.toggle('ok',ok);
+      setTimeout(()=>{btn.textContent=old; btn.classList.remove('ok');},1600);
+    });
+  });
+</script>
+</body>
+</html>
