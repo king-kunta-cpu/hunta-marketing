@@ -165,7 +165,7 @@ the log streaming the whole way.</pre></div>
     <tr><td>4 · Render</td><td>country-formatted PDFs: cv_za (ID/EE/licence), cv_zw, cv_zm + cover letter; company names de-shouted ("SINOGY POWER PTY LTD" → title case)</td><td>"it knows what a ZA CV looks like"</td></tr>
     <tr><td>5 · Card</td><td>Discord (primary) or Telegram (secondary): title, company, match %, reason, link, both PDFs, ✅/❌</td><td>"your whole pipeline fits in one notification"</td></tr>
     <tr><td>6 · Tap</td><td>✅ sends via SMTP from the candidate's own mailbox (20/day cap, reply-to them). ❌ deletes PDFs. Signed links expire with the PDFs</td><td>"nothing sends without you"</td></tr>
-    <tr><td>7 · Purge</td><td>PDFs deleted on send/reject; untouched drafts purged at 72 h; store keeps only {job_url, status, timestamp}</td><td>"zero retention is the privacy story"</td></tr>
+    <tr><td>7 · Purge</td><td>PDFs deleted on send/reject; untouched drafts purged at 72 h; the letter/CV text lives in the DB only while a tap is pending and is NULLed the moment you decide; settled rows expire at 60 days</td><td>"zero retention is the privacy story"</td></tr>
   </table>
 
   <h2>Boards matrix (live status 2026-09-17)</h2>
@@ -193,7 +193,9 @@ the log streaming the whole way.</pre></div>
 • The writer may only reorder/rephrase the profile; inventing is hard-forbidden.
 • 20 sends / candidate / day — the candidate's Gmail reputation is sacred.
 • PDFs: deleted on send/reject; untouched drafts purged at 72 h.
-• Store keeps only {job_url, status, timestamp}; candidate = one YAML = right to erasure.
+• Store: job metadata + status, plus the pending draft — text NULLed and PDFs unlinked the
+  moment of approve/reject; settled rows expire at 60 days. Candidate = one YAML = right to
+  erasure; tenant = one file = rm.
 • No LinkedIn login, no profile scraping — public job search only.
 • Gmail = app password over SMTP; no Google Cloud project, no OAuth, no consent screen.
 • Hosting default = two GitHub Actions workflows; $0, no card, nothing to sleep.
@@ -209,7 +211,8 @@ the log streaming the whole way.</pre></div>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>hunters (18) → rule filter → zero-cost pre-score → ONE score+draft LLM call →
 Jinja2/WeasyPrint PDFs (ZA/ZW/ZM) → SQLite (metadata only) → Discord card →
 signed approve/reject → SMTP send from the candidate's mailbox → purge.
-State — metadata only — lives on a private git branch; candidate PDFs never enter git.
+The application ledger lives on a private git branch as a single squashed snapshot commit;
+candidate documents never enter git.
 Secrets Fernet-encrypted at rest. Every network call runs under a wall-clock budget
 (45 s URL / 30 s provider / 35 min run) with unbuffered streaming logs. Optional bare
 operator dashboard gated by HUNTA_ADMIN_TOKEN; hosted-customer control center on a
@@ -649,7 +652,7 @@ Your files were never hostage; they're YAMLs, they're yours. Same free demo, no 
   <details open><summary>Does it apply automatically?</summary><p>No. There is no auto mode. Every send is a human tap — a design guarantee, not a setting.</p></details>
   <details><summary>Will it invent experience?</summary><p>No. The writer may only reorder/rephrase the profile. Check the sample CV against the sample letter, line by line.</p></details>
   <details><summary>Spam risk?</summary><p>Candidate's own mailbox, real ads, human-approved, 20/day cap. The opposite of spray-and-pray.</p></details>
-  <details><summary>Data?</summary><p>Store keeps {job_url, status, timestamp} — and the state branch never holds a document. PDFs die on send/reject, drafts at 72 h, and candidate PDFs are untracked from git by code. Candidate file = one YAML = right to erasure.</p></details>
+  <details><summary>Data?</summary><p>Store = job metadata + status + the draft awaiting your tap; the tap deletes both the text and the PDFs, and settled rows expire after 60 days. Candidate documents never persist to the git state branch — the runner untracks stray PDFs before every snapshot (enforced since the 2026-09-19 hardening). Candidate file = one YAML = right to erasure.</p></details>
   <details><summary>LinkedIn?</summary><p>No login, no scraping. Public job search only.</p></details>
   <details><summary>Boards?</summary><p>18 integrations: PNet · CareerJunction · JobMail · Careers24 · Bizcommunity · VacancyMail · iHarareJobs · JobsZimbabwe · GoZambiaJobs · LinkedIn · Jobicy · Remotive · UNjobs · Impactpool. CVs: ZA/ZW/ZM formats.</p></details>
   <details><summary>Cost to run?</summary><p>$0 default — GitHub Actions. Customer brings a free-tier LLM key + a Gmail app password. No cloud console, no card.</p></details>
