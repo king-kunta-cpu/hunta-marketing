@@ -1,5 +1,10 @@
 # Your pipeline in ~10 minutes
 
+> Prefer the bits themselves? Ask for **hunta-demo-1.0.0.zip** — one wheel, the identical
+> build the paid tiers run (caps in code: 25 drafts + 5 sends per rolling 30 days until you
+> licence). `unzip`, `pip install hunta-1.0.0-py3-none-any.whl`, `hunta doctor`. The pack +
+> its sha256 land in downloads/ at launch.
+
 1. **Discord (2 min)** — in your server: create #hunta → Edit Channel →
    Integrations → Webhooks → New Webhook. Copy the URL.
 2. **Gmail (2 min)** — switch on 2-step verification, then
@@ -10,7 +15,8 @@
    (or `Harare` / `Lusaka`), exclude `intern, unpaid, commission only`.
 4. **Run** — the hosted demo runs hunts at 06:00/10:00/14:00/18:00 SAST Mon–Sat.
    Your first card lands with both PDFs and the ✅ / ❌ links.
-5. **Tap** — approve sends from the candidate's own Gmail (20/day cap).
+5. **Tap** — approve sends from the candidate's own Gmail (20/day cap, 5 sends/mo
+   on demo — at the cap the card itself tells you what upgrading buys).
    Reject deletes the PDFs. Untouched drafts die at 72 h.
 
 That's the whole loop. Upgrade when your second candidate asks for it.

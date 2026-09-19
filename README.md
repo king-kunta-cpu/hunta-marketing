@@ -1,4 +1,4 @@
-# hunta-marketing · v2 (the bible)
+# hunta-marketing · v2.1 (the bible) — audit-hardened build, demo pack at launch
 
 Everything to market Hunta, plus the public door for the **free-for-everyone demo**.
 
@@ -34,7 +34,10 @@ All CTAs point at `demo.html`. Paid: Solo R299 · Studio R799 · Sovereign R2 49
 
 ## Before any campaign
 
-- Refresh numbers from the latest hunt log (they are dated 2026-09-17).
+- Numbers: state-store-verified 2026-09-19 (runs 09-16→18: 72 drafted, 3 candidates, 0 auto-sends).
+  Board ad ranges dated 2026-09-17 — refresh from a fresh hunt log before each campaign.
+- Demo caps as shipped: 25 drafts + 5 sends per rolling 30 days, in the same wheel as paid.
+- Billing rails (Whop/Lightning/Mukuru) are PLACEHOLDER until the launch flip — sell the demo only.
 - One CTA per post: the demo link.
 - Read the house rules (Start tab) and the "never" list (Brand tab).
 - Demo persona only — never screenshot a real candidate.
