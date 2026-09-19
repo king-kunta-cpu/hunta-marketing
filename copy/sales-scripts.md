@@ -14,9 +14,9 @@ Voice rules (BRAND.md): plain, specific, the human is the hero, never "bot", nev
 | Tier | Price | What |
 |---|---|---|
 | **Demo** | R0 forever | 1 candidate, full pipeline, 5 sends/month, Discord card + PDFs |
-| **Solo** | R299/mo (~$17) | 3 candidates, 100 sends/mo |
-| **Studio** | R799/mo (~$45) | 15 candidates, white-label PDFs |
-| **Sovereign** | R2 499/mo (~$140) | agency self-hosted, unlimited seats, onboarding day |
+| **Solo** | $30/mo | 3 candidates, 100 sends/mo |
+| **Studio** | $85/mo | 15 candidates, white-label PDFs |
+| **Sovereign** | $240/mo | agency self-hosted, unlimited seats, onboarding day |
 
 Anchor line: *"The demo is free forever. You upgrade when your second candidate asks for it —
 that's the whole sales funnel."*
@@ -73,7 +73,7 @@ Then SMS: `Hunta demo (free, no card): <landing-url> — 1 candidate, free forev
 Set up the free demo now while we're on the phone — ten minutes, I stay on the
 line. You pick one candidate and one keyword. First card lands by the next hunt
 slot — four times a day. When you've tapped approve on a real send, then we talk
-about Solo at R299. Fair?"
+about Solo at $30 a month. Fair?"
 ```
 
 ---
@@ -90,7 +90,7 @@ about Solo at R299. Fair?"
 12-15  The tap. Approve one. Reject one. "Deleted. Untouched cards die at 72 hours."
 15-18  The three fears, unprompted: no auto-send, no invention, no spam (own mailbox,
        20/day cap).
-18-20  "Price is R299 for three candidates when you're ready. The demo is free forever
+18-20  "Price is $30 a month for three candidates when you're ready. The demo is free forever
        with one. I'll set it up now or send the link — your call."
 ```
 
@@ -172,7 +172,7 @@ Link in my bio / here: <landing-url>. AMA about the guard-rails.
 ### Solo career coach
 Pain: capacity. "You're the bottleneck — every extra candidate is an extra Sunday."
 Pitch: "The demo gives you one candidate on autopilot-with-a-brake. When card
-number four lands and you've only spent one tap on it, R299 for three candidates
+number four lands and you've only spent one tap on it, $30 for three candidates
 is the easiest yes of your month."
 
 ### CV-writing / job-search studio
@@ -216,7 +216,7 @@ thirty employers. That's generic."
 human-approved, capped at 20 a day. That's cleaner than most manual spraying — the cap
 is the feature."
 
-**"It's expensive."** → "The demo is R0 forever. Solo is R299 — one bundled CV-and-letter
+**"It's expensive."** → "The demo is R0 forever. Solo is $30/mo — one bundled CV-and-letter
 sale at your prices. If Hunta doesn't produce one bundle a month, cancel in the app,
 no email needed."
 
@@ -280,13 +280,13 @@ reject button teach you? (That's the real product, by the way.)"
 ```
 Week one: {{cards}} cards, {{sends}} sends. Question — how many candidates are
 sitting on your bench right now without a pipeline? Solo puts two more on this
-exact machine for R299. One tap: <whop-link>
+exact machine for $30 a month. One tap: <whop-link>
 ```
 
 ### Upsell Solo→Studio
 
 ```
-You've maxed three candidates twice this month. Studio is R799, fifteen seats,
+You've maxed three candidates twice this month. Studio is $85, fifteen seats,
 and your PDFs get YOUR brand on them. Your bench called.
 ```
 

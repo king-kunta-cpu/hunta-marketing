@@ -6,7 +6,7 @@ Everything to market Hunta, plus the public door for the **free-for-everyone dem
 
 | Page | What |
 |---|---|
-| **`index.html`** | The bible — 16 tabs: product truth, market/ICP, decided pricing (R0/R299/R799/R2 499), social, outreach, sales scripts, lifecycle, demo & video, FAQ, growth plan, brand, samples, landing/leads, legal, checklist. Every block has a Copy button. Images are embedded (data URIs) so the file works from Pages, a USB stick or a WhatsApp download. |
+| **`index.html`** | The bible — 16 tabs: product truth, market/ICP, decided pricing (R0 · $30/$85/$240), social, outreach, sales scripts, lifecycle, demo & video, FAQ, growth plan, brand, samples, landing/leads, legal, checklist. Every block has a Copy button. Images are embedded (data URIs) so the file works from Pages, a USB stick or a WhatsApp download. |
 | **`demo.html`** | Public landing: hero → how it works → lead form → kit downloads instantly → lead card pings Discord ("Hunta Leads") → human replies <24 h. |
 
 Serve it: GitHub → Settings → Pages → `main` → `/ (root)` →
@@ -29,7 +29,7 @@ BRAND.md        palette, type, logo rules, voice
 ## The offer, everywhere
 
 Free demo for everyone, forever — 1 candidate, 5 sends/month, no card.
-All CTAs point at `demo.html`. Paid: Solo R299 · Studio R799 · Sovereign R2 499
+All CTAs point at `demo.html`. Paid (USD/mo, confirmed by owner 2026-09-19): Solo $30 · Studio $85 · Sovereign $240
 (rationale in copy/pricing.md). Annual = 2 months free; affiliates 30%/12 mo.
 
 ## Before any campaign
