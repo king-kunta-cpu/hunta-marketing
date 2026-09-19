@@ -70,7 +70,7 @@
 <header>
   <div class="bar">
     <svg viewBox="0 0 400 116" xmlns="http://www.w3.org/2000/svg" aria-label="Hunta"><g fill="none" stroke="#7B5EA7" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="40" r="27"/><path d="M59 59 L72 72"/><path d="M72 72 L108 48 L88 106 L78 84 Z"/><path d="M78 84 L108 48"/></g><text x="132" y="80" font-family="Poppins, Montserrat, 'Segoe UI', Arial, sans-serif" font-weight="600" font-size="68" letter-spacing="-1.5" fill="#2B2B2B">Hunta</text></svg>
-    <span class="tag">the marketing bible · v2.1 · 2026-09-19 — audit-hardened build, demo pack shipped</span>
+    <span class="tag">the marketing bible · v2.2 · 2026-09-19 — demo pack + setup guide shipped, operating routine live</span>
     <a class="demo" href="demo.html">FREE DEMO →</a>
   </div>
   <nav id="nav">
@@ -85,6 +85,7 @@
     <button data-s="demo">Demo & video</button>
     <button data-s="faq">FAQ</button>
     <button data-s="growth">Growth plan</button>
+    <button data-s="operate">Operating routine</button>
     <button data-s="brand">Brand</button>
     <button data-s="samples">Samples</button>
     <button data-s="landing">Landing & leads</button>
@@ -881,6 +882,84 @@ Sat  Rest. The pipeline posts its own proof four times a day anyway.</pre></div>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>Demo cost ≈ 1 hunt-min/day (Actions) + cents of LLM on the CUSTOMER's key ≈ ~R2/mo.
 Solo R299 at even 5% demo→paid conversion = R15 per demo acquired. CAC ≈ one coffee.
 Churn killer: the pipeline accumulates seen-jobs history; leaving means starting blind.</pre></div>
+</section>
+
+<!-- ============ OPERATING ROUTINE ============ -->
+<section id="operate">
+  <h1>Operating routine</h1>
+  <p class="lede">One operator runs this alongside a client load of ten to twenty. Day one gets it
+  going; the daily loop keeps it going. Every step cites its script — the tabs are the armory,
+  this tab is the drill.</p>
+
+  <h2>Day one — start here</h2>
+  <ol>
+    <li><b>List 10 warm names</b> — coaches, a CV studio, anyone you've helped with CVs.
+      That's today's target, not a cold spreadsheet.</li>
+    <li><b>§5 LinkedIn/WhatsApp DMs to all ten</b> (Sales scripts tab — the 5-touch §3
+      sequence is already scheduled by the cadence table, §10).</li>
+    <li><b>§1.2 opener for whoever replies</b> — thirty seconds, then close them onto setup
+      <b>on the call</b> (§1.5). You stay on the line while they run the guide. First card lands
+      by the next hunt slot (06:00/10:00/14:00/18:00 SAST) — which is why “before 14:00”
+      is your deadline line (§8).</li>
+    <li><b>When someone says “I want this for everyone I have”</b> →
+      <a href="setup.html#buy">guide §12</a>: confirm tier, take payment manually (never
+      provision before money lands), copy a tenant YAML, flip their build off demo, ask for the
+      day-3 screenshot.</li>
+    <li>Keep a tally of conversations → installs → first-card-taps. That's the only
+      dashboard you need at 10 conversations deep — template below.</li>
+  </ol>
+
+  <h2>The daily loop (SAST clock)</h2>
+  <table>
+    <tr><th>When</th><th>Do</th><th>Why / source</th></tr>
+    <tr><td><b>06:00</b></td><td>Nothing — the pipeline hunts on its own.</td>
+        <td>cron 04/08/12/16 UTC; a dead board never kills a run</td></tr>
+    <tr><td><b>08:30</b></td><td>Ninety-second card scan: approve, reject, answer any reply on the
+        candidate's thread. Clear the queue before your first client session.</td>
+        <td>the tap <i>is</i> the product; ignore = 72 h auto-purge</td></tr>
+    <tr><td><b>10:00–11:00</b></td><td>Outreach block: five new conversations. Scripts §1
+        (phone) / §5 (DM) / §6 (per persona). Log every one in the tally.</td>
+        <td>five focused > fifty sprayed</td></tr>
+    <tr><td><b>13:45</b></td><td>Same-day installs: get today's yes onto the setup call before the
+        14:00 slot so the first card lands while the excitement is fresh. Then follow-ups due per
+        the cadence table (§10): day 0+1h, 2, 5, 9; demo+3, +7.</td>
+        <td>deadline close, §8 — honest, not fake scarcity</td></tr>
+    <tr><td><b>18:10</b></td><td>Run health: the evening log in sixty seconds — per-board job
+        counts, any <code>429</code>, the breaker line, persist commit on the state branch.</td>
+        <td>anomalies are rare and cheap to read; setup guide §11 is the decoder</td></tr>
+    <tr><td><b>before bed</b></td><td>Update the tally; queue tomorrow's ten names. The pipeline
+        must never run dry on either end.</td>
+        <td>list decay is the real churn risk, not objection handling</td></tr>
+  </table>
+
+  <h2>Weekly and triggered</h2>
+  <ul>
+    <li><b>Monday:</b> refresh every number you quote from the latest hunt logs — applications
+      drafted/sent, boards delivering. A stale number is a small lie with a big trust cost.</li>
+    <li><b>Wednesday:</b> read the week's rejects — the pattern goes into candidate keywords;
+      the matcher learns your clients' taste through the ❌ button.</li>
+    <li><b>demo+30 prospects:</b> renewal courtesy line (cadence §10) — a check-in, not a pitch.</li>
+    <li><b>Any “yes, for everyone I have”:</b> setup.html §12, in order, every time —
+      money lands first, always.</li>
+  </ul>
+
+  <h2>The tally (the only dashboard)</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>date | who | channel | stage | next touch | notes
+2026-09-19 | Rudo M. (coach, Harare) | WhatsApp | installed, awaiting 1st card | demo+3 question | picked sunset CV
+stages: listed → DM'd → talked → installed → first card → tapping → asked to pay → paid
+one line per person, updated in the before-bed slot; the funnel's health is the
+distance people stall at — stalls at “installed, no card” means a setup problem,
+stalls at “talked, no install” means a pitch problem. Fix the stage, not the people.</pre></div>
+
+  <h2>Standing rules</h2>
+  <ul>
+    <li>Quote no number older than three days; numbers come from hunt logs, never from memory.</li>
+    <li>Never provision before money lands — the manual rails are fully honoured until checkout
+      goes live; <i>demo-first</i> is the promise, so nothing is ever rushed at a prospect.</li>
+    <li>Any reply resets the cadence to a conversation — scripts are openers, not cages.</li>
+    <li>Never say “guaranteed” of anything an employer decides. Guard-rails tab has the
+      sentence to use instead.</li>
+  </ul>
 </section>
 
 <!-- ============ BRAND ============ -->
