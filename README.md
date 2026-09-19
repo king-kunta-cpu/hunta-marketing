@@ -34,6 +34,9 @@ All CTAs point at `demo.html`. Paid: Solo R299 · Studio R799 · Sovereign R2 49
 
 ## Before any campaign
 
+- Live: downloads/hunta-demo-1.0.0.zip (+.sha256) · setup.html (screenshot guide + §12
+  conversion playbook) · samples/cv-{classic,indigo,emerald,sunset}.pdf — CV designs are a
+  per-candidate field, four looks.
 - Numbers: state-store-verified 2026-09-19 (runs 09-16→18: 72 drafted, 3 candidates, 0 auto-sends).
   Board ad ranges dated 2026-09-17 — refresh from a fresh hunt log before each campaign.
 - Demo caps as shipped: 25 drafts + 5 sends per rolling 30 days, in the same wheel as paid.

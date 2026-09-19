@@ -1,9 +1,9 @@
 # Your pipeline in ~10 minutes
 
-> Prefer the bits themselves? Ask for **hunta-demo-1.0.0.zip** — one wheel, the identical
-> build the paid tiers run (caps in code: 25 drafts + 5 sends per rolling 30 days until you
-> licence). `unzip`, `pip install hunta-1.0.0-py3-none-any.whl`, `hunta doctor`. The pack +
-> its sha256 land in downloads/ at launch.
+> Want the bits themselves? **downloads/hunta-demo-1.0.0.zip** (sha256 beside it) — one wheel,
+> the identical build the paid tiers run (caps in code: 25 drafts + 5 sends per rolling 30
+> days until you licence). `unzip`, `pip install hunta-1.0.0-py3-none-any.whl`, `hunta doctor`.
+> Full walkthrough with every command: **setup.html** (CV designs in §8).
 
 1. **Discord (2 min)** — in your server: create #hunta → Edit Channel →
    Integrations → Webhooks → New Webhook. Copy the URL.
