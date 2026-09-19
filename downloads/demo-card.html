@@ -6,10 +6,12 @@
 <title>Hunta — interactive demo card</title>
 <style>
   body{margin:0;background:#313338;font-family:'Segoe UI',system-ui,Arial,sans-serif;color:#DBDEE1;
-       display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
-  .wrap{max-width:680px;width:100%}
+       display:flex;align-items:flex-start;justify-content:center;min-height:100vh;padding:24px}
+  .wrap{max-width:1080px;width:100%}
   .chan{color:#949BA4;font-size:14px;font-weight:700;border-bottom:1px solid #3F4147;padding-bottom:10px;margin-bottom:18px}
   .chan b{color:#F2F3F5}
+  .cols{display:grid;grid-template-columns:minmax(0,1fr) 355px;gap:24px;align-items:start}
+  @media (max-width:820px){ .cols{grid-template-columns:1fr} }
   .msg{display:flex;gap:14px}
   .ava{width:44px;height:44px;border-radius:50%;background:#7B5EA7;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
   .bot{background:#5865F2;color:#fff;font-size:10px;font-weight:700;border-radius:4px;padding:2px 5px;vertical-align:2px;margin-left:6px}
@@ -18,14 +20,14 @@
   .content{line-height:1.65;font-size:15px}
   .content .t{font-weight:700}
   .match{color:#B5BAC1}
-  .link{color:#7B5EA7;text-decoration:none}
+  .link{color:#7B5EA7;text-decoration:none;word-break:break-all}
   .meta{color:#949BA4;font-size:13px}
   .btns{margin:12px 0}
   .btn{display:inline-block;border-radius:6px;padding:8px 16px;font-weight:700;font-size:14px;cursor:pointer;margin-right:10px;border:1px solid transparent;background:#2B2D31}
   .ok{color:#23A559;border-color:#23A559}
   .no{color:#F23F43;border-color:#F23F43}
   .nx{color:#949BA4;font-size:12.5px;cursor:pointer;text-decoration:underline}
-  .nx:hover,.again:hover{color:#DBDEE1}
+  .nx:hover{color:#DBDEE1}
   .dots{float:right;margin-top:11px;font-size:9px;letter-spacing:5px;color:#4A4C52;cursor:default}
   .dots .on{color:#7B5EA7}
   a.file{display:flex;gap:12px;align-items:center;background:#2B2D31;border:1px solid #1E1F22;border-radius:8px;
@@ -38,71 +40,116 @@
   #status{margin-top:16px;padding:12px 16px;border-radius:8px;font-size:14px;display:none}
   #status.sent{display:block;background:rgba(35,165,89,.12);border:1px solid #23A559;color:#23A559}
   #status.rej{display:block;background:rgba(242,63,67,.12);border:1px solid #F23F43;color:#F23F43}
-  .offer{margin-top:26px;background:#2B2D31;border:1px solid #1E1F22;border-radius:12px;padding:16px 18px}
+
+  .side{position:sticky;top:18px}
+  @media (max-width:820px){ .side{position:static} }
+  .offer{background:#2B2D31;border:1px solid #1E1F22;border-radius:12px;padding:16px 18px;margin-bottom:16px}
   .offer h2{margin:0 0 4px;font-size:16px;color:#F2F3F5}
   .offer p{margin:0 0 12px;color:#B5BAC1;font-size:13.5px;line-height:1.55}
-  .obtns a{display:inline-block;border-radius:6px;padding:9px 15px;font-weight:700;font-size:13.5px;
-           text-decoration:none;margin:0 8px 8px 0;background:#5865F2;color:#fff}
+  .obtns a{display:block;border-radius:6px;padding:9px 13px;font-weight:700;font-size:13.5px;
+           text-decoration:none;margin:0 0 8px;background:#5865F2;color:#fff;text-align:center}
   .obtns a.ghost{background:transparent;border:1px solid #5865F2;color:#DBDEE1}
   .obtns a.green{background:#23A559;color:#04110A}
-  .offer .fine{margin:2px 0 0;font-size:12px;color:#949BA4}
-  .offer .fine a{color:#7B5EA7}
-  .foot{margin-top:22px;color:#949BA4;font-size:12.5px;line-height:1.6}
+  .rails h3{margin:0 0 8px;font-size:14px;color:#F2F3F5}
+  .rail{background:#2B2D31;border:1px solid #1E1F22;border-radius:12px;padding:13px 15px;margin-bottom:10px}
+  .rail b{color:#F2F3F5;font-size:13.5px}
+  .rail .amt{float:right;color:#23A559;font-weight:800;font-size:13.5px}
+  .rail p{margin:6px 0 8px;color:#B5BAC1;font-size:12.5px;line-height:1.5}
+  .rail .num{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;color:#fff;background:#1E1F22;
+             border-radius:6px;padding:6px 10px;display:inline-block;margin:2px 0 8px;letter-spacing:.5px}
+  .rail a.rl{display:inline-block;font-size:12.5px;font-weight:700;color:#fff;background:#5865F2;border-radius:6px;
+             padding:6px 11px;text-decoration:none;margin:0 6px 4px 0}
+  .rail a.wa{background:#23A559;color:#04110A}
+  .rail a.ml{background:transparent;border:1px solid #5865F2;color:#DBDEE1}
+  .fine{font-size:12px;color:#949BA4;line-height:1.55;margin-top:10px}
+  .fine a{color:#7B5EA7}
+  .foot{margin-top:22px;color:#949BA4;font-size:12.5px;line-height:1.6;border-top:1px solid #3F4147;padding-top:14px}
   .foot a{color:#7B5EA7}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="chan"># <b>hunta</b> — interactive demo · this card is live: taps work, PDFs download, jobs rotate</div>
-  <div class="msg">
-    <div class="ava"><svg width="26" height="26" viewBox="0 0 116 116"><g fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="40" r="27"/><path d="M59 59 L72 72"/><path d="M72 72 L108 48 L88 106 L78 84 Z"/><path d="M78 84 L108 48"/></g></svg></div>
-    <div style="min-width:0;flex:1">
-      <span class="name">Hunta</span><span class="bot">BOT</span><span class="time" id="slot">Today at 06:00</span>
-      <div class="dots" id="dots"></div>
-      <div class="content">
-        🔎 <span class="t">Hunta — new application ready</span><br>
-        <span class="t" id="jline"></span><br>
-        <span class="match" id="mline"></span><br>
-        <a class="link" href="#" onclick="return false" id="jurl"></a><br>
-        <span class="meta" id="rline"></span>
-        <div class="btns">
-          <span class="btn ok" id="approve">✅ Approve &amp; send</span>
-          <span class="btn no" id="reject">❌ Reject</span>
-          <span class="nx" id="next">↻ next job</span>
+  <div class="cols">
+
+    <div><!-- LEFT: the card, as it lands in your Discord -->
+      <div class="msg">
+        <div class="ava"><svg width="26" height="26" viewBox="0 0 116 116"><g fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="40" r="27"/><path d="M59 59 L72 72"/><path d="M72 72 L108 48 L88 106 L78 84 Z"/><path d="M78 84 L108 48"/></g></svg></div>
+        <div style="min-width:0;flex:1">
+          <span class="name">Hunta</span><span class="bot">BOT</span><span class="time">Today at 06:00</span>
+          <div class="dots" id="dots"></div>
+          <div class="content">
+            🔎 <span class="t">Hunta — new application ready</span><br>
+            <span class="t" id="jline"></span><br>
+            <span class="match" id="mline"></span><br>
+            <a class="link" href="#" onclick="return false" id="jurl"></a><br>
+            <span class="meta" id="rline"></span>
+            <div class="btns">
+              <span class="btn ok" id="approve">✅ Approve &amp; send</span>
+              <span class="btn no" id="reject">❌ Reject</span>
+              <span class="nx" id="next">↻ next job</span>
+            </div>
+            <a class="file" id="cvlink" download><div class="ic">PDF</div><div><div class="fn" id="cvname"></div><div class="fs" id="cvsub"></div></div><div class="dl">⬇</div></a>
+            <a class="file" id="ltrlink" download><div class="ic">PDF</div><div><div class="fn" id="ltrname"></div><div class="fs">tailored cover letter · business-plain, never styled</div></div><div class="dl">⬇</div></a>
+            <div id="status" aria-live="polite"></div>
+          </div>
         </div>
-        <a class="file" id="cvlink" download><div class="ic">PDF</div><div><div class="fn" id="cvname"></div><div class="fs" id="cvsub"></div></div><div class="dl">⬇</div></a>
-        <a class="file" id="ltrlink" download><div class="ic">PDF</div><div><div class="fn" id="ltrname"></div><div class="fs">tailored cover letter · business-plain, never styled</div></div><div class="dl">⬇</div></a>
-        <div id="status" aria-live="polite"></div>
       </div>
+      <div class="foot">This is exactly what lands in a real coach's Discord. In production, ✅ sends the
+      application from the candidate's own Gmail and ❌ deletes both PDFs on the spot — untouched drafts
+      self-destruct after 72 hours. Nothing ever sends without the tap. The job lines here are
+      illustrative demo ads; the downloadable PDFs are genuine Hunta render output.
+      <a href="../demo.html" target="_top">hunta-marketing/demo.html</a> · <span id="ctr"></span></div>
     </div>
-  </div>
 
-  <div class="offer">
-    <h2>Get the pipeline behind this card</h2>
-    <p>One candidate, the full pipeline, free forever — no card, no sign-up. This exact card
-    lands in your Discord four times a day; the demo is the product, with a counted leash
-    (25 drafts + 5 sends per rolling 30 days, enforced in code).</p>
-    <div class="obtns">
-      <a class="green" href="../demo.html" target="_top">⬇ Free demo — download page</a>
-      <a href="hunta-demo-1.0.0.zip" target="_top">⬇ The installable pack (.zip + sha256)</a>
-      <a href="https://gethunta.app/#pricing" target="_blank" rel="noopener">💳 Buy — Solo R299 · Studio R799 · Sovereign R2,499</a>
-      <a class="ghost" href="mailto:bill@hunta.app?subject=Hunta%20paid%20plan%20%E2%80%94%20invoice%20me">Invoice / pay direct</a>
-      <a class="ghost" href="../setup.html" target="_top">📖 Setup guide (10 min)</a>
-    </div>
-    <p class="fine">Checkout links on the site are finishing their store setup until launch — until then
-    payment is manual (EFT / Mukuru / Lightning to <a href="mailto:bill@hunta.app">bill@hunta.app</a>) and
-    honoured in full. Try a CV design before you pay for one:
-    <a href="../samples/cv-classic.pdf" target="_blank">classic</a> ·
-    <a href="../samples/cv-indigo.pdf" target="_blank">indigo</a> ·
-    <a href="../samples/cv-emerald.pdf" target="_blank">emerald</a> ·
-    <a href="../samples/cv-sunset.pdf" target="_blank">sunset</a> — real rendered output, ATS-parseable.</p>
-  </div>
+    <aside class="side"><!-- RIGHT: the offer, on the same plane -->
+      <div class="offer">
+        <h2>Get the pipeline behind this card</h2>
+        <p>One candidate, the full pipeline, free forever — no card, no sign-up. Cards land in your
+        Discord four times a day; the demo is the product with a counted leash (25 drafts + 5 sends
+        per rolling 30 days, enforced in code).</p>
+        <div class="obtns">
+          <a class="green" href="../demo.html" target="_top">⬇ Free demo — download page</a>
+          <a href="hunta-demo-1.0.0.zip" target="_top">⬇ Installable pack (.zip + sha256)</a>
+          <a class="ghost" href="../setup.html" target="_top">📖 Setup guide (10 min)</a>
+        </div>
+        <p class="fine">Try a design before you pay for one:
+        <a href="../samples/cv-classic.pdf" target="_blank">classic</a> ·
+        <a href="../samples/cv-indigo.pdf" target="_blank">indigo</a> ·
+        <a href="../samples/cv-emerald.pdf" target="_blank">emerald</a> ·
+        <a href="../samples/cv-sunset.pdf" target="_blank">sunset</a> — real rendered output, ATS-parseable.</p>
+      </div>
 
-  <div class="foot">This is exactly what lands in a real coach's Discord. In production, ✅ sends the
-  application from the candidate's own Gmail and ❌ deletes both PDFs on the spot — untouched drafts
-  self-destruct after 72 hours. Nothing ever sends without the tap. The job links here are
-  illustrative demo ads; the downloadable PDFs are genuine Hunta render output.<br>
-  <a href="../demo.html" target="_top">hunta-marketing/demo.html</a> · <span id="ctr"></span></div>
+      <div class="rails">
+        <h3>💳 Paid plans — pay here, activated same day</h3>
+        <div class="rail">
+          <b>Mukuru / mobile money <span class="amt">R299 · R799 · R2 499</span></b>
+          <p>Send the tier amount (or USD/ZAR equivalent — Solo R299/mo ≈ $17, Studio R799 ≈ $45,
+          Sovereign R2,499 ≈ $140). Reference: your name + tier. Send the slip screenshot below and
+          your tenant is provisioned within hours, not days.</p>
+          <span class="num">+263 78 460 0904</span><br>
+          <a class="rl wa" href="https://wa.me/263784600904?text=Hunta%20payment%20%E2%80%94%20tier%3A%20(Solo%2FStudio%2FSovereign)%2C%20sent%20via%20Mukuru%2C%20proof%20attached" target="_blank" rel="noopener">📲 Send proof on WhatsApp</a>
+          <a class="rl ml" href="tel:+263784600904">☎️ Call the number</a>
+        </div>
+        <div class="rail">
+          <b>⚡ Lightning</b>
+          <p>Any wallet: ask for an invoice for your tier amount — you'll get a Bolt11 invoice in
+          minutes; paid = provisioned. (A fixed address rail replaces this once the wallet's public
+          handle is finalised.)</p>
+          <a class="rl wa" href="https://wa.me/263784600904?text=Hunta%20%E2%80%94%20Lightning%20invoice%20please%20(tier%3A%20)" target="_blank" rel="noopener">⚡ Request invoice</a>
+          <a class="rl ml" href="mailto:bill@hunta.app?subject=Hunta%20%E2%80%94%20Lightning%20invoice">by email</a>
+        </div>
+        <div class="rail">
+          <b>💳 Card (Whop) &amp; anything else</b>
+          <p>Whop card checkout is being wired up — manual payment is honoured in full meanwhile, and
+          EFT/bank details are on request. Questions, invoicing, other rails: one ping.</p>
+          <a class="rl wa" href="https://wa.me/263784600904?text=Hi%20%E2%80%94%20Hunta%20pricing%2Fpayment%20question" target="_blank" rel="noopener">WhatsApp +263 78 460 0904</a>
+          <a class="rl ml" href="mailto:bill@hunta.app?subject=Hunta%20paid%20plan">✉️ bill@hunta.app</a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
 </div>
 <script>
   var JOBS = [

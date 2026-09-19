@@ -48,6 +48,28 @@
   footer{color:var(--muted);font-size:12.5px;text-align:center;padding:26px 20px;border-top:1px solid var(--line)}
   footer a{color:var(--purple)}
   .rowlink{display:inline-block;margin-top:8px;color:var(--purple);font-weight:700}
+
+  .cols{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:26px;align-items:start}
+  @media (max-width:940px){ .cols{grid-template-columns:1fr} .buy{position:static !important} }
+  .buy{position:sticky;top:16px;background:#fff;border:1px solid var(--line);border-radius:16px;
+       padding:18px 18px 16px;box-shadow:0 4px 18px rgba(43,43,43,.05)}
+  .buy h3{font-size:15.5px;margin:0 0 3px;color:var(--charcoal)}
+  .buy .h3sub{color:var(--muted);font-size:12.5px;margin:0 0 12px}
+  .buy a.pbtn{display:block;border-radius:9px;padding:10px 13px;font-weight:700;font-size:13.5px;
+       text-decoration:none;margin-bottom:8px;background:var(--purple);color:#fff;text-align:center}
+  .buy a.pbtn.green{background:var(--green)}
+  .buy a.pbtn.ghost{background:#fff;border:1.5px solid var(--purple);color:var(--purple)}
+  .buy .rail{border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin:10px 0;background:#FBFAFD}
+  .buy .rail b{font-size:13.5px}
+  .buy .rail .amt{float:right;color:var(--green);font-weight:800;font-size:13px}
+  .buy .rail p{color:var(--muted);font-size:12px;line-height:1.5;margin:5px 0 7px}
+  .buy .num{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;background:var(--lilac);
+       color:var(--charcoal);border-radius:6px;padding:4px 9px;display:inline-block;margin:1px 0 7px;letter-spacing:.4px}
+  .buy .rl{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:5px 10px;
+       text-decoration:none;margin:0 6px 4px 0;background:var(--green);color:#fff}
+  .buy .rl.alt{background:#fff;border:1px solid var(--purple);color:var(--purple)}
+  .buy .fine{font-size:11.5px;color:var(--muted);line-height:1.5;margin:10px 0 0}
+  .buy .fine a{color:var(--purple)}
 </style>
 </head>
 <body>
@@ -66,6 +88,7 @@
 </div>
 
 <main>
+<div class="cols"><div class="colA">
   <div class="steps">
     <div class="step"><div class="n">1</div><b>It hunts</b><p>06:00 · 10:00 · 14:00 · 18:00 SAST, Mon–Sat.
       18 boards across ZA · ZW · ZM + remote. Rules + pre-score throw out ~85% of ads for free.</p></div>
@@ -131,6 +154,41 @@
     <div class="p"><div class="amt">R2 499</div><div class="usd">~$140 / month · Sovereign</div>
       <ul><li>self-hosted, unlimited</li><li>onboarding day</li><li>data never leaves</li></ul></div>
   </div>
+
+</div>
+<aside class="buy">
+  <h3>Take it — the whole thing is above</h3>
+  <p class="h3sub">Download first, decide after the first card lands. Nothing here needs a card.</p>
+  <a class="pbtn green" href="downloads/hunta-demo-kit.zip">⬇ Free demo kit (card + samples)</a>
+  <a class="pbtn" href="downloads/hunta-demo-1.0.0.zip">⬇ Full installable pack (.zip + sha256)</a>
+  <a class="pbtn ghost" href="setup.html">📖 10-minute setup guide</a>
+
+  <div class="rail">
+    <b>Mukuru / mobile money <span class="amt">R299 · R799 · R2 499</span></b>
+    <p>Tier amount (or USD/ZAR equivalent — Solo ≈ $17, Studio ≈ $45, Sovereign ≈ $140/mo),
+    reference = your name + tier. Slip screenshot below → tenant provisioned within hours.</p>
+    <span class="num">+263 78 460 0904</span><br>
+    <a class="rl" href="https://wa.me/263784600904?text=Hunta%20payment%20%E2%80%94%20tier%3A%20(Solo%2FStudio%2FSovereign)%2C%20sent%20via%20Mukuru%2C%20proof%20attached">📲 Send proof on WhatsApp</a>
+    <a class="rl alt" href="tel:+263784600904">☎️ Call</a>
+  </div>
+  <div class="rail">
+    <b>⚡ Lightning</b>
+    <p>Any wallet — ask for a same-day invoice for your tier; paid = provisioned. Fixed address
+    rail follows once the wallet handle is finalised.</p>
+    <a class="rl" href="https://wa.me/263784600904?text=Hunta%20%E2%80%94%20Lightning%20invoice%20please%20(tier%3A%20)">⚡ Request invoice</a>
+    <a class="rl alt" href="mailto:bill@hunta.app?subject=Hunta%20%E2%80%94%20Lightning%20invoice">by email</a>
+  </div>
+  <div class="rail">
+    <b>💳 Card (Whop) &amp; other methods</b>
+    <p>Whop checkout is being wired up; manual payment is honoured in full meanwhile — EFT and bank
+    details on request. One ping handles everything.</p>
+    <a class="rl" href="https://wa.me/263784600904?text=Hi%20%E2%80%94%20Hunta%20pricing%2Fpayment%20question">WhatsApp +263 78 460 0904</a>
+    <a class="rl alt" href="mailto:bill@hunta.app?subject=Hunta%20paid%20plan">✉️ bill@hunta.app</a>
+  </div>
+  <p class="fine">Manual rails are the checkout until launch — <a href="setup.html">guide §12</a> is the
+  seller-side version of exactly this list. Prices are per month, cancel anytime, demo stays free forever.</p>
+</aside>
+</div>
 
   <footer>Hunta by <a href="https://github.com/king-kunta-cpu/hunta">Jacaranda Labs</a> ·
   palette #7B5EA7 · <a href="index.html">full marketing hub →</a></footer>
