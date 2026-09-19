@@ -24,61 +24,157 @@
   .btn{display:inline-block;border-radius:6px;padding:8px 16px;font-weight:700;font-size:14px;cursor:pointer;margin-right:10px;border:1px solid transparent;background:#2B2D31}
   .ok{color:#23A559;border-color:#23A559}
   .no{color:#F23F43;border-color:#F23F43}
-  .file{display:flex;gap:12px;align-items:center;background:#2B2D31;border:1px solid #1E1F22;border-radius:8px;padding:10px 14px;margin:8px 0;max-width:420px}
+  .nx{color:#949BA4;font-size:12.5px;cursor:pointer;text-decoration:underline}
+  .nx:hover,.again:hover{color:#DBDEE1}
+  .dots{float:right;margin-top:11px;font-size:9px;letter-spacing:5px;color:#4A4C52;cursor:default}
+  .dots .on{color:#7B5EA7}
+  a.file{display:flex;gap:12px;align-items:center;background:#2B2D31;border:1px solid #1E1F22;border-radius:8px;
+         padding:10px 14px;margin:8px 0;max-width:420px;text-decoration:none;transition:border-color .15s}
+  a.file:hover{border-color:#7B5EA7}
   .file .ic{width:36px;height:44px;background:#7B5EA7;border-radius:4px;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .file .dl{margin-left:auto;color:#949BA4;font-size:12px}
   .file .fn{color:#7B5EA7;font-weight:600;font-size:14px}
   .file .fs{color:#949BA4;font-size:12px}
   #status{margin-top:16px;padding:12px 16px;border-radius:8px;font-size:14px;display:none}
   #status.sent{display:block;background:rgba(35,165,89,.12);border:1px solid #23A559;color:#23A559}
   #status.rej{display:block;background:rgba(242,63,67,.12);border:1px solid #F23F43;color:#F23F43}
+  .offer{margin-top:26px;background:#2B2D31;border:1px solid #1E1F22;border-radius:12px;padding:16px 18px}
+  .offer h2{margin:0 0 4px;font-size:16px;color:#F2F3F5}
+  .offer p{margin:0 0 12px;color:#B5BAC1;font-size:13.5px;line-height:1.55}
+  .obtns a{display:inline-block;border-radius:6px;padding:9px 15px;font-weight:700;font-size:13.5px;
+           text-decoration:none;margin:0 8px 8px 0;background:#5865F2;color:#fff}
+  .obtns a.ghost{background:transparent;border:1px solid #5865F2;color:#DBDEE1}
+  .obtns a.green{background:#23A559;color:#04110A}
+  .offer .fine{margin:2px 0 0;font-size:12px;color:#949BA4}
+  .offer .fine a{color:#7B5EA7}
   .foot{margin-top:22px;color:#949BA4;font-size:12.5px;line-height:1.6}
   .foot a{color:#7B5EA7}
-  .again{margin-top:10px;color:#949BA4;font-size:12.5px;cursor:pointer;text-decoration:underline;display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="chan"># <b>hunta</b> — interactive demo · this card is live, tap the buttons</div>
+  <div class="chan"># <b>hunta</b> — interactive demo · this card is live: taps work, PDFs download, jobs rotate</div>
   <div class="msg">
     <div class="ava"><svg width="26" height="26" viewBox="0 0 116 116"><g fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="40" r="27"/><path d="M59 59 L72 72"/><path d="M72 72 L108 48 L88 106 L78 84 Z"/><path d="M78 84 L108 48"/></g></svg></div>
-    <div>
-      <span class="name">Hunta</span><span class="bot">BOT</span><span class="time">Today at 06:00</span>
+    <div style="min-width:0;flex:1">
+      <span class="name">Hunta</span><span class="bot">BOT</span><span class="time" id="slot">Today at 06:00</span>
+      <div class="dots" id="dots"></div>
       <div class="content">
         🔎 <span class="t">Hunta — new application ready</span><br>
-        <span class="t">Bookkeeper @ Elite Search &amp; Selection</span><br>
-        <span class="match">Match 90% — SAIPA-registered, Sage Pastel and full-cycle bookkeeping match the core requirements.</span><br>
-        <a class="link" href="#" onclick="return false">https://www.careerjunction.co.za/jobs/bookkeeper-johannesburg</a><br>
-        <span class="meta">Candidate thabo01 · ref 04aa74fbbd</span>
+        <span class="t" id="jline"></span><br>
+        <span class="match" id="mline"></span><br>
+        <a class="link" href="#" onclick="return false" id="jurl"></a><br>
+        <span class="meta" id="rline"></span>
         <div class="btns">
           <span class="btn ok" id="approve">✅ Approve &amp; send</span>
           <span class="btn no" id="reject">❌ Reject</span>
+          <span class="nx" id="next">↻ next job</span>
         </div>
-        <div class="file"><div class="ic">PDF</div><div><div class="fn">04aa74fbbd_cv.pdf</div><div class="fs">13 KB · country-formatted ZA CV</div></div></div>
-        <div class="file"><div class="ic">PDF</div><div><div class="fn">04aa74fbbd_letter.pdf</div><div class="fs">10 KB · tailored cover letter</div></div></div>
-        <div id="status"></div>
-        <div class="again" id="again">↺ run the demo again</div>
+        <a class="file" id="cvlink" download><div class="ic">PDF</div><div><div class="fn" id="cvname"></div><div class="fs" id="cvsub"></div></div><div class="dl">⬇</div></a>
+        <a class="file" id="ltrlink" download><div class="ic">PDF</div><div><div class="fn" id="ltrname"></div><div class="fs">tailored cover letter · business-plain, never styled</div></div><div class="dl">⬇</div></a>
+        <div id="status" aria-live="polite"></div>
       </div>
     </div>
   </div>
+
+  <div class="offer">
+    <h2>Get the pipeline behind this card</h2>
+    <p>One candidate, the full pipeline, free forever — no card, no sign-up. This exact card
+    lands in your Discord four times a day; the demo is the product, with a counted leash
+    (25 drafts + 5 sends per rolling 30 days, enforced in code).</p>
+    <div class="obtns">
+      <a class="green" href="../demo.html" target="_top">⬇ Free demo — download page</a>
+      <a href="hunta-demo-1.0.0.zip" target="_top">⬇ The installable pack (.zip + sha256)</a>
+      <a href="https://gethunta.app/#pricing" target="_blank" rel="noopener">💳 Buy — Solo R299 · Studio R799 · Sovereign R2,499</a>
+      <a class="ghost" href="mailto:bill@hunta.app?subject=Hunta%20paid%20plan%20%E2%80%94%20invoice%20me">Invoice / pay direct</a>
+      <a class="ghost" href="../setup.html" target="_top">📖 Setup guide (10 min)</a>
+    </div>
+    <p class="fine">Checkout links on the site are finishing their store setup until launch — until then
+    payment is manual (EFT / Mukuru / Lightning to <a href="mailto:bill@hunta.app">bill@hunta.app</a>) and
+    honoured in full. Try a CV design before you pay for one:
+    <a href="../samples/cv-classic.pdf" target="_blank">classic</a> ·
+    <a href="../samples/cv-indigo.pdf" target="_blank">indigo</a> ·
+    <a href="../samples/cv-emerald.pdf" target="_blank">emerald</a> ·
+    <a href="../samples/cv-sunset.pdf" target="_blank">sunset</a> — real rendered output, ATS-parseable.</p>
+  </div>
+
   <div class="foot">This is exactly what lands in a real coach's Discord. In production, ✅ sends the
   application from the candidate's own Gmail and ❌ deletes both PDFs on the spot — untouched drafts
-  self-destruct after 72 hours. Nothing ever sends without the tap.<br>
-  Get the free pipeline behind this card (one candidate, free forever, no card):
-  <a href="../demo.html">hunta-marketing/demo.html</a></div>
+  self-destruct after 72 hours. Nothing ever sends without the tap. The job links here are
+  illustrative demo ads; the downloadable PDFs are genuine Hunta render output.<br>
+  <a href="../demo.html" target="_top">hunta-marketing/demo.html</a> · <span id="ctr"></span></div>
 </div>
 <script>
-  var st=document.getElementById('status'),ag=document.getElementById('again');
-  document.getElementById('approve').onclick=function(){
-    st.className='sent';
-    st.innerHTML='✅ Sent to apply@elitesearch.co.za from thabo.nkosi@example.com — the candidate\'s own Gmail, reply-to them. PDFs deleted after send (zero retention).';
-    ag.style.display='inline';
-  };
-  document.getElementById('reject').onclick=function(){
-    st.className='rej';
-    st.innerHTML='❌ Rejected — both PDFs deleted on the spot. The pipeline learns your taste; rejections cost nothing.';
-    ag.style.display='inline';
-  };
-  ag.onclick=function(){st.className='';st.innerHTML='';ag.style.display='none';};
+  var JOBS = [
+    {t:"Bookkeeper @ Elite Search & Selection",
+     u:"https://www.careerjunction.co.za/jobs/bookkeeper-johannesburg",
+     m:90, r:"SAIPA-registered, Sage Pastel and full-cycle bookkeeping match the core requirements.",
+     ref:"04aa74fbbd", mail:"apply@elitesearch.co.za", cv:"cv-classic.pdf", d:"classic"},
+    {t:"Senior Accountant @ Meridian Logistics (Pty) Ltd",
+     u:"https://www.pnet.co.za/jobs/senior-accountant-johannesburg",
+     m:88, r:"Month-end in 4 days and never-late VAT201 mirror the two must-haves; leading a 3-person desk matches your migration year.",
+     ref:"1c93ef70aa", mail:"careers@meridianlogistics.co.za", cv:"cv-indigo.pdf", d:"indigo"},
+    {t:"Financial Administrator @ Kelsall Care Group",
+     u:"https://www.careers24.com/jobs/financial-administrator-durban",
+     m:82, r:"Ledger housekeeping, payroll support and the reporting cadence line up; your C1 licence is a listed advantage.",
+     ref:"77bd02ce51", mail:"hr@kelsallcare.co.za", cv:"cv-emerald.pdf", d:"emerald"},
+    {t:"Management Accountant (Remote, EMEA) @ Zuppa Systems",
+     u:"https://weworkremotely.com/remote-jobs/management-accountant-emea",
+     m:85, r:"Multi-currency month-end and Xero automation read like your migration project, verbatim; async-first hours suit SAST.",
+     ref:"e2a5b81f30", mail:"talent@zuppa.io", cv:"cv-sunset.pdf", d:"sunset"},
+    {t:"Payroll & Accounts Clerk @ Vukile Facilities Management",
+     u:"https://www.pnet.co.za/jobs/payroll-clerk-pretoria",
+     m:79, r:"Payroll runs and supplier recon are two of your three strongest bullets; the SAP gap is flagged honestly in the letter.",
+     ref:"4f61a0d29c", mail:"recruit@vukilefm.co.za", cv:"cv-indigo.pdf", d:"indigo"},
+    {t:"Junior Financial Analyst @ Osprey Fund Managers",
+     u:"https://www.careers24.com/jobs/junior-financial-analyst-cape-town",
+     m:86, r:"B.Com Hons + six years of numbers hits the band; the Excel modelling ask is evidenced by your aged-debt rebuild.",
+     ref:"9d8c33be57", mail:"careers@ospreyfunds.co.za", cv:"cv-classic.pdf", d:"classic"}
+  ];
+  // hosted under /downloads/ the real PDFs live one level up; inside the offline kit they are next door
+  var BASE = (location.protocol === "file:") ? "samples/" : "../samples/";
+  var i = 0, timer = null, locked = false;
+  var $ = function(id){ return document.getElementById(id); };
+  var st = $("status");
+
+  function paint(){
+    var j = JOBS[i];
+    $("jline").textContent = j.t;
+    $("mline").textContent = "Match " + j.m + "% — " + j.r;
+    $("jurl").textContent = j.u;
+    $("rline").textContent = "Candidate thabo01 · ref " + j.ref;
+    var cv = $("cvlink"), lt = $("ltrlink");
+    cv.href = BASE + j.cv;   cv.setAttribute("download", j.ref + "_cv.pdf");
+    lt.href = BASE + "cover-letter-plain.pdf"; lt.setAttribute("download", j.ref + "_letter.pdf");
+    $("cvname").textContent = j.ref + "_cv.pdf";
+    $("cvsub").textContent = "country-formatted ZA CV · " + j.d + " design — the one THIS candidate chose";
+    var dots = ""; for (var k = 0; k < JOBS.length; k++) dots += "<span class='" + (k === i ? "on" : "") + "'>●</span>";
+    $("dots").innerHTML = dots;
+    $("ctr").textContent = "demo card " + (i + 1) + " of " + JOBS.length + ", rotating";
+    st.className = ""; st.innerHTML = ""; locked = false;
+    $("approve").style.opacity = $("reject").style.opacity = "1";
+  }
+  function next(){ i = (i + 1) % JOBS.length; paint(); }
+  function act(kind){
+    if (locked) return; locked = true;
+    var j = JOBS[i];
+    $("approve").style.opacity = $("reject").style.opacity = ".4";
+    st.className = (kind === "ok") ? "sent" : "rej";
+    st.innerHTML = (kind === "ok")
+      ? "✅ Sent to " + j.mail + " from thabo.nkosi@example.com — the candidate's own Gmail, reply-to them. PDFs deleted after send (zero retention)."
+      : "❌ Rejected — both PDFs deleted on the spot. The pipeline learns your taste; rejections cost nothing.";
+    setTimeout(function(){ i = (i + 1) % JOBS.length; paint(); }, 2800);
+  }
+  $("approve").onclick = function(){ act("ok"); };
+  $("reject").onclick  = function(){ act("no"); };
+  $("next").onclick    = function(){ if (!locked) next(); };
+  function start(){ if (!timer) timer = setInterval(function(){ if (!locked) next(); }, 9000); }
+  function stop(){ clearInterval(timer); timer = null; }
+  var w = document.querySelector(".wrap");
+  w.addEventListener("mouseenter", stop);      // reading a card? rotation waits
+  w.addEventListener("mouseleave", start);
+  start();
+  paint();
 </script>
 </body>
 </html>
