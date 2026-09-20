@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hunta — find jobs, write the paperwork, send them. Free demo, no email needed</title>
+<meta name="description" content="Hunta hunts public job ads (PNet, CareerJunction, iHarareJobs, VacancyMail…), drafts a cover letter + tailored CV, and waits for you to tap approve. Download the full demo free — no email gate.">
+<style>
+ :root{--purp:#7B5EA7;--deep:#4a3470;--ink:#2B2B2B;--tint:#F4EEF9;--ok:#137333}
+ *{box-sizing:border-box}
+ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);line-height:1.55;background:#fff}
+ .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+ header{background:linear-gradient(135deg,var(--deep),var(--purp) 60%,#9b7fd0);color:#fff;padding:56px 0 44px}
+ header h1{margin:0 0 10px;font-size:clamp(28px,5vw,44px);letter-spacing:.3px}
+ header p.sub{margin:0 0 26px;font-size:clamp(15px,2.4vw,19px);opacity:.94;max-width:640px}
+ .badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+ padding:4px 12px;border-radius:999px;font-size:13px;margin-bottom:18px}
+ .dl{display:inline-block;background:#fff;color:var(--deep);font-weight:800;font-size:18px;
+ padding:16px 30px;border-radius:12px;text-decoration:none;box-shadow:0 6px 22px rgba(0,0,0,.28)}
+ .dl small{display:block;font-weight:500;color:#5b4a7a;font-size:12.5px}
+ .fine{font-size:13px;opacity:.85;margin-top:12px}
+ .fine a{color:#fff}
+ section{padding:44px 0}
+ section h2{font-size:clamp(21px,3.4vw,28px);margin:0 0 18px}
+ .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+ .card{border:1px solid #e6e0ef;border-radius:12px;padding:18px;background:#fbfaff}
+ .card b{color:var(--deep)}
+ .steps{counter-reset:s}
+ .steps li{list-style:none;margin:0 0 14px;padding-left:44px;position:relative}
+ .steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;
+ background:var(--purp);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+ .term{background:#1e1b26;color:#d6cdeb;border-radius:12px;padding:18px;font:13.5px/1.6 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto}
+ .term .ok{color:#7ee2a0}.term .cta{color:#c9b3ff}
+ table{border-collapse:collapse;width:100%;font-size:14.5px}
+ th,td{border-bottom:1px solid #eee;padding:9px 10px;text-align:left}
+ th{background:var(--tint);color:var(--deep)}
+ .price{border:2px solid var(--purp);border-radius:14px;padding:20px;text-align:center}
+ .price .amt{font-size:26px;font-weight:800;color:var(--deep)}
+ .price h3{margin:2px 0 10px}
+ .price ul{margin:0 0 14px;padding-left:18px;text-align:left;font-size:14px;color:#444}
+ .buy{display:inline-block;background:var(--purp);color:#fff;font-weight:700;padding:10px 22px;border-radius:9px;text-decoration:none}
+ .rails{background:var(--tint);border-radius:12px;padding:16px 18px;font-size:14.5px}
+ .rails code{background:#fff;border:1px solid #ddd4ea;padding:1px 6px;border-radius:5px;font-size:13px}
+ details{border:1px solid #e6e0ef;border-radius:10px;padding:12px 16px;margin-bottom:10px;background:#fbfaff}
+ summary{font-weight:700;color:var(--deep);cursor:pointer}
+ footer{background:#241f2e;color:#cfc5e2;padding:30px 0 40px;font-size:13.5px}
+ footer a{color:#e8ddf7}
+ .note{font-size:12.5px;color:#8a8a8a;text-align:center;margin-top:14px}
+</style></head><body>
+
+<header><div class="wrap">
+  <div class="badge">🇿🇦 🇿🇼 🇿🇲 built for Southern Africa · 100% public sources, no LinkedIn login ever</div>
+  <h1>Jobs found. Letters written.<br>You tap approve. It sends.</h1>
+  <p class="sub">Hunta is the operations layer for the hiring industry — job coaches, boutique recruiters,
+  application agencies, outplacement teams. It hunts the public boards daily, drafts a cover letter and a
+  tailored CV per posting, and waits by your Discord / Telegram / dashboard for one tap.</p>
+  <a class="dl" href="https://king-kunta-cpu.github.io/hunta-marketing/downloads/hunta-demo-1.0.0.zip">⬇ Download the free demo — 116 KB ZIP
+  <small>full product · four CV designs · no email · no card · no sign-up form (there is literally no form on this page)</small></a>
+  <p class="fine">Demo = 25 drafted applications, 5 real sends, 30 days, then the queue freezes (never your data).
+  SHA-256 ships next to the file; verify-then-install in the
+  <a href="https://king-kunta-cpu.github.io/hunta-marketing/setup.html">setup guide</a>.
+  Questions: <a href="mailto:bill@hunta.app">bill@hunta.app</a></p>
+</div></header>
+
+<section><div class="wrap">
+  <h2>What it does while you sleep</h2>
+  <ol class="steps" style="padding:0">
+    <li><b>Hunts</b> PNet · CareerJunction · Careers24 · Bizcommunity · iHarareJobs · VacancyMail · JobsZimbabwe · GoZambiaJobs · UNjobs · Impactpool — per-candidate keywords, excludes and city prefs.</li>
+    <li><b>Drafts</b> one LLM call per match: relevance score, cover letter, tailored CV — never invents facts, uses only the candidate profile you approve.</li>
+    <li><b>Renders</b> print-ready PDFs (ZA/ZW/ZM CV formats) and sends the card: <i>"Accountant @ Acme — Match 87%"</i> with ✅ / ❌.</li>
+    <li><b>Only after your tap:</b> it emails the ad's apply address from the candidate's own mailbox, with the PDFs attached. Max 20 sends/candidate/day so no Gmail ever gets flagged.</li>
+  </ol>
+  <div class="term">
+$ <b>pip install ./hunta-1.0.0-py3-none-any.whl</b> &amp;&amp; hunta serve<br>
+<span class="ok">✔ demo flavour active — 25 drafts · 5 premium sends · 30 days</span><br>
+$ hunta hunt --dry<br>
+<span class="ok">✔ 11 new matches for lerato01 — top 5 drafted</span><br>
+<span class="cta">⬆ unlock everything from $30/mo — buy: https://whop.com/jacaranda-labs (demo nag, deleted on upgrade)</span>
+  </div>
+</div></section>
+
+<section style="background:#faf8fd"><div class="wrap">
+  <h2>Run it free, forever… on your own terms</h2>
+  <div class="grid">
+    <div class="card"><b>Zero infrastructure.</b> The default deployment is two GitHub Actions workflows —
+      no server, no Docker, no credit card. Your state lives in your private repo.</div>
+    <div class="card"><b>Your keys, your mailbox.</b> Bring a free-tier Groq/Cerebras/Gemini key and the
+      candidate's Gmail app-password. We never hold either; both are encrypted at rest on your box.</div>
+    <div class="card"><b>Nothing to leak.</b> Server side you keep {job_url, status, timestamp}.
+      PDFs auto-purge in ≤72 h. No CRM, no tracking pixels, no "sales team will contact you".</div>
+    <div class="card"><b>Self-hosted option.</b> Agencies that want sovereignty run the Docker image on their
+      own box with a signed offline licence (read-only when it lapses — never a bricked machine).</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Demo vs Premium</h2>
+  <table>
+    <tr><th></th><th>Free demo</th><th>Premium (everything)</th></tr>
+    <tr><td>Full hunt → draft → PDF pipeline</td><td>✔ all of it</td><td>✔</td></tr>
+    <tr><td>Real email sends</td><td>5, so the moment of truth is real</td><td>Unlimited (20/candidate/day anti-spam cap)</td></tr>
+    <tr><td>Candidates / tenants</td><td>2 candidates, 1 tenant</td><td>Plan-sized: solo → studio → agency</td></tr>
+    <tr><td>Discord + Telegram approvals, dashboard, LLM failover chain</td><td>✔</td><td>✔ + priority board packs (LinkedIn-style searches, company career pages via sitemap)</td></tr>
+    <tr><td>Upgrade nags</td><td>everywhere, on purpose</td><td>none. poetic, really</td></tr>
+    <tr><td>Support</td><td>docs + the pipeline itself</td><td>same-day human, <a href="mailto:bill@hunta.app">bill@hunta.app</a></td></tr>
+  </table>
+</div></section>
+
+<section style="background:#faf8fd"><div class="wrap">
+  <h2>Simple pricing. Pay how you want.</h2>
+  <div class="grid">
+    <div class="price"><h3>Solo</h3><div class="amt">$30<span style="font-size:14px">/mo</span></div>
+      <ul><li>1 tenant · 5 candidates</li><li>hosted on your GitHub Actions</li><li>dashboard + Discord/Telegram</li></ul>
+      <a class="buy" href="https://whop.com/checkout/ch_psCsZ17A4pnZ4qK/">Buy Solo on Whop</a></div>
+    <div class="price" style="border-width:3px"><h3>Studio ⭐ most popular</h3>
+      <div class="amt">$85<span style="font-size:14px">/mo</span></div>
+      <ul><li>1 tenant · 25 candidates</li><li>LLM failover chain (never rate-limited mid-hunt)</li><li>queue paging + priority support</li></ul>
+      <a class="buy" href="https://whop.com/checkout/ch_O5mkjKaDR1Gk4Uk/">Buy Studio on Whop</a></div>
+    <div class="price"><h3>Sovereign</h3><div class="amt">$240<span style="font-size:14px">/mo</span></div>
+      <ul><li>your box, your Docker, signed offline licence</li><li>unlimited candidates</li><li>24-month source conversion terms</li></ul>
+      <a class="buy" href="mailto:bill@hunta.app?subject=Sovereign%20licence">Invoice / pay direct</a></div>
+  </div>
+  <p style="margin-top:16px" class="rails">🇿🇼 🇿🇦 No card? No problem — pay by <b>⚡ Lightning</b>
+  (<code>SharkSkin@coinos.io</code>, name + tier in the memo) or <b>Mukuru / cash EFT</b>
+  (<code>+263 78 460 0904 · ref = your tenant id</code>). Say what you paid for and the licence lands the same day.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>The honest questions</h2>
+  <details><summary>Why is the download not gated by an email form?</summary>
+  Because you'd delete our number the second the demo expired, and we'd rather you forwarded the ZIP.
+  The demo runs entirely on your machine — we couldn't collect your data if we wanted to.</details>
+  <details><summary>What happens to my candidates' ID numbers, emails, CVs?</summary>
+  They live in a YAML folder on your box or your private GitHub repo, and that's it. The product ships with
+  a right-to-erasure button (delete file = gone, logs keep only an opaque id) and 72-hour PDF expiry.</details>
+  <details><summary>Is the demo actually the product?</summary>
+  Bit-for-bit — one environment flag separates demo from paid (HUNTA_FLAVOUR=demo). No feature lobotomy,
+  just a 25-draft / 5-send / 30-day leash and a lot of purple upgrade banners.</details>
+  <details><summary>What's your licence stance?</summary>
+  Commercial, source-included, and each released version converts to MIT 24 months after release.
+  The demo you're downloading may be freely re-shared unmodified — that's in the licence itself.</details>
+</div></section>
+
+<footer><div class="wrap">
+  <b>Hunta</b> by Jacaranda Labs · <a href="mailto:bill@hunta.app">bill@hunta.app</a> ·
+  checkout: <a href="https://whop.com/jacaranda-labs">Whop store</a> · ⚡ <code>SharkSkin@coinos.io</code> ·
+  Mukuru/EFT <code>077 XXX XXXX</code><br>
+  <span style="opacity:.7">No scraping behind logins. No spam (daily send caps). No dark patterns — the upgrade
+  banners are so loud you can find the exit by echo.</span>
+  <p class="note">demo zip: hunta-demo-1.0.0.zip · sha256 published beside it · this page makes ZERO external requests</p>
+</div></footer>
+</body></html>
