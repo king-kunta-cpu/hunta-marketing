@@ -280,7 +280,7 @@ reject button teach you? (That's the real product, by the way.)"
 ```
 Week one: {{cards}} cards, {{sends}} sends. Question — how many candidates are
 sitting on your bench right now without a pipeline? Solo puts two more on this
-exact machine for $30 a month. One tap: <whop-link>
+exact machine for $30 a month. One tap: https://whop.com/checkout/ch_psCsZ17A4pnZ4qK/
 ```
 
 ### Upsell Solo→Studio

@@ -96,7 +96,7 @@ sha256sum -c hunta-demo-1.0.0.zip.sha256
 <span class="dim"># Windows PowerShell:</span>
 (Get-FileHash hunta-demo-1.0.0.zip).Hash -eq (Get-Content hunta-demo-1.0.0.zip.sha256).Substring(0,64)
 <span class="c">True</span></pre>
-<p class="sub">Expected digest: <code>ae94a0f08b9a8b84f0a7f3457d2d362863da7b349dfb7816f00b4431aa9a69a4</code></p>
+<p class="sub">Expected digest: <code>0b4eaea95cc75362646b5f5a4a6cd0bc014f6894f1d358e346e27914ed85f947</code></p>
 
 <h2><span class="n">2</span> Install (Python 3.11+)</h2>
 <pre class="term">unzip hunta-demo-1.0.0.zip -d hunta-demo && cd hunta-demo
@@ -255,12 +255,11 @@ touch a scheduler.</p>
  <li><b>Take the order.</b> Confirm: candidate count, countries, branding (Studio+). Solo $30/mo
      = 3 candidates · 100 sends; Studio $85/mo = 15 + white-label PDFs; Sovereign $240/mo =
      self-hosted, unlimited. These are the actual prices everywhere — USD monthly.</li>
- <li><b>Payment — the Whop store is live (whop.com/jacaranda-labs); its tier cards are the last mile. Until they publish, the rails below ARE the checkout — all honoured in full:</b> Lightning to
+ <li><b>Payment — the Whop store is LIVE with published tier checkouts: whop.com/jacaranda-labs (Hunta Solo $30 / Studio $85 / Sovereign $240, USD monthly — one-tap links below).</b> Card payments run through Whop; every manual rail below is honoured in full too — Lightning to
      <b>SharkSkin@coinos.io</b> (LUD-16-verified 2026-09-19; payer puts name + tier in the payment
      note, receipt to WhatsApp), or Mukuru/EFT quoting their tenant id as the reference. Whop
-     store is live (<b>whop.com/jacaranda-labs</b>); its tier checkout cards join as they are
-     published — every rail honoured in full throughout.
-     Never start the tenant until money landed.</li>
+     checkout for a new tenant: point them at the tier card on the store page.
+     Never start the tenant until money landed (or the owner's manual-rail receipt came in).</li>
  <li><b>Provision the tenant</b> in seconds: copy the tenant template, add their candidates, encrypt their
      Gmail app passwords + their own LLM key (their key = their bill = their privacy), start their
      pipeline. A new paying tenant is a directory, not a deploy.</li>

@@ -40,7 +40,7 @@ All CTAs point at `demo.html`. Paid (USD/mo, confirmed by owner 2026-09-19): Sol
 - Numbers: state-store-verified 2026-09-19 (runs 09-16→18: 72 drafted, 3 candidates, 0 auto-sends).
   Board ad ranges dated 2026-09-17 — refresh from a fresh hunt log before each campaign.
 - Demo caps as shipped: 25 drafts + 5 sends per rolling 30 days, in the same wheel as paid.
-- Billing rails (Whop/Lightning/Mukuru) are PLACEHOLDER until the launch flip — sell the demo only.
+- Billing rails LIVE: Whop tier checkouts ($30/$85/$240 USD monthly) + Lightning + Mukuru/EFT.
 - One CTA per post: the demo link.
 - Read the house rules (Start tab) and the "never" list (Brand tab).
 - Demo persona only — never screenshot a real candidate.

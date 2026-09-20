@@ -108,7 +108,7 @@
   pipeline — caps enforced in code, not policy: 25 drafts + 5 sends per rolling 30 days,
   in the identical wheel the paid tiers run on. Lead capture + kit download at
   <a href="demo.html">demo.html</a> — every CTA in this bible points there. The installable
-  product pack is LIVE: <a href="downloads/hunta-demo-1.0.0.zip">hunta-demo-1.0.0.zip</a> (116 KB, ae94a0f0…,
+  product pack is LIVE: <a href="downloads/hunta-demo-1.0.0.zip">hunta-demo-1.0.0.zip</a> (116 KB, 0b4eaea9…,
   sha256 beside it) with the step-by-step <a href="setup.html">setup guide</a> — screenshots, CV
   designs, troubleshooting, and the “client just said yes” playbook at its §12.</div>
 
@@ -275,12 +275,12 @@ hours a month. Solo is $30 a month. The demo is R0. The maths sells itself — s
   <div class="pillrow"><span class="pill">annual = 2 months free</span><span class="pill">affiliates 30% / 12 mo via Whop</span><span class="pill">ZW/ZM pay USD or sats (coinos)</span><span class="pill">Mukuru = manual grant</span></div>
   <p class="sub"><b>Launch status 2026-09-19 18:45Z:</b> prices are the owner-confirmed USD ones
   ($30/$85/$240). Lightning is LIVE (SharkSkin@coinos.io, LUD-16-verified, shipped in demo.py and
-  on every page rail); Mukuru/EFT carries the real number. <b>Whop store is live:
-  whop.com/jacaranda-labs</b> — the Solo/Studio/Sovereign checkout CARDS are the last mile (product
-  creation is dashboard-only: both pasted API keys are read-only, 401 on every write route);
-  whop_url is the only PLACEHOLDER left in demo.py → BILLING. Billing enforcement stays off
-  (FREE_MODE) until the tier cards publish. Meanwhile: sell the demo AND take manual payment —
-  both honoured in full.</p>
+  on every page rail); Mukuru/EFT carries the real number. <b>Whop store is LIVE with all three tier
+  checkouts published</b> — whop.com/jacaranda-labs sells Hunta Solo $30 / Studio $85 / Sovereign
+  $240 (USD monthly renewal plans, one-tap links; created via the account-level API 2026-09-20
+  and verified by read-back). demo.py → BILLING carries the store URL plus the three checkout
+  links; no PLACEHOLDER remains anywhere in the product tree. Billing enforcement (FREE_MODE)
+  stays off for the pilot tenants until the owner flips it; manual rails stay honoured in full.</p>
 
   <h2>Rationale (so every seller believes the numbers)</h2>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>• Demo R0 forever is the marketing budget: ~1 hunt-minute/day on Actions, cents of LLM on
@@ -719,7 +719,7 @@ Link in my bio / here: https://king-kunta-cpu.github.io/hunta-marketing/demo.htm
 
   <div class="copyblock"><button class="copybtn">Copy</button><pre>Week one: {{cards}} cards, {{sends}} sends. Question — how many candidates are
 sitting on your bench right now without a pipeline? Solo puts two more on this
-exact machine for $30 a month. One tap: &lt;whop-link&gt;</pre></div>
+exact machine for $30 a month. One tap: https://whop.com/checkout/ch_psCsZ17A4pnZ4qK/</pre></div>
 
   <h3>Upsell Solo→Studio</h3>
 
@@ -1084,7 +1084,7 @@ Sovereign   self-hosted tier; licence checked daily; read-only on expiry, never 
     <li>Read the house rules (Start tab) and the "never" list (Brand tab)</li>
     <li>Follow-up cadence loaded; 24 h human reply promised and kept</li>
     <li>Pilot terms written down: demo R0 forever; Solo $30 when asked</li>
-    <li>Product pack shipped: swap the 3 PLACEHOLDERs in hunta/demo.py → rebuild
+    <li>Product pack shipped: BILLING is wired to the live Whop checkouts (2026-09-20) → rebuilt
         (`python -m build &amp;&amp; python scripts/make_demo_pack.py`) →
         `cp dist/hunta-demo-1.0.0.zip* downloads/` → refresh sha256 anywhere quoted</li>
     <li>Pipeline current: audit build live (origin/main 8bd7ff5); hang fix 1c5a54e pushed and
