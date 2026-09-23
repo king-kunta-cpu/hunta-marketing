@@ -44,7 +44,7 @@ cards self-destruct after 72 hours."
 You're not buying infrastructure; you're buying your Tuesdays back."
 State price. Close with the demo stack:
 "The demo is free forever — one candidate, five sends a month, no card.
-Solo is $30 a month for three candidates when your bench asks for it. Set the demo
+Solo is R4,999 a month for three candidates when your bench asks for it. Set the demo
 up now while we're on the phone; first card lands by the next hunt slot."
 Landing page (lead capture + download): https://king-kunta-cpu.github.io/hunta-marketing/demo.html
 

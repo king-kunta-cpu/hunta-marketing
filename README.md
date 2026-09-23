@@ -6,7 +6,7 @@ Everything to market Hunta, plus the public door for the **free-for-everyone dem
 
 | Page | What |
 |---|---|
-| **`index.html`** | The bible — 16 tabs: product truth, market/ICP, decided pricing (R0 · $30/$85/$240), social, outreach, sales scripts, lifecycle, demo & video, FAQ, growth plan, brand, samples, landing/leads, legal, checklist. Every block has a Copy button. Images are embedded (data URIs) so the file works from Pages, a USB stick or a WhatsApp download. |
+| **`index.html`** | The bible — 16 tabs: product truth, market/ICP, decided pricing (R0 · R4,999/R9,999/R15,000), social, outreach, sales scripts, lifecycle, demo & video, FAQ, growth plan, brand, samples, landing/leads, legal, checklist. Every block has a Copy button. Images are embedded (data URIs) so the file works from Pages, a USB stick or a WhatsApp download. |
 | **`demo.html`** | Public landing: hero → how it works → lead form → kit downloads instantly → lead card pings Discord ("Hunta Leads") → human replies <24 h. |
 
 Serve it: GitHub → Settings → Pages → `main` → `/ (root)` →
@@ -29,7 +29,7 @@ BRAND.md        palette, type, logo rules, voice
 ## The offer, everywhere
 
 Free demo for everyone, forever — 1 candidate, 5 sends/month, no card.
-All CTAs point at `demo.html`. Paid (USD/mo, confirmed by owner 2026-09-19): Solo $30 · Studio $85 · Sovereign $240
+All CTAs point at `demo.html`. Paid (USD/mo, confirmed by owner 2026-09-19): Solo R4,999 · Studio R9,999 · Sovereign R15,000
 (rationale in copy/pricing.md). Annual = 2 months free; affiliates 30%/12 mo.
 
 ## Before any campaign
@@ -40,7 +40,7 @@ All CTAs point at `demo.html`. Paid (USD/mo, confirmed by owner 2026-09-19): Sol
 - Numbers: state-store-verified 2026-09-19 (runs 09-16→18: 72 drafted, 3 candidates, 0 auto-sends).
   Board ad ranges dated 2026-09-17 — refresh from a fresh hunt log before each campaign.
 - Demo caps as shipped: 25 drafts + 5 sends per rolling 30 days, in the same wheel as paid.
-- Billing rails LIVE: Whop tier checkouts ($30/$85/$240 USD monthly) + Lightning + Mukuru/EFT.
+- Billing rails LIVE: Whop tier checkouts (R4,999/R9,999/R15,000 USD monthly) + Lightning + Mukuru/EFT.
 - One CTA per post: the demo link.
 - Read the house rules (Start tab) and the "never" list (Brand tab).
 - Demo persona only — never screenshot a real candidate.
