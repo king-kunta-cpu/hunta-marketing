@@ -147,12 +147,15 @@
   <div class="price">
     <div class="p free"><div class="amt">R0</div><div class="usd">forever · the demo</div>
       <ul><li>1 candidate</li><li>25 drafts + 5 sends / 30 days</li><li>full pipeline + card, identical wheel to paid</li></ul></div>
-    <div class="p"><div class="amt">$30</div><div class="usd">/ month · Solo</div>
-      <ul><li>3 candidates</li><li>100 sends / month</li><li>priority hunt slots</li></ul></div>
-    <div class="p"><div class="amt">$85</div><div class="usd">/ month · Studio</div>
-      <ul><li>15 candidates</li><li>white-label PDFs</li><li>fair-use sends</li></ul></div>
-    <div class="p"><div class="amt">$240</div><div class="usd">/ month · Sovereign</div>
-      <ul><li>self-hosted, unlimited</li><li>onboarding day</li><li>data never leaves</li></ul></div>
+    <div class="p"><div class="amt">R4,999</div><div class="usd">/ month · Solo &middot; &asymp; $278</div>
+      <ul><li>3 candidates</li><li>100 sends / month</li><li>priority hunt slots</li>
+      <li><b>or R45,000 / year</b> &mdash; save R14,988</li></ul></div>
+    <div class="p"><div class="amt">R9,999</div><div class="usd">/ month · Studio &middot; &asymp; $555</div>
+      <ul><li>15 candidates</li><li>white-label PDFs</li><li>fair-use sends</li>
+      <li><b>or R90,000 / year</b></li></ul></div>
+    <div class="p"><div class="amt">R15,000</div><div class="usd">/ month · Sovereign &middot; &asymp; $833</div>
+      <ul><li>self-hosted on your own cloud</li><li>unlimited candidates</li>
+      <li>optional local LLM &mdash; data never leaves</li><li>onboarding day included</li></ul></div>
   </div>
 
 </div>
@@ -162,9 +165,10 @@
   <a class="pbtn green" href="downloads/hunta-demo-kit.zip">⬇ Free demo kit (card + samples)</a>
   <a class="pbtn" href="downloads/hunta-demo-1.0.0.zip">⬇ Full installable pack (.zip + sha256)</a>
   <a class="pbtn ghost" href="setup.html">📖 10-minute setup guide</a>
+  <a class="pbtn green" href="https://wa.me/263784600904?text=Hunta%20%E2%80%94%20I%20want%20the%20ANNUAL%20plan%20(Solo%20R45%2C000%2Fyr%2C%20save%20R14%2C988).%20Please%20send%20payment%20details.">⚡ Annual &mdash; R45,000/yr (save R14,988)</a>
 
   <div class="rail">
-    <b>Mukuru / mobile money <span class="amt">$30 · $85 · $240</span></b>
+    <b>Mukuru / mobile money / EFT <span class="amt">R4,999 · R9,999 · R15,000</span></b>
     <p>Prices are the real ones: USD per month — ZAR/ZW equivalents at the day's rate fine.
     reference = your name + tier. Slip screenshot below → tenant provisioned within hours.</p>
     <span class="num">+263 78 460 0904</span><br>
@@ -197,13 +201,29 @@
 </main>
 
 <script>
-  var WEBHOOK="https://discord.com/api/webhooks/1549826116615807046/i2_UOWsitJmwhodrLHkFb9if7jTyoyQ9wlKmpmwjvIvS81deqG-7p3UQajjeB2EWJwhT";
+  // ============================ ACTION REQUIRED ============================
+  // A live Discord webhook was committed here in plaintext. This file is in a
+  // PUBLIC repository, so anyone on the internet could post into the channel --
+  // the same channel that carries approval cards authorising email sent as a
+  // paying client.
+  //
+  //   1. Discord -> Server Settings -> Integrations -> Webhooks -> "hunta"
+  //      -> REGENERATE URL.  Do this first; it revokes the exposed one.
+  //   2. Paste the new URL into the repo secret HUNTA_DISCORD_WEBHOOK
+  //      (Settings -> Secrets and variables -> Actions).
+  //   3. Do NOT paste it back into this file. This page is public. Route the
+  //      demo-lead form through a private endpoint that reads the secret, e.g.
+  //      a Cloudflare Worker (the lead-hunter worker already does exactly this).
+  // =========================================================================
+  var WEBHOOK = "";   // <- keep empty until step 3 ships
   document.getElementById('lead').addEventListener('submit',function(e){
     e.preventDefault();
     var nm=document.getElementById('nm').value.trim();
     var ct=document.getElementById('ct').value.trim();
     var rl=document.getElementById('rl').value;
     var co=document.getElementById('co').value;
+    if(!WEBHOOK){ document.getElementById('done').style.display='block';
+                  window.location.href='downloads/hunta-demo-kit.zip'; return; }
     fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({username:'Hunta Leads',
         embeds:[{title:'🎯 New demo lead',color:8085159,
