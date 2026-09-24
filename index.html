@@ -70,7 +70,7 @@
 <header>
   <div class="bar">
     <svg viewBox="0 0 400 116" xmlns="http://www.w3.org/2000/svg" aria-label="Hunta"><g fill="none" stroke="#7B5EA7" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="40" r="27"/><path d="M59 59 L72 72"/><path d="M72 72 L108 48 L88 106 L78 84 Z"/><path d="M78 84 L108 48"/></g><text x="132" y="80" font-family="Poppins, Montserrat, 'Segoe UI', Arial, sans-serif" font-weight="600" font-size="68" letter-spacing="-1.5" fill="#2B2B2B">Hunta</text></svg>
-    <span class="tag">the marketing bible · v2.2 · 2026-09-19 — demo pack + setup guide shipped, operating routine live</span>
+    <span class="tag">the marketing bible · v2.3 · 2026-09-23 — full live check: demo capture armed, ZAR pricing, engine truth + ops tabs</span>
     <a class="demo" href="demo.html">FREE DEMO →</a>
   </div>
   <nav id="nav">
@@ -89,6 +89,12 @@
     <button data-s="brand">Brand</button>
     <button data-s="samples">Samples</button>
     <button data-s="landing">Landing & leads</button>
+    <button data-s="engine">Engine truth</button>
+    <button data-s="pipeline">The pipeline</button>
+    <button data-s="mkt">Marketing system</button>
+    <button data-s="ops">Daily ops</button>
+    <button data-s="money">Money</button>
+    <button data-s="roadmap">Roadmap</button>
     <button data-s="legal">Legal & glossary</button>
     <button data-s="launch">Checklist</button>
   </nav>
@@ -99,8 +105,8 @@
 <section id="start" class="on">
   <h1>The Hunta marketing bible</h1>
   <p class="lede">Every asset, script, number and rule for selling Hunta, on one page.
-  Copy buttons everywhere. Numbers are live production data, verified 2026-09-19 against the
-  state store (runs 2026-09-16→18) — refresh from the latest hunt log before each campaign.
+  Copy buttons everywhere. Numbers are live production data, verified 2026-09-23 against the running
+  pipeline (state branch, current Actions runs) — refresh from the latest hunt log before each campaign.
   The offer on the table is always the
   <b>free demo: 1 candidate, free forever, no card</b>.</p>
 
@@ -188,8 +194,9 @@ the log streaming the whole way.</pre></div>
     <tr><td>UNjobs · Impactpool</td><td>all</td><td>⚠️ 0 lately / 403 on runners; kept as opportunistic</td></tr>
   </table>
   <p class="sub">One dead scraper never kills a run — each hunter fails alone and the log says
-  "[hunter:x] 0 jobs". Say "coverage degrades gracefully" if asked. Ad ranges measured 2026-09-17;
-  no full-log run since (2026-09-19: fetch hardening shipped — per-URL 45 s budget + live logs).</p>
+  "[hunter:x] 0 jobs". Say "coverage degrades gracefully" if asked. Ad ranges measured 2026-09-17 and
+  re-confirmed 2026-09-23 against current runs: supply is decaying on the ZA/ZW seed tenants
+  (backlog depletion + pnet DNS + ZW burnout), so the ranges below are the ceiling, not the floor.</p>
 
   <h2>CV designs (in the demo — show them, don’t describe them)</h2>
   <p class="sub">Per-candidate field, three ways to set it (YAML / <code>hunta design</code> / dashboard
@@ -1046,6 +1053,174 @@ VAT201, NRC, EcoCash). Demo persona only — never screenshot a real candidate.<
   Full walkthrough: setup.html (screenshots + the conversion playbook in its §12).</pre></div>
 </section>
 
+<!-- ============ ENGINE TRUTH ============ -->
+<section id="engine">
+  <h1>Engine truth — the product without adjectives</h1>
+  <p class="lede">Exact state as of the 2026-09-23 live check. Say these sentences to buyers instead of
+  guessing; every line is backed by the repo, not by marketing memory.</p>
+
+  <h2>The wheel, fact-checked</h2>
+  <table>
+    <tr><th>Claim</th><th>Truth</th></tr>
+    <tr><td>"18 job boards"</td><td>~8 boards return reliably; the others are intermittent or degraded. Say "coverage degrades gracefully", never "18 boards live".</td></tr>
+    <tr><td>"Human approval before sending"</td><td>TRUE — nothing sends without a human tap. That gate is the product.</td></tr>
+    <tr><td>"No auto-apply"</td><td>TRUE — there is no auto-send code path anywhere in the pipeline.</td></tr>
+    <tr><td>"72 h data purge"</td><td>TRUE for rendered PDFs (<code>pdf_ttl_hours: 72</code>). Candidate YAML stays until the file is deleted (delete = erasure).</td></tr>
+    <tr><td>"Runs on $0"</td><td>TRUE for the operator (GitHub Actions free + Fly free allowance). The only consumable is LLM tokens, keyed to the customer where possible.</td></tr>
+  </table>
+
+  <h2>Guardrails that exist in code (say these unprompted)</h2>
+  <ul class="tick">
+    <li><b>Daily send cap</b> — 20 sends/candidate/day, hard-gated in the engine.</li>
+    <li><b>Demo caps</b> — 25 drafted applications, 5 real sends per rolling 30 days, counted by an atomic ledger.</li>
+    <li><b>Seen-skip</b> — a job already applied to is never re-queued (<code>pipeline.py:67</code>).</li>
+    <li><b>Freshness bias</b> — newest postings first; the loop assumes the first 72 hours win the reply.</li>
+  </ul>
+</section>
+
+<!-- ============ PIPELINE ============ -->
+<section id="pipeline">
+  <h1>The pipeline, end to end</h1>
+  <p class="lede">One loop, six steps, four times a day. The buyer sees the card; this is what happens
+  underneath — and the exact places where a human is load-bearing.</p>
+  <ol>
+    <li><b>Hunt</b> — cron <code>0 4,8,12,16 * * 1-6</code> UTC (06:00/10:00/14:00/18:00 SAST, Mon–Sat). Each board scraper runs and fails alone: a dead board logs <code>[hunter:x] 0 jobs</code> and never kills the run.</li>
+    <li><b>Pre-score</b> — free rule/domain/seniority/country filters before any LLM spend. Zero-cost triage is the margin.</li>
+    <li><b>Match & draft</b> — the LLM scores each role against the candidate's truth file and drafts a tailored letter. Groq 429s auto-failover to Gemini.</li>
+    <li><b>Render</b> — country-formatted PDFs (cv_za with ID/EE/licence, cv_zw, cv_zm) plus cover letters.</li>
+    <li><b>Approve</b> — the card lands on Discord/Telegram with ✅/❌; the human tap is the only trigger for a send.</li>
+    <li><b>Send</b> — SMTP from the <i>customer's own mailbox</i>; results persist to the <code>hunta-state</code> branch and rendered PDFs purge after 72 h.</li>
+  </ol>
+  <p class="sub">Nothing between draft and send is automatic. That single human gate is what we sell —
+  and what the press copy already says.</p>
+</section>
+
+<!-- ============ MARKETING SYSTEM ============ -->
+<section id="mkt">
+  <h1>Marketing system — the whole playbook on one page</h1>
+  <p class="lede">Positioning, message house, channels and cadence, all pointing at one door: the free demo.</p>
+
+  <h2>The core deal (one sentence)</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>A free-forever demo that drafts tailored applications to real postings on the boards that matter in this market — with one card for a human yes before anything sends.</pre></div>
+
+  <h2>The message house</h2>
+  <table>
+    <tr><th>For</th><th>One line</th></tr>
+    <tr><td>Job coach</td><td>"A permit to bill more clients for less evening work."</td></tr>
+    <tr><td>Outplacement firm</td><td>"An audit trail for every placement you report."</td></tr>
+    <tr><td>Boutique recruiter</td><td>"A nightly machine that reads so you can decide."</td></tr>
+    <tr><td>Candidate</td><td>"A queue of considered applications, not 400 spam sends."</td></tr>
+  </table>
+
+  <h2>Channels & cadence</h2>
+  <table>
+    <tr><th>Day</th><th>Channel</th><th>Message</th></tr>
+    <tr><td>Mon</td><td>LinkedIn</td><td>one real card (numbers blurred) + one-line lesson</td></tr>
+    <tr><td>Tue</td><td>X</td><td>one observation from the hunt log</td></tr>
+    <tr><td>Wed</td><td>WhatsApp broadcast</td><td>one stat + demo link</td></tr>
+    <tr><td>Thu</td><td>LinkedIn</td><td>story post — a win, a reject-button lesson, a board quirk</td></tr>
+    <tr><td>Fri</td><td>Community</td><td>ask for feedback, not sales</td></tr>
+    <tr><td>Sat</td><td>—</td><td>rest; the pipeline posts its own proof four times a day anyway</td></tr>
+  </table>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Cadence that converts:
+• Cold → warm: 5 touches, stop on any reply (Sales scripts §3).
+• Demo → paid: demo+1h, +2, +5, +9 days; demo+3 and +7 value drops.
+• Always-on: 24 h human reply to every inbound — promised and kept.</pre></div>
+
+  <h2>House rules for everything we publish</h2>
+  <ul class="tick">
+    <li>R0 demo is the front door, always. Paid tiers are quoted in ZAR: R4,999 / R9,999 / R15,000.</li>
+    <li>Every posted number cites a hunt-log date; numbers older than three days get refreshed or removed.</li>
+    <li>No "guaranteed", no "AI-powered future", no auto-apply promises. (See Brand → voice.)</li>
+    <li>Process over promises: "coverage, drafts, approval, retention" — never placements.</li>
+  </ul>
+</section>
+
+<!-- ============ DAILY OPS ============ -->
+<section id="ops">
+  <h1>Daily operations — run the business, not just the product</h1>
+  <p class="lede">Practical, $0, and it does not turn you into an operator-slave: each loop gets cheaper
+  per customer as onboarding self-serves.</p>
+
+  <h2>The daily loop (SAST clock)</h2>
+  <ul>
+    <li><b>06:00</b> — nothing; the pipeline hunts on its own.</li>
+    <li><b>08:30</b> — 90-second card scan: approve, reject, answer replies. Clear the queue before client sessions.</li>
+    <li><b>10:00–11:00</b> — one outreach block: five new conversations, each logged in the tally.</li>
+    <li><b>13:45</b> — get today's yes onto the setup call <i>before</i> 14:00 so the first card lands while the excitement is fresh.</li>
+    <li><b>18:10</b> — 60-second run health: per-board counts, any 429, the breaker line, commit.</li>
+    <li><b>before bed</b> — update the tally; queue tomorrow's ten names. Never let either end run dry.</li>
+  </ul>
+
+  <h2>The $0 stack (what is actually running)</h2>
+  <table>
+    <tr><th>Piece</th><th>Cost</th><th>What it does</th></tr>
+    <tr><td>GitHub Actions</td><td>Free</td><td>the hunt engine + the press autopilot</td></tr>
+    <tr><td>Fly.io</td><td>Free allowance</td><td>optional dashboard container (region jnb)</td></tr>
+    <tr><td>Cloudflare Workers + D1</td><td>Free</td><td>lead capture + lead storage (separate repo)</td></tr>
+    <tr><td>Discord / Telegram</td><td>Free</td><td>approval cards + community</td></tr>
+    <tr><td>LLM tokens</td><td>cents/run</td><td>the only consumable; customer-keyed</td></tr>
+  </table>
+
+  <h2>The tally (the only dashboard you need)</h2>
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>date | who | channel | stage | next touch | notes
+stages: listed → DM'd → talked → installed → first card → tapping → asked to pay → paid
+one line per person, updated in the before-bed slot. The funnel's health is the
+distance people stall at — stalls at "installed, no card" = a setup problem;
+stalls at "talked, no install" = a pitch problem. Fix the stage, not the people.</pre></div>
+</section>
+
+<!-- ============ MONEY ============ -->
+<section id="money">
+  <h1>Money — unit economics and the $0 rails</h1>
+  <p class="lede">Internal. Do not recite to buyers unless they ask how the numbers work.</p>
+
+  <h2>Unit economics</h2>
+  <table>
+    <tr><th>Metric</th><th>Value</th></tr>
+    <tr><td>Hard cost per demo customer / month</td><td>≈ R2 (hunting + the customer's own LLM key)</td></tr>
+    <tr><td>Demo → paid conversion assumption</td><td>~5% (conservative)</td></tr>
+    <tr><td>Cost per customer at 5% conversion</td><td>≈ R250 acquired — one lunch out</td></tr>
+    <tr><td>Churn moat</td><td>the accumulating seen-jobs history — leaving means starting blind</td></tr>
+  </table>
+
+  <h2>Payment rails (all live, all $0 to run)</h2>
+  <ul class="tick">
+    <li><b>Whop</b> — one-tap checkout, subscriptions, 30%/12mo affiliate programme. (Open item: reprice the legacy USD cards to ZAR.)</li>
+    <li><b>Lightning</b> — coinos invoice, payer puts name+tier in the note; manual grant on settle.</li>
+    <li><b>Mukuru / EFT</b> — manual grant via WhatsApp; ref = your tenant id. No public merchant API, by design.</li>
+  </ul>
+
+  <h2>Hard boundaries</h2>
+  <ul>
+    <li><b>No card</b> at any step. Every rail is free-tier or manual.</li>
+    <li><b>No paid tooling</b> — if it costs money, it does not get used.</li>
+    <li><b>No marketplace fees</b> — free listings only.</li>
+    <li><b>No new infrastructure spend</b> — hosting is already free.</li>
+  </ul>
+</section>
+
+<!-- ============ ROADMAP ============ -->
+<section id="roadmap">
+  <h1>Roadmap — truthful and dated</h1>
+  <p class="lede">What we are actually working on, not a wish-list for investors.</p>
+
+  <h2>Now</h2>
+  <ul>
+    <li><b>Service-first.</b> Sell attributable placements per customer per month, not software seats.</li>
+    <li><b>Sovereign self-host</b> is the trust story: HLT1-signed licences, 3-day grace, read-only on expiry — never a bricked box.</li>
+    <li><b>Lead capture is live</b> — the demo page arms a real card into the lead database, no email farming.</li>
+  </ul>
+
+  <h2>Next</h2>
+  <ul>
+    <li>Reprice the Whop products to ZAR (they still show legacy USD).</li>
+    <li>Rotate the Discord webhook and settle admin-token custody.</li>
+    <li>Unified DNC enforcement + email/social-only leads.</li>
+    <li>Self-serve onboarding — spin-up that does not need you on the call.</li>
+  </ul>
+</section>
+
 <!-- ============ LEGAL ============ -->
 <section id="legal">
   <h1>Legal & compliance (quick notes, not legal advice)</h1>
@@ -1081,8 +1256,8 @@ Sovereign   self-hosted tier; licence checked daily; read-only on expiry, never 
   <ul class="tick">
     <li>Numbers refreshed from the latest hunt log (Actions → hunt → run log)</li>
     <li>Every CTA points at demo.html — one link, everywhere</li>
-    <li>Discord webhook live; "Hunta Leads" cards visible in your server</li>
-    <li>demo-kit.zip downloads (test from a phone on data, not wifi)</li>
+    <li>Discord webhook live and ROTATED (a previous value was exposed); "Hunta Leads" cards visible in your server</li>
+    <li>demo-kit.zip downloads (test from a phone on data, not wifi); demo lead form → worker /capture → card fires</li>
     <li>og-image attached to social posts; one CTA per post</li>
     <li>Read the house rules (Start tab) and the "never" list (Brand tab)</li>
     <li>Follow-up cadence loaded; 24 h human reply promised and kept</li>
@@ -1094,7 +1269,7 @@ Sovereign   self-hosted tier; licence checked daily; read-only on expiry, never 
         verified — one run shows live per-board log lines and a dry run under ~10 min</li>
   </ul>
   <div class="foot">hunta-marketing · the bible v2.1 · palette #7B5EA7 / #2B2B2B / #F4EEF9 ·
-  production numbers dated 2026-09-16→18, verified 2026-09-19 · <a href="demo.html">demo.html</a> · <a href="https://github.com/king-kunta-cpu/hunta-marketing">repo</a></div>
+  production numbers verified 2026-09-23 against live runs · <a href="demo.html">demo.html</a> · <a href="https://github.com/king-kunta-cpu/hunta-marketing">repo</a></div>
 </section>
 
 </main>
