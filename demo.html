@@ -214,11 +214,12 @@
   // webhook as a secret, so this public page never touches the channel that
   // carries approval cards. HUNTA_CAPTURE_TOKEN is a throwaway: its only power
   // is "create a demo-lead card".
-  // Armed via the lead-hunter worker deploy (2026-09-23). HUNTA_CAPTURE_TOKEN is
-  // scoped to "create a demo-lead card"; rotate it any time:
-  //   wrangler secret put HUNTA_CAPTURE_TOKEN  (then redeploy + update the line below)
-  var CAPTURE_URL = "https://hunta-leads.simalidudu.workers.dev/capture";
-  var CAPTURE_TOKEN = "hcap_8551b04f9b4aa47e7e8f4e08758938fde32f7d910ad3daf7";
+  // 2026-09-26: repointed at the mint relay (hunta-mint /hook/capture), which saves
+  // the lead in hunta-leads and then fires the instant reply job. HUNTA_CAPTURE_TOKEN
+  // still only has the power to "create a demo-lead card"; rotate:
+  //   wrangler secret put MINT_CAPTURE_TOKEN  (hunta-mint)  + redeploy + update below
+  var CAPTURE_URL = "https://hunta-mint.simalidudu.workers.dev/hook/capture";
+  var CAPTURE_TOKEN = "hcap_mint_0340a8c2b0a75349977aa635bb5d1ced";
   document.getElementById('lead').addEventListener('submit',function(e){
     e.preventDefault();
     var nm=document.getElementById('nm').value.trim();
