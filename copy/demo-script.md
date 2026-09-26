@@ -82,7 +82,7 @@ SHOT 3 (0:18-0:28)  Open the letter PDF, scroll.
 CAPTION: "Letter + CV drafted from the candidate's real profile. Nothing invented."
 
 SHOT 4 (0:28-0:36)  Phone: tap ✅. Sent confirmation.
-CAPTION: "My tap. Their inbox. Sent from their own Gmail."
+CAPTION: "My tap. Sent from their own Gmail — or packed and ready for the portal."
 
 SHOT 5 (0:36-0:45)  Logo on lilac.
 VOICE/CAPTION: "Hunta. Jobs found. Applications drafted. You tap approve. It sends."

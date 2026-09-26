@@ -103,7 +103,8 @@ I'm testing Hunta — it hunts jobs for you across the big boards in
 tailored letter + CV for each one. You approve every single application
 from your phone before anything goes anywhere.
 
-No CV upload to random websites. Your letter goes out from YOUR email.
+No CV upload to random websites. Where the ad takes email, your letter goes out
+from YOUR email; portal-only ads arrive as a ready-to-submit apply pack.
 Nothing is ever sent without your yes.
 
 Actually — it's free for everyone now. One candidate, free forever:

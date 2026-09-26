@@ -174,7 +174,7 @@ the log streaming the whole way.</pre></div>
     <tr><td>4 · Render</td><td>country-formatted PDFs: cv_za (ID/EE/licence), cv_zw, cv_zm + cover letter; company names de-shouted ("SINOGY POWER PTY LTD" → title case)</td><td>"it knows what a ZA CV looks like"</td></tr>
     <tr><td>5 · Card</td><td>Discord (primary) or Telegram (secondary): title, company, match %, reason, link, both PDFs, ✅/❌</td><td>"your whole pipeline fits in one notification"</td></tr>
     <tr><td>6 · Tap</td><td>✅ sends via SMTP from the candidate's own mailbox (20/day cap, reply-to them). ❌ deletes PDFs. Signed links expire with the PDFs</td><td>"nothing sends without you"</td></tr>
-    <tr><td>7 · Purge</td><td>PDFs deleted on send/reject; untouched drafts purged at 72 h; the letter/CV text lives in the DB only while a tap is pending and is NULLed the moment you decide; settled rows expire at 60 days</td><td>"zero retention is the privacy story"</td></tr>
+    <tr><td>7 · Purge</td><td>PDFs deleted on send/reject and purged at 72 h; the letter text lives in the DB only while a tap is pending, is NULLed the moment you decide, and untouched drafts expire after 14 days; settled rows expire at 60 days</td><td>"zero retention is the privacy story"</td></tr>
   </table>
 
   <h2>Boards matrix (live status 2026-09-17)</h2>
@@ -211,7 +211,7 @@ the log streaming the whole way.</pre></div>
 • Four CV designs (classic · indigo · emerald · sunset), chosen PER CANDIDATE — the coach picks
   the look, the letter stays business-plain, every design ATS-parseable.
 • 20 sends / candidate / day — the candidate's Gmail reputation is sacred.
-• PDFs: deleted on send/reject; untouched drafts purged at 72 h.
+• PDFs: deleted on send/reject, purged at 72 h. Untouched drafts expire after 14 days.
 • Store: job metadata + status, plus the pending draft — text NULLed and PDFs unlinked the
   moment of approve/reject; settled rows expire at 60 days. Candidate = one YAML = right to
   erasure; tenant = one file = rm.
@@ -504,8 +504,9 @@ Reply "help" for a 10-min setup call. If not your world, sorry for the ping 🙏
 Hunta hunts jobs for you across the big boards in {{country}}, shortlists what
 actually matches your profile, and writes a tailored letter + CV for each one.
 You (or your coach) approve every single application before anything goes
-anywhere. Your letter goes out from YOUR email. Nothing is ever sent without
-a yes.
+anywhere. Where the ad takes email, your letter goes out from YOUR email;
+portal-only ads come to you as a ready-to-submit apply pack. Nothing is ever
+sent without a yes.
 
 Grab it: https://king-kunta-cpu.github.io/hunta-marketing/demo.html</pre></div>
 
