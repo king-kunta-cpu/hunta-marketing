@@ -1,0 +1,30 @@
+Everything people ask before buying Hunta, in one place.
+
+Does anything send without me?
+No. Every application arrives in Discord as a card with the job, match reason and PDFs. Nothing goes out until you tap Approve.
+
+Which jobs does it search?
+17 job boards by default (22 supported) across South Africa, Zimbabwe and Zambia. One employer is never contacted twice within 30 days, and daily caps keep volume sane.
+
+Can I try it before paying?
+Yes. The free demo pack runs the whole pipeline on 1 candidate, capped at 25 drafts and 5 sends per rolling 30 days: https://king-kunta-cpu.github.io/hunta-marketing/gethunta/
+
+Why is the price in US dollars?
+Whop bills in USD. The plans are set to the rand value; rand figures are approximate, at R16.31 per $1 (27 Sep 2026).
+
+No card?
+Pay by Lightning (SharkSkin@coinos.io, name and tier in the memo) or Mukuru / EFT to +263 78 460 0904 (reference: your tenant id). Your licence is issued once payment lands.
+
+What happens after checkout?
+You are sent to a short setup page. Your job seekers get a private intake link; they never need to join your Discord.
+
+Can I pay yearly?
+Yes. Annual prepay is 25% off: Solo $2,754/yr (about R45,000), Studio $5,517/yr (about R90,000). Email us to arrange it.
+
+What does each plan include?
+Solo $306/mo (about R4,999): 3 candidates, 100 sends a month, priority slots.
+Studio $613/mo (about R9,999): 15 candidates, fair-use sends, white-label PDFs, LLM fallback chain.
+Sovereign $920/mo (about R15,000): self-hosted Docker deployment, unlimited candidates and sends, signed offline licence, an onboarding day. If the licence lapses it goes read-only; your data is never locked or deleted.
+
+Questions?
+simalidudu@gmail.com
