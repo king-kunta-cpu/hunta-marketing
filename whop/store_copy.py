@@ -27,8 +27,8 @@ Which jobs does it search?
 Can I try it before paying?
 Yes. The free demo pack runs the whole pipeline on 1 candidate, capped at {CAPS['total_drafts']} drafts and {CAPS['total_sends']} sends per rolling {CAPS['days']} days: {B['site']}
 
-Why is the price in US dollars?
-Whop bills in USD. The plans are set to the rand value; {B['fx_note']}.
+Can I pay in rands?
+Yes. Every plan has a rand checkout on Whop: Solo {B['solo_zar']}, Studio {B['studio_zar']}, Sovereign {B['sovereign_zar']}. The dollar plans are set to the same value; {B['fx_note']}.
 
 No card?
 Pay by Lightning ({B['lightning']}, name and tier in the memo) or Mukuru / EFT to {B['mukuru'].split(': ')[1].split(' ·')[0]} (reference: your tenant id). Your licence is issued once payment lands.
@@ -37,7 +37,10 @@ What happens after checkout?
 You are sent to a short setup page. Your job seekers get a private intake link; they never need to join your Discord.
 
 Can I pay yearly?
-Yes. Annual prepay is 25% off: Solo {B['solo_annual']}, Studio {B['studio_annual']}. Email us to arrange it.
+Yes, 25% off in one payment by bank wire on Whop (Whop only takes cards up to $2,500): Solo {B['solo_annual']}, Studio {B['studio_annual']}, Sovereign {B['sovereign_annual']}. Pick the annual option at checkout or on {B['site']}.
+
+How does Sovereign (self-hosted) arrive?
+In Discord. After checkout you run /claim in your own server; a private channel opens with your signed licence and the Docker install steps, and every renewal posts a fresh licence there. Help: /help in that channel, WhatsApp backup {B['mukuru'].split(': ')[1].split(' ·')[0]}.
 
 Questions?
 {B['support']}"""
@@ -46,7 +49,7 @@ SHORT_FAQ = f"""
 FAQ
 Does anything send without me? No. Each application is a Discord card; nothing goes out until you tap Approve.
 Can I try first? Yes, free demo pack (1 candidate, {CAPS['total_drafts']} drafts, {CAPS['total_sends']} sends / {CAPS['days']} days): {B['site']}
-Why USD? Whop bills in dollars; plans are set to the rand value (R16.31 per $1).
+Pay in rands? Yes: rand checkouts at {B['solo_zar']} / {B['studio_zar']} / {B['sovereign_zar']}. Annual: one bank-wire payment, 25% off.
 No card? Lightning ({B['lightning']}) or Mukuru / EFT ({B['mukuru'].split(': ')[1].split(' ·')[0]}, ref = tenant id).
 Full FAQ in the Hunta forum. Questions: {B['support']}"""
 FAQ = SHORT_FAQ
@@ -63,10 +66,11 @@ Solo includes:
 - {S['candidates']} candidates
 - {S['sends_month']} sends a month
 - Priority slots
+- Approve in Discord (web dashboard + Telegram when self-hosted)
 - {BOARDS}
 - Human approval on every send
 
-{B['solo_price']} billed every 30 days, or {B['solo_annual']} prepaid. Cancel any time.
+{B['solo_price']} billed every 30 days, or {B['solo_zar']} in rands, or {B['solo_annual']} prepaid by bank wire. Cancel any time.
 """ + FAQ,
     },
     "prod_S3yLSyR1X98sE": {
@@ -82,7 +86,7 @@ Studio includes:
 - {BOARDS}
 - Human approval on every send
 
-{B['studio_price']} billed every 30 days, or {B['studio_annual']} prepaid. Cancel any time.
+{B['studio_price']} billed every 30 days, or {B['studio_zar']} in rands, or {B['studio_annual']} prepaid by bank wire. Cancel any time.
 """ + FAQ,
     },
     "prod_YinMTkuhgU2Xv": {
@@ -91,15 +95,15 @@ Studio includes:
         "description": f"""For agencies and institutions that need the pipeline on their own infrastructure.
 
 Sovereign includes:
-- Self-hosted Docker deployment
+- Self-hosted Docker deployment on your own box
 - Unlimited candidates and sends
-- Signed offline licence
-- An onboarding day with us
+- Signed offline licence, delivered in your Discord after checkout (WhatsApp backup)
+- Install guide + help in your private Discord channel
 - {BOARDS}
 - Human approval on every send
 - Lapsed licence = read-only, never bricked or deleted
 
-{B['sovereign_price']} billed every 30 days. Cancel any time.
+{B['sovereign_price']} billed every 30 days, or {B['sovereign_zar']} in rands, or {B['sovereign_annual']} prepaid by bank wire. Cancel any time.
 """ + FAQ,
     },
 }

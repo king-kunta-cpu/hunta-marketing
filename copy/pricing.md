@@ -3,14 +3,17 @@
 Currency: **US dollars, set to the rand value** (owner decision 2026-09-27: Whop bills USD; rand
 figures are approximate at R16.31 per $1). ZA/ZW/ZM buyers can also pay sats via Lightning or
 Mukuru/EFT at the day's rate.
-Bill monthly via **Whop**; annual = 25% off (the cash lever that funds the build); affiliates 30% recurring 12 months.
+Bill monthly via **Whop** in USD **or in rands** (ZAR plans R4,999 / R9,999 / R15,000, added 2026-09-27);
+annual = 25% off, **one payment by bank wire on Whop** (Whop refuses card/recurring plans above $2,500 on this
+account, so annual is a one-time 365-day plan: $2,754 / $5,517 / $8,280; no rand annual for the same reason);
+affiliates 30% recurring 12 months. Every Whop plan charges exactly its price on day one (no extra first-charge fee).
 
 | Tier | USD/mo | ≈ ZAR | Candidates | Sends | Extras |
 |---|---|---|---|---|---|
 | **Demo** | $0 forever | R0 | 1 | 5/mo | full pipeline, Discord card, PDFs, 72 h purge |
-| **Solo** | $306 | ≈ R4,999 | 3 | 100/mo | priority hunt slots |
-| **Studio** | $613 | ≈ R9,999 | 15 | fair-use (20/day/candidate guard-rail) | white-label PDFs, brand header |
-| **Sovereign** | $920 | ≈ R15,000 | unlimited | guard-rail | self-hosted, onboarding day, data never leaves |
+| **Solo** | $306 | R4,999 | 3 | 100/mo | priority hunt slots; approve in Discord (web dashboard + Telegram when self-hosted) |
+| **Studio** | $613 | R9,999 | 15 | fair-use (20/day/candidate guard-rail) | white-label PDFs, brand header |
+| **Sovereign** | $920 | R15,000 | unlimited | guard-rail | self-hosted Docker; signed licence + install steps delivered in the buyer's Discord (WhatsApp backup); data never leaves |
 
 ## Why these numbers
 

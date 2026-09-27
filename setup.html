@@ -260,14 +260,17 @@ touch a scheduler.</p>
 <ol>
  <li><b>Take the order.</b> Confirm: candidate count, countries, branding (Studio+). Solo $306/mo (about R4,999)
      = 3 candidates · 100 sends; Studio $613/mo (about R9,999) = 15 + white-label PDFs; Sovereign $920/mo (about R15,000) =
-     self-hosted, unlimited. Annual prepay: $2,754 (Solo, about R45,000) / $5,517 (Studio, about R90,000) &mdash; 25% off, one payment.
-     These are the actual prices everywhere: US dollars (rand figures approximate), month to month or annual.</li>
- <li><b>Payment — Whop one-tap checkout is LIVE: Solo <code>whop.com/checkout/ch_psCsZ17A4pnZ4qK</code>,
-     Studio <code>whop.com/checkout/ch_O5mkjKaDR1Gk4Uk</code>, store <code>whop.com/jacaranda-labs</code>.</b>
+     self-hosted, unlimited. Annual prepay: $2,754 (Solo) / $5,517 (Studio) / $8,280 (Sovereign) &mdash; 25% off, one payment by bank wire.
+     These are the actual prices everywhere: US dollars monthly, or pay in rands (R4,999 / R9,999 / R15,000 a month).</li>
+ <li><b>Payment — Whop one-tap checkout is LIVE for every tier:</b> in dollars (Solo <code>whop.com/checkout/ch_abZZn55zTTq9VO0</code>,
+     Studio <code>whop.com/checkout/ch_xXwDxquSJP2Ctwu</code>, Sovereign <code>whop.com/checkout/ch_cjiffJE23bpi6Zx</code>),
+     in rands (Solo <code>ch_kx2q8S9aYZtNTbX</code>, Studio <code>ch_DevT4v0Yys7JPUX</code>, Sovereign <code>ch_kB1eviTd27jsJiv</code>),
+     and annual by bank wire (Solo <code>ch_k0iLW2DxBwPn7Pb</code>, Studio <code>ch_2AqEEMTlrXveTzJ</code>, Sovereign <code>ch_4gPHCzpXHl3jk6y</code>).
+     Store <code>whop.com/jacaranda-labs</code>. Whop only takes cards up to $2,500, so annual is wire-only.
      Card payments run through Whop; every manual rail below is honoured in full too — Lightning to
      <b>SharkSkin@coinos.io</b> (LUD-16-verified 2026-09-19; payer puts name + tier in the payment
      note, receipt to WhatsApp), or Mukuru/EFT quoting their tenant id as the reference. Push annual
-     prepay on every close ($2,754 (about R45,000) Solo / $5,517 (about R90,000) Studio) — cash now beats MRR while the build is unfunded,
+     prepay on every close ($2,754 Solo / $5,517 Studio / $8,280 Sovereign) — cash now beats MRR while the build is unfunded,
      and one payment removes a month of manual grant admin. Whop checkout for a new tenant: point them at
      the tier card on the store page. Never start the tenant until money landed (or the owner's manual-rail
      receipt came in).</li>
@@ -276,9 +279,10 @@ touch a scheduler.</p>
      pipeline. A new paying tenant is a directory, not a deploy.</li>
  <li><b>Remove the leash:</b> their build runs without <code>HUNTA_FLAVOUR=demo</code> — that single env
      flip is the entire upgrade; queues, history and CV designs carry over untouched.</li>
- <li><b>Self-host (Sovereign) customers:</b> <code>hunta licence-issue</code> signs their licence blob
-     (annual, renewals at their end); their own machine, their git repo, zero dependency on us.
-     Onboarding day is included — self-host failures are support tickets, priced in.</li>
+ <li><b>Self-host (Sovereign) customers:</b> nothing to do by hand. After a Whop purchase they run
+     <code>/claim</code> in their own Discord; the bot opens a private <b>#🔐-hunta-sovereign</b> channel with their
+     signed licence and the install steps below, and posts a fresh licence on every renewal. Manual-rail buyers:
+     <code>hunta licence-issue</code> signs one by hand. Support is <code>/help</code> in that channel, WhatsApp as backup.</li>
  <li><b>Week-one check:</b> after 3 days ask for a screenshot of their first approved card.
      That moment is the product working; it's also your referral ask, made warm.</li>
 </ol>
@@ -286,6 +290,37 @@ touch a scheduler.</p>
 "Done — you're on [tier], [n] candidates live, sends start with your next hunt at [time].
 Nothing about your demo changes: same pipeline, your keys, your mailbox, no leash.
 Your first CV designs are set per candidate — say the word if anyone wants a different look."</div>
+
+<h2 id="sovereign"><span class="n">13</span> Sovereign: install Hunta on your own box</h2>
+<p class="sub">For Sovereign buyers. About 15 minutes on any Linux server, VPS or spare PC with Docker. Your licence is
+in your <b>#🔐-hunta-sovereign</b> Discord channel (it appears after you run <code>/claim</code>). Stuck? Type
+<code>/help</code> in that channel, or WhatsApp <b>+263 78 460 0904</b>.</p>
+<ol>
+ <li><b>Get the image and the compose file.</b>
+<pre class="term">mkdir hunta &amp;&amp; cd hunta
+docker pull ghcr.io/king-kunta-cpu/hunta:latest
+curl -fsSLO https://gethunta.pages.dev/downloads/docker-compose.sovereign.yml</pre></li>
+ <li><b>Make two keys</b> (run each once and keep the output):
+<pre class="term">docker run --rm ghcr.io/king-kunta-cpu/hunta:latest hunta keygen
+docker run --rm ghcr.io/king-kunta-cpu/hunta:latest hunta admin-token</pre></li>
+ <li><b>Create <code>.env</code></b> in the same folder:
+<pre class="term">HUNTA_LICENCE_KEY=HLT1.paste-your-licence-here
+HUNTA_MASTER_KEY=the-keygen-output
+HUNTA_ADMIN_TOKEN=the-admin-token-output</pre></li>
+ <li><b>Start it and check the licence:</b>
+<pre class="term">docker compose -f docker-compose.sovereign.yml up -d
+docker compose -f docker-compose.sovereign.yml exec hunta hunta licence-status</pre>
+     It should print your firm name, the expiry date and "seats: unlimited".</li>
+ <li><b>Add your firm and candidates:</b>
+<pre class="term">docker compose -f docker-compose.sovereign.yml exec hunta hunta tenant add my-firm --name "My Firm"</pre>
+     It prints the next steps (mailbox app password, AI key, candidates). Then run
+     <code>hunta doctor</code> the same way to confirm everything is green. The dashboard is at
+     <code>http://your-box:8080</code>; sign in with your admin token. Approvals go to Discord, the web dashboard,
+     or Telegram (<code>HUNTA_TELEGRAM_BOT_TOKEN</code> in <code>.env</code>).</li>
+ <li><b>Renewals:</b> each payment posts a fresh licence in your Discord channel. Replace the
+     <code>HUNTA_LICENCE_KEY</code> line and run <code>docker compose -f docker-compose.sovereign.yml up -d</code>.
+     If a licence lapses, Hunta turns read-only (the dashboard still works; hunting and sending stop). It never deletes anything.</li>
+</ol>
 
 <footer><div class="wrap" style="padding:0">
  hunta-demo 1.0.0 · the free demo is the real wheel with a counted leash ·

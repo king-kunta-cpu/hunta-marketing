@@ -43,6 +43,8 @@
  .price h3{margin:2px 0 10px}
  .price ul{margin:0 0 14px;padding-left:18px;text-align:left;font-size:14px;color:#444}
  .buy{display:inline-block;background:var(--purp);color:#fff;font-weight:700;padding:10px 22px;border-radius:9px;text-decoration:none}
+ .buy.alt{display:block;margin-top:8px;background:#fff;color:var(--purp);border:2px solid var(--purp);padding:8px 14px;font-size:14px}
+ .price .buy:first-of-type{display:block}
  .rails{background:var(--tint);border-radius:12px;padding:16px 18px;font-size:14.5px}
  .rails code{background:#fff;border:1px solid #ddd4ea;padding:1px 6px;border-radius:5px;font-size:13px}
  details{border:1px solid #e6e0ef;border-radius:10px;padding:12px 16px;margin-bottom:10px;background:#fbfaff}
@@ -122,19 +124,29 @@ $ hunta hunt --dry<br>
 <section style="background:#faf8fd"><div class="wrap">
   <h2>Simple pricing. Pay how you want.</h2>
   <div class="grid">
-    <div class="price"><h3>Solo</h3><div class="amt">$306<span style="font-size:14px">/mo</span></div><div style="font-size:13px;opacity:.75">about R4,999</div>
-      <ul><li>1 tenant · 3 candidates · 100 sends/mo</li><li>hosted on your GitHub Actions</li><li>dashboard + Discord/Telegram</li>
+    <div class="price"><h3>Solo</h3><div class="amt">$306<span style="font-size:14px">/mo</span></div><div style="font-size:13px;opacity:.75">or R4,999/mo in rands</div>
+      <ul><li>1 tenant · 3 candidates · 100 sends/mo</li><li>hosted for you, nothing to install</li><li>approve in Discord (web dashboard + Telegram when self-hosted)</li>
       <li><b>$2,754/yr (about R45,000)</b> &mdash; save $918</li></ul>
-      <a class="buy" href="https://hunta-mint.simalidudu.workers.dev/g/s1/gethunta">Buy Solo on Whop</a></div>
+      <a class="buy" href="https://hunta-mint.simalidudu.workers.dev/g/s1/gethunta">Buy Solo &mdash; $306/mo</a>
+      <a class="buy alt" href="https://hunta-mint.simalidudu.workers.dev/g/s7/gethunta">Pay in rands &mdash; R4,999/mo</a>
+      <a class="buy alt" href="https://hunta-mint.simalidudu.workers.dev/g/s4/gethunta">Pay annual by bank wire &mdash; $2,754</a></div>
     <div class="price" style="border-width:3px"><h3>Studio ⭐ most popular</h3>
-      <div class="amt">$613<span style="font-size:14px">/mo</span></div><div style="font-size:13px;opacity:.75">about R9,999</div>
+      <div class="amt">$613<span style="font-size:14px">/mo</span></div><div style="font-size:13px;opacity:.75">or R9,999/mo in rands</div>
       <ul><li>1 tenant · 15 candidates · fair-use sends</li><li>LLM failover chain (never rate-limited mid-hunt)</li><li>queue paging + priority support</li>
-      <li><b>$5,517/yr (about R90,000)</b></li></ul>
-      <a class="buy" href="https://hunta-mint.simalidudu.workers.dev/g/s2/gethunta">Buy Studio on Whop</a></div>
-    <div class="price"><h3>Sovereign</h3><div class="amt">$920<span style="font-size:14px">/mo</span></div><div style="font-size:13px;opacity:.75">about R15,000</div>
-      <ul><li>your box, your Docker, signed offline licence</li><li>unlimited candidates</li><li>24-month source conversion terms</li></ul>
-      <a class="buy" href="https://wa.me/263784600904?text=Hunta%20%E2%80%94%20Sovereign%20(self-hosted)%20licence">Invoice / pay direct on WhatsApp</a></div>
+      <li><b>$5,517/yr (about R90,000)</b> &mdash; save $1,839</li></ul>
+      <a class="buy" href="https://hunta-mint.simalidudu.workers.dev/g/s2/gethunta">Buy Studio &mdash; $613/mo</a>
+      <a class="buy alt" href="https://hunta-mint.simalidudu.workers.dev/g/s8/gethunta">Pay in rands &mdash; R9,999/mo</a>
+      <a class="buy alt" href="https://hunta-mint.simalidudu.workers.dev/g/s5/gethunta">Pay annual by bank wire &mdash; $5,517</a></div>
+    <div class="price"><h3>Sovereign</h3><div class="amt">$920<span style="font-size:14px">/mo</span></div><div style="font-size:13px;opacity:.75">or R15,000/mo in rands</div>
+      <ul><li>self-hosted: your box, your Docker, signed offline licence</li><li>unlimited candidates</li><li>licence + install steps delivered in your Discord; WhatsApp backup</li>
+      <li><b>$8,280/yr (about R135,000)</b> &mdash; save $2,760</li></ul>
+      <a class="buy" href="https://hunta-mint.simalidudu.workers.dev/g/s3/gethunta">Buy Sovereign &mdash; $920/mo</a>
+      <a class="buy alt" href="https://hunta-mint.simalidudu.workers.dev/g/s9/gethunta">Pay in rands &mdash; R15,000/mo</a>
+      <a class="buy alt" href="https://hunta-mint.simalidudu.workers.dev/g/s6/gethunta">Pay annual by bank wire &mdash; $8,280</a></div>
   </div>
+  <p style="margin-top:16px;font-size:14px">💱 <b>Pay in dollars or rands.</b> Monthly checkout on Whop takes a card in US dollars or in South African rands.
+  Annual is one payment by bank wire on Whop: Whop only takes cards up to $2,500, so yearly plans go by wire.
+  Every tier renews monthly unless you pick annual; cancel any time in Whop.</p>
   <p style="margin-top:16px" class="rails">🇿🇼 🇿🇦 No card? No problem — pay by <b>⚡ Lightning</b>
   (<code>SharkSkin@coinos.io</code>, name + tier in the memo) or <b>Mukuru / cash EFT</b>
   (<code>+263 78 460 0904 · ref = your tenant id</code>). Say what you paid for and the licence lands the same day.</p>
