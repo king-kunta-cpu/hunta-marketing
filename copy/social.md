@@ -17,7 +17,7 @@ VacancyMail, iHarareJobs. Read every ad. Decide "is this Thabo?" Rewrite the sam
 letter for the 30th time. Attach the CV. Send. Repeat across 6 boards, 3 candidates,
 4 hours a day.
 
-So I built Hunta. It runs on a schedule, sweeps 18 job boards across South Africa,
+So I built Hunta. It runs on a schedule, sweeps 17 job boards by default (22 supported) across South Africa,
 Zimbabwe and Zambia, matches every ad against the candidate's real profile, scores the
 fit, and drafts a tailored cover letter + a country-formatted CV — both as PDFs.
 
@@ -48,7 +48,7 @@ https://king-kunta-cpu.github.io/hunta-marketing/demo.html
 ```
 The 40 open tabs are why good candidates lose.
 
-Hunta sweeps 18 job boards in ZA·ZW·ZM, scores each ad against the candidate's real
+Hunta sweeps 17 job boards by default (22 supported) in ZA·ZW·ZM, scores each ad against the candidate's real
 profile, drafts the letter + CV as PDFs, and drops one card in your Discord:
 [✅ Approve & send] [❌ Reject].
 
@@ -66,8 +66,8 @@ They're losing to the 40 open tabs.
 I built Hunta — a job-hunting copilot for coaches in ZA, ZW, ZM.
 Here's the whole loop in 7 posts 🧵
 
-2/ 06:00, 10:00, 14:00, 18:00. Hunta wakes up and sweeps 18 boards:
-PNet, CareerJunction, JobMail, Careers24, VacancyMail, iHarareJobs,
+2/ 06:00, 10:00, 14:00, 18:00. Hunta wakes up and sweeps 17 boards by default (22 supported):
+Adzuna, Google for Jobs, PNet, CareerJunction, JobMail, VacancyMail, iHarareJobs,
 GoZambiaJobs, remote boards and more. No LinkedIn login. No scraping profiles.
 
 3/ Every ad gets matched against the candidate's real profile.
@@ -105,7 +105,7 @@ the demo is free forever — no card: https://king-kunta-cpu.github.io/hunta-mar
 ## X — single post
 
 ```
-Hunta sweeps 18 job boards in ZA·ZW·ZM, drafts the letter + CV, and posts one card
+Hunta sweeps 17 job boards by default (22 supported) in ZA·ZW·ZM, drafts the letter + CV, and posts one card
 to your Discord. [✅ Approve & send] [❌ Reject]. Nothing sends without your tap.
 The 40 tabs die today.
 ```
@@ -149,7 +149,7 @@ Reply "help" and I'll set it up with you on a 10-min call.
 ```
 **Hunta** is live for our coaching crew 🔎
 
-What it does: sweeps 18 job boards (ZA·ZW·ZM + remote), scores each ad against your
+What it does: sweeps 17 job boards by default (22 supported) across ZA·ZW·ZM + remote, scores each ad against your
 candidate's profile, drafts a tailored cover letter + CV as PDFs, and posts a single
 card here with ✅ / ❌.
 

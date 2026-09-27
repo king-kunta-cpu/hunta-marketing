@@ -24,9 +24,10 @@ is a YAML — deleting the file is the right to erasure.
 No LinkedIn login, no profile scraping. Public job search only.
 
 **Which countries / boards?**
-South Africa, Zimbabwe, Zambia, plus remote-first boards. 18 integrations including
-PNet, CareerJunction, JobMail, Careers24, Bizcommunity, VacancyMail, iHarareJobs,
-JobsZimbabwe, GoZambiaJobs, LinkedIn jobs search, Jobicy and Remotive. CVs render to
+South Africa, Zimbabwe, Zambia, plus remote-first boards. 22 boards supported, 17 on by
+default, including Adzuna, Google for Jobs (JSearch), PNet, CareerJunction, JobMail,
+Bizcommunity, VacancyMail, iHarareJobs, JobsZimbabwe, GoZambiaJobs, Impactpool,
+LinkedIn jobs search, Himalayas, Jobicy and Remotive. CVs render to
 ZA, ZW and ZM conventions.
 
 **What does it cost to run?**

@@ -53,9 +53,9 @@ Landing page (lead capture + download): https://king-kunta-cpu.github.io/hunta-m
 ## The 15-minute deep dive (studio / agency buyers)
 
 5-min demo above, then:
-- **6 min — coverage matrix**: open the board list (ZA: PNet · CareerJunction · JobMail ·
-  Careers24 · Bizcommunity · LinkedIn · remote. ZW: VacancyMail · iHarareJobs · JobsZimbabwe.
-  ZM: GoZambiaJobs). "18 integrations; some boards block datacentre IPs, the pipeline
+- **6 min — coverage matrix**: open the board list (ZA: Adzuna · Google for Jobs · PNet ·
+  CareerJunction · JobMail · Bizcommunity · LinkedIn · remote. ZW: VacancyMail · iHarareJobs · JobsZimbabwe.
+  ZM: GoZambiaJobs). "22 boards supported, 17 on by default; some boards block datacentre IPs, the pipeline
   degrades board-by-board without ever stopping — one dead scraper never kills a run."
 - **8 min — economics**: one LLM call per shortlisted job does score + letter + CV; rules
   and pre-scoring reject ~85% of ads for free before any AI spend. "Your API bill is in
@@ -93,7 +93,7 @@ VOICE/CAPTION: "Hunta. Jobs found. Applications drafted. You tap approve. It sen
 ```
 Great speaking, {{first_name}}.
 
-What you saw, in one line: Hunta hunts 18 boards, drafts the letter + CV,
+What you saw, in one line: Hunta hunts 17 boards by default (22 supported), drafts the letter + CV,
 and waits for your tap.
 
 Attached/below: the sample CV + letter, the guard-rails list, pricing.

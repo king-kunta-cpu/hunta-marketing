@@ -127,7 +127,7 @@ AFTER DEMO SIGNUP (day 3)  First cards landing? The reject button is the most
 
 ```
 "We do the forty-tabs part of job hunting. You give it one candidate and one
-keyword; it checks eighteen boards four times a day, drafts the letter and CV,
+keyword; it checks seventeen boards by default, out of twenty-two it supports, four times a day, drafts the letter and CV,
 and asks your permission before anything sends. Demo's free forever — scan this."
 → QR to <landing-url>
 ```
@@ -160,7 +160,7 @@ If not your world, genuinely happy to just follow your posts.
 ### X / Discord / Telegram communities
 
 ```
-Built a thing for career coaches in southern Africa: it hunts 18 boards, drafts
+Built a thing for career coaches in southern Africa: it hunts 17 boards by default (22 supported), drafts
 the letter+CV, posts one card, waits for your tap. Free demo forever, no card.
 Link in my bio / here: <landing-url>. AMA about the guard-rails.
 ```

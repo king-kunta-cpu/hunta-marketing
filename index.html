@@ -137,7 +137,7 @@
   </div>
 
   <h2>The stack in one breath</h2>
-  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hunta hunts 18 job boards four times a day across South Africa, Zimbabwe and Zambia,
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hunta hunts 17 job boards by default (22 supported) four times a day across South Africa, Zimbabwe and Zambia,
 scores every ad against the candidate's real profile, drafts a tailored cover letter
 and a country-formatted CV as PDFs, and posts ONE card to your Discord. You tap
 approve — it sends from the candidate's own Gmail. You tap reject — the PDFs are
@@ -177,21 +177,25 @@ the log streaming the whole way.</pre></div>
     <tr><td>7 · Purge</td><td>PDFs deleted on send/reject and purged at 72 h; the letter text lives in the DB only while a tap is pending, is NULLed the moment you decide, and untouched drafts expire after 14 days; settled rows expire at 60 days</td><td>"zero retention is the privacy story"</td></tr>
   </table>
 
-  <h2>Boards matrix (live status 2026-09-17)</h2>
+  <h2>Boards matrix (22 registered, 17 on by default; status 2026-09-17, updated 2026-09-27)</h2>
   <table>
     <tr><th>Board</th><th>Region</th><th>Status</th></tr>
+    <tr><td>Adzuna</td><td>ZA</td><td>✅ API; 51 ads in the 2026-09-27 dry run (no ZW/ZM index)</td></tr>
+    <tr><td>Google for Jobs (JSearch)</td><td>all</td><td>✅ API (free tier: 200 calls/month)</td></tr>
     <tr><td>PNet</td><td>ZA</td><td>✅ 31–68 ads/run</td></tr>
     <tr><td>CareerJunction</td><td>ZA</td><td>✅ 14–38</td></tr>
     <tr><td>JobMail</td><td>ZA</td><td>✅ category browsing, ~6 matches/run</td></tr>
-    <tr><td>Careers24</td><td>ZA</td><td>⚠️ works off-datacentre; 403 from GitHub IPs (degrades gracefully)</td></tr>
+    <tr><td>Careers24</td><td>ZA</td><td>⚪ supported, off by default: 403 from GitHub IPs</td></tr>
     <tr><td>Bizcommunity</td><td>ZA</td><td>✅ 0–3</td></tr>
     <tr><td>LinkedIn jobs search</td><td>all</td><td>✅ 2–15, guest/public only</td></tr>
-    <tr><td>Jobicy · Remotive</td><td>remote</td><td>✅ country-aware; drops region-locked ads</td></tr>
+    <tr><td>Himalayas · Jobicy · Remotive</td><td>remote</td><td>✅ country-aware; drops region-locked ads</td></tr>
     <tr><td>VacancyMail</td><td>ZW</td><td>✅ 6–7</td></tr>
     <tr><td>iHarareJobs</td><td>ZW</td><td>✅ 4</td></tr>
     <tr><td>JobsZimbabwe</td><td>ZW</td><td>✅ 7</td></tr>
     <tr><td>GoZambiaJobs</td><td>ZM</td><td>✅ 3</td></tr>
-    <tr><td>UNjobs · Impactpool</td><td>all</td><td>⚠️ 0 lately / 403 on runners; kept as opportunistic</td></tr>
+    <tr><td>Impactpool</td><td>ZW · ZM</td><td>⚠️ on by default, opportunistic (often 0)</td></tr>
+    <tr><td>UNjobs</td><td>all</td><td>⚪ supported, off by default: 403 on runners</td></tr>
+    <tr><td>ReliefWeb</td><td>ZA · ZW · ZM</td><td>⏳ on by default; returns nothing until its API name is approved</td></tr>
   </table>
   <p class="sub">One dead scraper never kills a run — each hunter fails alone and the log says
   "[hunter:x] 0 jobs". Say "coverage degrades gracefully" if asked. Ad ranges measured 2026-09-17 and
@@ -328,7 +332,7 @@ VacancyMail, iHarareJobs. Read every ad. Decide "is this Thabo?" Rewrite the sam
 cover letter for the 30th time. Attach the CV. Send. Repeat across 6 boards,
 3 candidates, 4 hours a day.
 
-So I built Hunta. It runs on a schedule, sweeps 18 job boards across South Africa,
+So I built Hunta. It runs on a schedule, sweeps 17 job boards by default (22 supported) across South Africa,
 Zimbabwe and Zambia, matches every ad against the candidate's real profile, scores
 the fit, and drafts a tailored cover letter + a country-formatted CV — both as PDFs.
 
@@ -352,7 +356,7 @@ I'm giving everyone a free demo: one candidate, free forever, no card.
   <h2>LinkedIn — short</h2>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>The 40 open tabs are why good candidates lose.
 
-Hunta sweeps 18 job boards in ZA·ZW·ZM, scores each ad against the candidate's real
+Hunta sweeps 17 job boards by default (22 supported) in ZA·ZW·ZM, scores each ad against the candidate's real
 profile, drafts the letter + CV as PDFs, and drops one card in your Discord:
 [✅ Approve & send] [❌ Reject].
 
@@ -378,7 +382,7 @@ And everyone gets the demo free forever — one candidate, no card:
 https://king-kunta-cpu.github.io/hunta-marketing/demo.html</pre></div>
 
   <h2>X — single</h2>
-  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hunta sweeps 18 job boards in ZA·ZW·ZM, drafts the letter + CV, and posts one card
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Hunta sweeps 17 job boards by default (22 supported) in ZA·ZW·ZM, drafts the letter + CV, and posts one card
 to your Discord. [✅ Approve & send] [❌ Reject]. Nothing sends without your tap.
 Free demo forever, no card → https://king-kunta-cpu.github.io/hunta-marketing/demo.html</pre></div>
 
@@ -412,7 +416,7 @@ Reply "help" and I'll set it up with you on a 10-min call.</pre></div>
   <h2>Community announcement (Discord/Telegram)</h2>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>**Hunta** is live for our crew 🔎 — free demo for every member, forever.
 
-It sweeps 18 job boards (ZA·ZW·ZM + remote), scores each ad against your
+It sweeps 17 job boards by default (22 supported) across ZA·ZW·ZM + remote, scores each ad against your
 candidate's profile, drafts a tailored letter + CV as PDFs, and posts one card
 here with ✅ / ❌. Nothing sends without your tap; drafts expire at 72 h.
 
@@ -439,7 +443,7 @@ same cover letter for the 30th time, attach, send, repeat.
 
 That's the job nobody bills for.
 
-I run a small tool called Hunta that does that part. It checks 18 job boards
+I run a small tool called Hunta that does that part. It checks 17 job boards by default (22 supported)
 across South Africa, Zimbabwe and Zambia on a schedule, matches every advert
 against each candidate's real profile, scores the fit, and drafts a tailored
 cover letter + a country-formatted CV as PDFs. It lands in a private Discord
@@ -628,7 +632,7 @@ AFTER DEMO SIGNUP (day 3)  First cards landing? The reject button is the most
   <h3>30-second booth pitch</h3>
 
   <div class="copyblock"><button class="copybtn">Copy</button><pre>"We do the forty-tabs part of job hunting. You give it one candidate and one
-keyword; it checks eighteen boards four times a day, drafts the letter and CV,
+keyword; it checks seventeen boards by default, out of twenty-two it supports, four times a day, drafts the letter and CV,
 and asks your permission before anything sends. Demo's free forever — scan this."
 → QR to https://king-kunta-cpu.github.io/hunta-marketing/demo.html</pre></div>
 
@@ -654,7 +658,7 @@ If not your world, genuinely happy to just follow your posts.</pre></div>
 
   <h3>X / Discord / Telegram communities</h3>
 
-  <div class="copyblock"><button class="copybtn">Copy</button><pre>Built a thing for career coaches in southern Africa: it hunts 18 boards, drafts
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>Built a thing for career coaches in southern Africa: it hunts 17 boards by default (22 supported), drafts
 the letter+CV, posts one card, waits for your tap. Free demo forever, no card.
 Link in my bio / here: https://king-kunta-cpu.github.io/hunta-marketing/demo.html. AMA about the guard-rails.</pre></div>
 
@@ -855,13 +859,13 @@ Your files were never hostage; they're YAMLs, they're yours. Same free demo, no 
   <details><summary>Spam risk?</summary><p>Candidate's own mailbox, real ads, human-approved, 20/day cap. The opposite of spray-and-pray.</p></details>
   <details><summary>Data?</summary><p>Store = job metadata + status + the draft awaiting your tap; the tap deletes both the text and the PDFs, and settled rows expire after 60 days. Candidate documents never persist to the git state branch — the runner untracks stray PDFs before every snapshot (enforced since the 2026-09-19 hardening). Candidate file = one YAML = right to erasure.</p></details>
   <details><summary>LinkedIn?</summary><p>No login, no scraping. Public job search only.</p></details>
-  <details><summary>Boards?</summary><p>18 integrations: PNet · CareerJunction · JobMail · Careers24 · Bizcommunity · VacancyMail · iHarareJobs · JobsZimbabwe · GoZambiaJobs · LinkedIn · Jobicy · Remotive · UNjobs · Impactpool. CVs: ZA/ZW/ZM formats.</p></details>
+  <details><summary>Boards?</summary><p>22 boards supported, 17 on by default: Adzuna · Google for Jobs (JSearch) · PNet · CareerJunction · JobMail · Bizcommunity · VacancyMail · iHarareJobs · JobsZimbabwe · GoZambiaJobs · Impactpool · LinkedIn · Himalayas · Jobicy · Remotive, plus ReliefWeb (NGO/UN) once its API name is approved. Careers24 and UNjobs are supported but off by default (they block datacentre IPs). CVs: ZA/ZW/ZM formats.</p></details>
   <details><summary>Cost to run?</summary><p>$0 default — GitHub Actions. Customer brings a free-tier LLM key + a Gmail app password. No cloud console, no card.</p></details>
   <details><summary>Why is the demo free forever?</summary><p>Because the demo IS the marketing budget and the upgrade trigger is natural: your second candidate. "Free trial" implies a bill; "free forever" implies confidence.</p></details>
   <details><summary>What does upgrading unlock?</summary><p>More candidates (3/15/unlimited), more sends, white-label PDFs (Studio), self-hosting (Sovereign). The pipeline itself is identical at R0.</p></details>
   <details><summary>What if a board dies?</summary><p>Hunters fail alone. The run logs "[hunter:x] 0 jobs" and the rest deliver. Coverage degrades gracefully.</p></details>
   <details><summary>Can it run unsupervised without getting stuck?</summary><p>That's the 2026-09-19 hardening: every URL gets a 45 s total budget, every LLM provider 30 s of politeness before instant failover, every run a 35-minute cap — and logs stream live from the first second. A hung hunt is a logged failure, never a silent freeze.</p></details>
-  <details><summary>Is the free demo a crippled app?</summary><p>No fork, no watermarks — the identical wheel and the same 18 boards. The ledger caps output at 25 drafts + 5 sends per rolling 30 days; at the cap, the pipeline itself tells you what upgrading buys. Licence flips the flavour env; nothing else changes.</p></details>
+  <details><summary>Is the free demo a crippled app?</summary><p>No fork, no watermarks — the identical wheel and the same 22 supported boards (17 on by default). The ledger caps output at 25 drafts + 5 sends per rolling 30 days; at the cap, the pipeline itself tells you what upgrading buys. Licence flips the flavour env; nothing else changes.</p></details>
 </section>
 
 <!-- ============ GROWTH ============ -->
@@ -1063,7 +1067,7 @@ VAT201, NRC, EcoCash). Demo persona only — never screenshot a real candidate.<
   <h2>The wheel, fact-checked</h2>
   <table>
     <tr><th>Claim</th><th>Truth</th></tr>
-    <tr><td>"18 job boards"</td><td>~8 boards return reliably; the others are intermittent or degraded. Say "coverage degrades gracefully", never "18 boards live".</td></tr>
+    <tr><td>"22 boards, 17 by default"</td><td>Accurate count from the code: 22 boards registered, 17 of them used by default. Not every board returns ads on every run (some block datacentre IPs or go quiet), so say "coverage degrades gracefully", never "all boards live".</td></tr>
     <tr><td>"Human approval before sending"</td><td>TRUE — nothing sends without a human tap. That gate is the product.</td></tr>
     <tr><td>"No auto-apply"</td><td>TRUE — there is no auto-send code path anywhere in the pipeline.</td></tr>
     <tr><td>"72 h data purge"</td><td>TRUE for rendered PDFs (<code>pdf_ttl_hours: 72</code>). Candidate YAML stays until the file is deleted (delete = erasure).</td></tr>
