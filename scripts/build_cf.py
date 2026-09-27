@@ -1,0 +1,92 @@
+"""Build the public site for Cloudflare Pages (gethunta.pages.dev) into _cf/.
+
+2026-09-27: GitHub Pages was unreliable on phones, so the buyer-facing pages moved to
+Cloudflare Pages. The site root is the landing page (gethunta/index.html); the internal
+marketing bible (repo-root index.html) is NOT published here. Old GitHub Pages URLs
+redirect to the matching page on this host (see the redirect snippet in each page head).
+"""
+from __future__ import annotations
+
+import shutil
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "_cf"
+SITE = "https://gethunta.pages.dev"
+
+PAGES = {  # source -> path on the site
+    "gethunta/index.html": "index.html",
+    "demo.html": "demo.html",
+    "setup.html": "setup.html",
+}
+DIRS = ["downloads", "brand", "graphics", "samples", "press/img"]
+FILES = ["16e37daa71b14add9de53ec65d64e01a.txt"]  # IndexNow key
+
+REDIRECTS = """# Pages already serves /demo for demo.html (and 308s /demo.html -> /demo); never map
+# /demo back to /demo.html or it loops.
+/gethunta        /           301
+/gethunta/       /           301
+/gethunta/*      /           301
+/download        /demo       301
+/downloads       /demo       301
+/downloads/      /demo       301
+/trial           https://hunta-mint.simalidudu.workers.dev/trial 302
+/store           https://whop.com/jacaranda-labs 302
+"""
+
+HEADERS = """/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+/downloads/*.zip
+  Content-Type: application/zip
+  Content-Disposition: attachment
+  Cache-Control: public, max-age=3600
+/brand/*
+  Cache-Control: public, max-age=86400
+/press/img/*
+  Cache-Control: public, max-age=86400
+"""
+
+ROBOTS = f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n"
+
+
+def sitemap() -> str:
+    urls = [f"{SITE}/", f"{SITE}/demo", f"{SITE}/setup"]
+    body = "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "</urlset>\n")
+
+
+def build() -> Path:
+    if OUT.exists():
+        shutil.rmtree(OUT)
+    OUT.mkdir()
+    for src, dst in PAGES.items():
+        (OUT / dst).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / src, OUT / dst)
+    for d in DIRS:
+        if (ROOT / d).is_dir():
+            shutil.copytree(ROOT / d, OUT / d, ignore=shutil.ignore_patterns("raw", "*.md"))
+    for f in FILES:
+        if (ROOT / f).exists():
+            shutil.copyfile(ROOT / f, OUT / f)
+    shutil.copyfile(ROOT / "brand" / "favicon.ico", OUT / "favicon.ico")
+    (OUT / "_redirects").write_text(REDIRECTS)
+    (OUT / "_headers").write_text(HEADERS)
+    (OUT / "robots.txt").write_text(ROBOTS)
+    (OUT / "sitemap.xml").write_text(sitemap())
+    # guard: nothing on the public site may point back at GitHub Pages or the private repo
+    bad = []
+    for p in OUT.rglob("*.html"):
+        t = p.read_text(encoding="utf-8", errors="ignore")
+        for needle in ("github.io/hunta-marketing", "github.com/king-kunta-cpu/hunta\""):
+            if needle in t.replace("GH_REDIRECT_OK", ""):
+                bad.append(f"{p.relative_to(OUT)}: {needle}")
+    if bad:
+        raise SystemExit("public site still links to GitHub Pages / private repo:\n" + "\n".join(bad))
+    return OUT
+
+
+if __name__ == "__main__":
+    out = build()
+    print(f"built {sum(1 for _ in out.rglob('*') if _.is_file())} files into {out}")

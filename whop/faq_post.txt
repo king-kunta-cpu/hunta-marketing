@@ -7,7 +7,7 @@ Which jobs does it search?
 17 job boards by default (22 supported) across South Africa, Zimbabwe and Zambia. One employer is never contacted twice within 30 days, and daily caps keep volume sane.
 
 Can I try it before paying?
-Yes. The free demo pack runs the whole pipeline on 1 candidate, capped at 25 drafts and 5 sends per rolling 30 days: https://king-kunta-cpu.github.io/hunta-marketing/gethunta/
+Yes. The free demo pack runs the whole pipeline on 1 candidate, capped at 25 drafts and 5 sends per rolling 30 days: https://gethunta.pages.dev/
 
 Why is the price in US dollars?
 Whop bills in USD. The plans are set to the rand value; rand figures are approximate, at R16.31 per $1 (27 Sep 2026).

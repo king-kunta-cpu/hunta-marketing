@@ -10,7 +10,7 @@ Everything to market Hunta, plus the public door for the **free-for-everyone dem
 | **`demo.html`** | Public landing: hero → how it works → lead form → kit downloads instantly → lead card pings Discord ("Hunta Leads") → human replies <24 h. |
 
 Serve it: GitHub → Settings → Pages → `main` → `/ (root)` →
-`https://king-kunta-cpu.github.io/hunta-marketing/` (already enabled).
+`https://gethunta.pages.dev/` (already enabled).
 
 ## Contents
 

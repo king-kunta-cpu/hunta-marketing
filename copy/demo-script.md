@@ -46,7 +46,7 @@ State price. Close with the demo stack:
 "The demo is free forever — one candidate, five sends a month, no card.
 Solo is $306 a month (about R4,999) for three candidates when your bench asks for it. Set the demo
 up now while we're on the phone; first card lands by the next hunt slot."
-Landing page (lead capture + download): https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+Landing page (lead capture + download): https://gethunta.pages.dev/demo
 
 ---
 

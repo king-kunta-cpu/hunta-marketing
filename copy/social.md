@@ -38,7 +38,7 @@ each with its own letter and CV. Zero auto-sends.
 
 If you coach job seekers in ZA, ZW or ZM and this sounds like your Tuesday,
 the demo is free forever — one candidate, no card:
-https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+https://gethunta.pages.dev/demo
 
 #CareerCoaching #JobSearch #SouthAfrica #Zimbabwe #Zambia #AI #FutureOfWork
 ```
@@ -54,7 +54,7 @@ profile, drafts the letter + CV as PDFs, and drops one card in your Discord:
 
 Nothing sends without your tap. Nothing is invented. Drafts die after 72 h.
 
-Demo is free forever, one candidate, no card: https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+Demo is free forever, one candidate, no card: https://gethunta.pages.dev/demo
 ```
 
 ## X / Twitter — thread (8 posts)
@@ -99,7 +99,7 @@ Fly.io died. Oracle is a second job. This is two YAML files.
 zero auto-sends.
 
 If you coach job seekers in southern Africa and want the demo:
-the demo is free forever — no card: https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+the demo is free forever — no card: https://gethunta.pages.dev/demo
 ```
 
 ## X — single post
@@ -127,7 +127,7 @@ first.
 
 If you're a coach, recruiter or outplacement consultant in SA / Zimbabwe / Zambia
 and this sounds useful, comment below — or skip me entirely and take the free demo (one candidate,
-free forever, no card): https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+free forever, no card): https://gethunta.pages.dev/demo
 ```
 
 ## WhatsApp — broadcast to coach contacts
@@ -140,7 +140,7 @@ It drops ONE card in my Discord and I tap approve — nothing sends without me.
 
 Ran it a week: 41 drafted applications, all reviewed by me first.
 
-Free demo, one candidate, forever, no card: https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+Free demo, one candidate, forever, no card: https://gethunta.pages.dev/demo
 Reply "help" and I'll set it up with you on a 10-min call.
 ```
 
@@ -159,7 +159,7 @@ Rules of the house:
 • drafts expire after 72 h; sent/rejected files are deleted immediately
 
 Free demo for every member — one candidate, free forever:
-https://king-kunta-cpu.github.io/hunta-marketing/demo.html
+https://gethunta.pages.dev/demo
 Onboarding is a Discord webhook + 10 minutes.
 ```
 
