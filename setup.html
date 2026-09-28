@@ -159,17 +159,19 @@ decides what gets hunted for this candidate. <code>hunta hunt --dry</code> previ
 <iframe class="card" src="downloads/demo-card.html" title="live tappable card demo"></iframe>
 <p class="cap">interactive card — the actual approve experience</p>
 
-<h2><span class="n">5</span> Gmail: sending comes out of the candidate's own mailbox</h2>
+<h2><span class="n">5</span> Gmail: your sending mailbox</h2>
 <ol>
- <li>Candidate's Google account → security → 2-Step Verification ON → <b>App passwords</b> → create → 16 chars.</li>
+ <li>Your Google account (a separate Gmail just for applications is best) → security → 2-Step Verification ON → <b>App passwords</b> → create → 16 chars.</li>
  <li>Put <code>address:</code> + <code>app_password:</code> in <code>tenant.yaml</code> under <code>mailbox:</code>
      (app password goes through <code>hunta encrypt</code> like the LLM key).</li>
  <li><code>hunta mailbox-test demo</code> → green means the pipeline can deliver. No Google Cloud project,
      no OAuth consent screen, nothing to pay.</li>
 </ol>
-<div class="note">Why the candidate's own mailbox: employer reply-threads, ATS tracking and mailbox
-reputation all belong to the person applying. Hunta borrows it for the send — cap 20/day (demo: 5 per
-30 days), reply-to set to the candidate — and nothing else.</div>
+<div class="note">How it's used: every application goes out from this mailbox, signed "Candidate (via your brand)",
+with reply-to set to the candidate <i>and</i> this mailbox — so the candidate hears straight away and so do you.
+The same app password lets Hunta read the inbox (read-only, nothing marked or moved) to flag employer
+replies: interview invites, questions, no's, bounces. Caps: 20 per candidate a day, 150 per mailbox
+(demo: 5 sends per 30 days).</div>
 
 <h2><span class="n">6</span> First hunt</h2>
 <pre class="term">hunta hunt --dry         <span class="dim"># previews; marks nothing, sends nothing</span>
@@ -184,7 +186,7 @@ hunta hunt               <span class="dim"># real: drafts the PDFs, posts the ca
 
 <h2><span class="n">7</span> The tap is the product</h2>
 <table>
-<tr><td><b>✅ Approve</b></td><td>sends from the candidate's Gmail within seconds; PDFs deleted, draft text wiped from the store</td></tr>
+<tr><td><b>✅ Approve</b></td><td>sends from your mailbox within seconds, signed as the candidate; PDFs deleted, draft text wiped from the store</td></tr>
 <tr><td><b>❌ Reject</b></td><td>PNG… sorry — PDFs deleted <i>on the spot</i>, draft text wiped, job marked and never re-offered</td></tr>
 <tr><td><b>Ignore</b></td><td>drafts self-destruct at 72 hours. Nothing you didn't act on survives a weekend</td></tr>
 </table>

@@ -119,7 +119,10 @@
   <code>/claim</code> in their Discord and gets a signed licence + install steps in a private channel
   (WhatsApp backup); the Docker image is public, the licence is the lock ·
   Solo wording: <b>"approve in Discord (web dashboard + Telegram when self-hosted)"</b> ·
-  the site lives at <a href="https://gethunta.pages.dev/">gethunta.pages.dev</a>. Offer tab has every buy link.</div>
+  the site lives at <a href="https://gethunta.pages.dev/">gethunta.pages.dev</a>. Offer tab has every buy link ·
+  <b>Reply alerts (28 Sep):</b> applications go out from the <i>operator's</i> mailbox, signed "Candidate (via brand)";
+  employer replies reach the candidate <b>and</b> the operator, and Hunta posts interview invites, questions, no's and
+  bounces in #activity, plus a monthly interview report. Never say "sends from the candidate's own Gmail".</div>
 
   <div class="banner">🎁 <b>Free demo for everyone, forever.</b> One candidate, the full
   pipeline — caps enforced in code, not policy: 25 drafts + 5 sends per rolling 30 days,
@@ -151,7 +154,8 @@
   <div class="copyblock"><button class="copybtn">Copy</button><pre>Hunta hunts 17 job boards by default (22 supported) four times a day across South Africa, Zimbabwe and Zambia,
 scores every ad against the candidate's real profile, drafts a tailored cover letter
 and a country-formatted CV as PDFs, and posts ONE card to your Discord. You tap
-approve — it sends from the candidate's own Gmail. You tap reject — the PDFs are
+approve — it sends from your mailbox, signed as the candidate, and the employer's reply reaches
+the candidate and you (Hunta flags interview invites). You tap reject — the PDFs are
 deleted on the spot. Nothing sends without you, nothing is invented, drafts die at
 72 hours, and the whole thing hosts for $0 on GitHub Actions. The demo is free
 forever: one candidate, no card — 25 drafts + 5 sends per rolling 30 days, the exact
@@ -185,7 +189,7 @@ the log streaming the whole way.</pre></div>
     <tr><td>3 · Score + draft</td><td>ONE LLM call per shortlisted ad: relevance 0–1, one-sentence reason, letter, tailored CV. Hard-forbidden from inventing anything</td><td>"it can't lie — check the letter against the CV"</td></tr>
     <tr><td>4 · Render</td><td>country-formatted PDFs: cv_za (ID/EE/licence), cv_zw, cv_zm + cover letter; company names de-shouted ("SINOGY POWER PTY LTD" → title case)</td><td>"it knows what a ZA CV looks like"</td></tr>
     <tr><td>5 · Card</td><td>Discord (primary) or Telegram (secondary): title, company, match %, reason, link, both PDFs, ✅/❌</td><td>"your whole pipeline fits in one notification"</td></tr>
-    <tr><td>6 · Tap</td><td>✅ sends via SMTP from the candidate's own mailbox (20/day cap, reply-to them). ❌ deletes PDFs. Signed links expire with the PDFs</td><td>"nothing sends without you"</td></tr>
+    <tr><td>6 · Tap</td><td>✅ sends via SMTP from the operator's mailbox, signed "Candidate (via your brand)" (20/candidate/day, 150/mailbox/day; reply-to candidate + operator). Replies are spotted read-only and flagged in #activity: interview, question, no, bounce. ❌ deletes PDFs. Signed links expire with the PDFs</td><td>"nothing sends without you"</td></tr>
     <tr><td>7 · Purge</td><td>PDFs deleted on send/reject and purged at 72 h; the letter text lives in the DB only while a tap is pending, is NULLed the moment you decide, and untouched drafts expire after 14 days; settled rows expire at 60 days</td><td>"zero retention is the privacy story"</td></tr>
   </table>
 
@@ -226,13 +230,15 @@ the log streaming the whole way.</pre></div>
 • The writer may only reorder/rephrase the profile; inventing is hard-forbidden.
 • Four CV designs (classic · indigo · emerald · sunset), chosen PER CANDIDATE — the coach picks
   the look, the letter stays business-plain, every design ATS-parseable.
-• 20 sends / candidate / day — the candidate's Gmail reputation is sacred.
+• 20 sends / candidate / day and 150 / mailbox / day — the operator's mailbox reputation is sacred.
+• Replies: Reply-To = candidate + operator; each hunt reads the mailbox read-only and posts
+  interview invites, questions, no's and bounces to #activity. Monthly report on the 1st.
 • PDFs: deleted on send/reject, purged at 72 h. Untouched drafts expire after 14 days.
 • Store: job metadata + status, plus the pending draft — text NULLed and PDFs unlinked the
   moment of approve/reject; settled rows expire at 60 days. Candidate = one YAML = right to
   erasure; tenant = one file = rm.
 • No LinkedIn login, no profile scraping — public job search only.
-• Gmail = app password over SMTP; no Google Cloud project, no OAuth, no consent screen.
+• Gmail = one app password: SMTP to send, IMAP read-only for reply alerts; no Google Cloud project, no OAuth, no consent screen.
 • Hosting default = two GitHub Actions workflows; $0, no card, nothing to sleep.
 • Hard time budgets everywhere: 45 s per URL total, 30 s per LLM provider then instant
   failover, 35 min per run — a stalled hunt is a logged failure, never a silent freeze.
@@ -245,7 +251,7 @@ the log streaming the whole way.</pre></div>
   <h2>Architecture one-liner (for technical buyers)</h2>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>hunters (18) → rule filter → zero-cost pre-score → ONE score+draft LLM call →
 Jinja2/WeasyPrint PDFs (ZA/ZW/ZM) → SQLite (metadata only) → Discord card →
-signed approve/reject → SMTP send from the candidate's mailbox → purge.
+signed approve/reject → SMTP send from the operator's mailbox → purge → reply watch (IMAP, read-only).
 The application ledger lives on a private git branch as a single squashed snapshot commit;
 candidate documents never enter git.
 Secrets Fernet-encrypted at rest. Every network call runs under a wall-clock budget
@@ -413,8 +419,9 @@ They're losing to the 40 open tabs.
 
 I built Hunta — a job-hunting copilot for coaches in ZA, ZW, ZM.
 Here's the whole loop in 7 posts 🧵</pre></div>
-  <div class="copyblock"><button class="copybtn">Copy</button><pre>6/ Tap ✅ → it sends from the CANDIDATE's own Gmail, 20/day cap,
-so nobody's mailbox gets flagged.
+  <div class="copyblock"><button class="copybtn">Copy</button><pre>6/ Tap ✅ → it sends from YOUR mailbox, signed as the candidate, capped
+so your mailbox never gets flagged. Replies reach the candidate AND you,
+and Hunta pings you when one is an interview invite.
 Tap ❌ → the PDFs are deleted on the spot.
 Untouched drafts self-destruct at 72 hours. Zero-retention by design.</pre></div>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>8/ First three days, running for real: 72 drafted applications, 72 CV+letter pairs,
@@ -736,13 +743,13 @@ Link in my bio / here: https://gethunta.pages.dev/demo. AMA about the guard-rail
 
   <p><b>"AI letters are generic."</b> → "Open the sample. Second paragraph names the company and mirrors two real requirements. Now show me the letter they wrote at 11pm — same one, thirty employers. That's generic."</p>
 
-  <p><b>"My Gmail will get flagged."</b> → "Sends go from the candidate's own address, to real ads, human-approved, capped at 20 a day. That's cleaner than most manual spraying — the cap is the feature."</p>
+  <p><b>"My Gmail will get flagged."</b> → "Sends go from your mailbox to real ads, human-approved, capped at 20 per candidate and 150 per mailbox a day. That's cleaner than most manual spraying — the cap is the feature. Tip: use a separate Gmail just for applications."</p>
 
   <p><b>"It's expensive."</b> → "The demo is R0 forever. Solo is $306/mo (about R4,999) — two or three bundled CV-and-letter sales at your prices. If Hunta doesn't produce one bundle a month, cancel in the app, no email needed."</p>
 
   <p><b>"I already use ChatGPT."</b> → "Great — you've felt the magic and the maintenance. Who sweeps the boards at 06:00? Who purges the PDFs? Who keeps the three countries' CV formats current? Hunta is the difference between a prompt and a pipeline."</p>
 
-  <p><b>"My candidates won't trust it."</b> → "The employer gets a normal email from the candidate's own address. The candidate sees their own letter in the card before it flies. The only new thing in their life is that Tuesday got shorter."</p>
+  <p><b>"My candidates won't trust it."</b> → "The employer gets a normal email signed by the candidate, 'Thandi Moyo (via your practice)', and their reply goes straight to the candidate as well as to you. The candidate sees their own letter in the card before it flies. The only new thing in their life is that Tuesday got shorter."</p>
 
   <p><b>"We're an agency, data can't leave."</b> → "Sovereign. Your box, your cloud. The licence is signed and checked offline, so nothing phones home; if it lapses the box goes read-only, never bricked. Data never leaves."</p>
 
@@ -880,8 +887,8 @@ Your files were never hostage; they're YAMLs, they're yours. Same free demo, no 
   <h2>The 5-minute demo (beats)</h2>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>0:00 PAIN      "Show me your Tuesday. Six boards, forty tabs."
 0:30 CARD      Open Discord; read it slow: role, one-line reason, PDFs, buttons.
-2:00 TAP       Approve live → "sent from their own Gmail". Reject → "deleted on the spot."
-3:00 FEARS     no auto-send · no invention · no spam (own mailbox, 20/day cap).
+2:00 TAP       Approve live → "sent, signed as them; the reply comes to both of us". Reject → "deleted on the spot."
+3:00 FEARS     no auto-send · no invention · no spam (your mailbox, capped per candidate and per day).
 4:00 MONEY     "$0 hosting. Demo R0 forever. Solo $306 (about R4,999) when your bench asks."
        CLOSE   "Set it up now while we're on the phone — first card by the next hunt slot."</pre></div>
 
@@ -889,7 +896,7 @@ Your files were never hostage; they're YAMLs, they're yours. Same free demo, no 
   <div class="copyblock"><button class="copybtn">Copy</button><pre>0:00-0:08  12 browser tabs, clock ticking.        "Tuesday, 6 boards, 40 tabs."
 0:08-0:18  Discord: card appears.                 "Hunta hunted so I didn't. Match 90%."
 0:18-0:28  Letter PDF scroll.                     "From the real profile. Nothing invented."
-0:28-0:36  Phone: tap ✅. Sent.                   "My tap. Their inbox. Their own Gmail."
+0:28-0:36  Phone: tap ✅. Sent.                   "My tap. Sent. And I hear when they get the interview."
 0:36-0:45  Logo on lilac.                         "Free demo forever. You tap approve. It sends."</pre></div>
 
   <h2>Interactive card</h2>
@@ -903,8 +910,10 @@ Your files were never hostage; they're YAMLs, they're yours. Same free demo, no 
   <h1>FAQ</h1>
   <details open><summary>Does it apply automatically?</summary><p>No. There is no auto mode. Every send is a human tap — a design guarantee, not a setting.</p></details>
   <details><summary>Will it invent experience?</summary><p>No. The writer may only reorder/rephrase the profile. Check the sample CV against the sample letter, line by line.</p></details>
-  <details><summary>Spam risk?</summary><p>Candidate's own mailbox, real ads, human-approved, 20/day cap. The opposite of spray-and-pray.</p></details>
+  <details><summary>Spam risk?</summary><p>Your mailbox, real ads, human-approved, 20/candidate and 150/mailbox a day. The opposite of spray-and-pray.</p></details>
   <details><summary>Data?</summary><p>Store = job metadata + status + the draft awaiting your tap; the tap deletes both the text and the PDFs, and settled rows expire after 60 days. Candidate documents never persist to the git state branch — the runner untracks stray PDFs before every snapshot (enforced since the 2026-09-19 hardening). Candidate file = one YAML = right to erasure.</p></details>
+  <details><summary>Will I know if a candidate gets an interview?</summary><p>Yes. Replies go to the candidate and to your mailbox; Hunta reads your mailbox read-only and posts in #activity when an employer answers (interview invite, question, no, bounced address), and a monthly report counts interviews per candidate. Interviews arranged only by phone won't show.</p></details>
+  <details><summary>Whose mailbox sends?</summary><p>The operator's (one per practice; a separate Gmail just for applications is best). The From line reads "Thandi Moyo (via your practice)". Caps: 20 per candidate and 150 per mailbox a day.</p></details>
   <details><summary>LinkedIn?</summary><p>No login, no scraping. Public job search only.</p></details>
   <details><summary>Boards?</summary><p>22 boards supported, 17 on by default: Adzuna · Google for Jobs (JSearch) · PNet · CareerJunction · JobMail · Bizcommunity · VacancyMail · iHarareJobs · JobsZimbabwe · GoZambiaJobs · Impactpool · LinkedIn · Himalayas · Jobicy · Remotive, plus ReliefWeb (NGO/UN) once its API name is approved. Careers24 and UNjobs are supported but off by default (they block datacentre IPs). CVs: ZA/ZW/ZM formats.</p></details>
   <details><summary>Cost to run?</summary><p>$0 default — GitHub Actions. Customer brings a free-tier LLM key + a Gmail app password. No cloud console, no card.</p></details>
@@ -1332,7 +1341,7 @@ licence     HLT1.… blob signed by our CA; the image refuses any other signer
     <li>Pipeline current: audit build live (origin/main 8bd7ff5); hang fix 1c5a54e pushed and
         verified — one run shows live per-board log lines and a dry run under ~10 min</li>
   </ul>
-  <div class="foot">hunta-marketing · the bible v2.2 (2026-09-28: rands, annual by wire, Sovereign via Discord) · palette #7B5EA7 / #2B2B2B / #F4EEF9 ·
+  <div class="foot">hunta-marketing · the bible v2.3 (2026-09-28: rands, annual by wire, Sovereign via Discord, reply alerts) · palette #7B5EA7 / #2B2B2B / #F4EEF9 ·
   production numbers verified 2026-09-23 against live runs · <a href="demo.html">demo.html</a> · <a href="https://github.com/king-kunta-cpu/hunta-marketing">repo</a></div>
 </section>
 

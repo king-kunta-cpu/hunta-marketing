@@ -11,9 +11,15 @@ No. The writer prompt hard-forbids inventing qualifications, employers, dates or
 it may only reorder and rephrase what is already on the profile. Ask for the sample CV
 next to the sample letter and check line by line.
 
+**Will I know if a candidate gets an interview?**
+Yes. Employer replies go to the candidate and to your mailbox. Hunta reads your mailbox
+(read-only) and posts in #activity when an employer answers — interview invite, question,
+no, or a bounced address — and a monthly report counts the interviews per candidate.
+Interviews arranged only by phone won't show; ask candidates to tell you those.
+
 **Will my (or my candidate's) Gmail get flagged as spam?**
-Sends go out from the candidate's own mailbox, to real ads, human-approved, with a hard
-cap of 20 sends per candidate per day. That is the opposite of spray-and-pray.
+Sends go out from your mailbox, to real ads, human-approved, with hard caps of 20 sends
+per candidate and 150 per mailbox a day. A separate Gmail just for applications is best. That is the opposite of spray-and-pray.
 
 **What happens to the data?**
 The store keeps only `{job_url, status, timestamp}`. PDFs are deleted the moment a card
@@ -59,8 +65,8 @@ were writing at 11pm — same letter, thirty employers. Hunta writes a different
 per ad because the match reason is per ad.
 
 **"Mass applications get everyone blacklisted."**
-Agree with them — then contrast: 20/day cap, human approval on every send, from the
-candidate's own address, to ads that passed a relevance threshold. "This isn't volume;
+Agree with them — then contrast: 20/day cap, human approval on every send, signed by the
+candidate, to ads that passed a relevance threshold. "This isn't volume;
 it's coverage. Every send is still a decision."
 
 **"We already use an ATS / agency."**
@@ -68,12 +74,12 @@ An ATS is for employers; an agency is for sourcing. You're on the candidate's si
 Hunta is the candidate-side desk. If anything, it feeds your ATS with better inputs.
 
 **"My candidates won't trust a bot."**
-The bot never talks to an employer. The employer receives a normal email from the
-candidate's own address, and every send needed a human tap first. The candidate sees
+The bot never talks to an employer. The employer receives a normal email signed by the
+candidate ("Thandi Moyo via your practice"), their reply reaches the candidate directly, and every send needed a human tap first. The candidate sees
 their own letter before it flies if they want to — the PDF is right there in the card.
 
 **"It'll look like spam to employers."**
-It's one application, to one real advert, from the candidate's address, with their
+It's one application, to one real advert, signed by the candidate, with their
 phone and signature. Read any of the samples aloud — it reads like a person because a
 person approved it.
 

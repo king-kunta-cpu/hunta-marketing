@@ -15,7 +15,7 @@
    (or `Harare` / `Lusaka`), exclude `intern, unpaid, commission only`.
 4. **Run** — the hosted demo runs hunts at 06:00/10:00/14:00/18:00 SAST Mon–Sat.
    Your first card lands with both PDFs and the ✅ / ❌ links.
-5. **Tap** — approve sends from the candidate's own Gmail (20/day cap, 5 sends/mo
+5. **Tap** — approve sends from your mailbox, signed as the candidate; replies reach them and you (20/day cap, 5 sends/mo
    on demo — at the cap the card itself tells you what upgrading buys).
    Reject deletes the PDFs. Untouched drafts die at 72 h.
 

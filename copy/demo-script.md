@@ -26,8 +26,9 @@ Read it slowly, point at each line:
 - "And the two buttons. Approve, reject. That's my whole interface."
 
 **2:00 — the tap (60 s)**
-"Watch a real send." Tap ✅ → show the confirmation → "Sent from the candidate's own
-Gmail, from their address, reply-to them. The employer gets a normal human email.
+"Watch a real send." Tap ✅ → show the confirmation → "Sent from my mailbox, signed
+as the candidate. When the employer answers, it reaches the candidate and me, and Hunta
+pings me if it's an interview. The employer gets a normal human email.
 Now reject one." Tap ❌ → "Deleted. The PDFs are gone the moment you decide. Untouched
 cards self-destruct after 72 hours."
 
@@ -36,7 +37,7 @@ cards self-destruct after 72 hours."
    judgement, not a replacement for it."
 2. "Will it invent things? It can't — the writer only reorders and rephrases what's on
    the profile. Here's the sample CV next to the letter; check me."
-3. "Spam risk? Sends go through the candidate's own mailbox with a 20-per-day cap, and
+3. "Spam risk? Sends go through my mailbox, capped at 20 per candidate and 150 a day, and
    every one is human-approved. That's cleaner than most manual spraying."
 
 **4:00 — the money (60 s)**
@@ -82,7 +83,7 @@ SHOT 3 (0:18-0:28)  Open the letter PDF, scroll.
 CAPTION: "Letter + CV drafted from the candidate's real profile. Nothing invented."
 
 SHOT 4 (0:28-0:36)  Phone: tap ✅. Sent confirmation.
-CAPTION: "My tap. Sent from their own Gmail — or packed and ready for the portal."
+CAPTION: "My tap. Sent, signed as them — or packed and ready for the portal."
 
 SHOT 5 (0:36-0:45)  Logo on lilac.
 VOICE/CAPTION: "Hunta. Jobs found. Applications drafted. You tap approve. It sends."

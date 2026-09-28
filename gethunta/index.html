@@ -74,7 +74,8 @@
     <li><b>Hunts</b> 17 job boards by default (22 supported): Adzuna · Google for Jobs · PNet · CareerJunction · JobMail · Bizcommunity · iHarareJobs · VacancyMail · JobsZimbabwe · GoZambiaJobs · Impactpool · LinkedIn · remote boards — per-candidate keywords, excludes and city prefs.</li>
     <li><b>Drafts</b> one LLM call per match: relevance score, cover letter, tailored CV — never invents facts, uses only the candidate profile you approve.</li>
     <li><b>Renders</b> print-ready PDFs (ZA/ZW/ZM CV formats) and sends the card: <i>"Accountant @ Acme — Match 87%"</i> with ✅ / ❌.</li>
-    <li><b>Only after your tap:</b> it emails the ad's apply address from the candidate's own mailbox, with the PDFs attached. Max 20 sends/candidate/day so no Gmail ever gets flagged.</li>
+    <li><b>Only after your tap:</b> it emails the ad's apply address from your mailbox, signed as the candidate, with the PDFs attached. Capped per candidate and per day so your mailbox never gets flagged.</li>
+    <li><b>When the employer answers:</b> the reply reaches the candidate <i>and</i> you, and Hunta pings you: interview invite, question, no, or a bounced address. A monthly report counts the interviews.</li>
   </ol>
   <div class="term">
 $ <b>pip install ./hunta-1.0.0-py3-none-any.whl</b> &amp;&amp; hunta serve<br>
@@ -90,8 +91,8 @@ $ hunta hunt --dry<br>
   <div class="grid">
     <div class="card"><b>Zero infrastructure.</b> The default deployment is two GitHub Actions workflows —
       no server, no Docker, no credit card. Your state lives in your private repo.</div>
-    <div class="card"><b>Your keys, your mailbox.</b> Bring a free-tier Groq/Cerebras/Gemini key and the
-      candidate's Gmail app-password. We never hold either; both are encrypted at rest on your box.</div>
+    <div class="card"><b>Your keys, your mailbox.</b> Bring a free-tier Groq/Cerebras/Gemini key and a Gmail
+      app-password for your sending mailbox. We never hold either; both are encrypted at rest on your box.</div>
     <div class="card"><b>Nothing to leak.</b> Server side you keep {job_url, status, timestamp}.
       PDFs auto-purge in ≤72 h. No CRM, no tracking pixels, no "sales team will contact you".</div>
     <div class="card"><b>Self-hosted option.</b> Agencies that want sovereignty run the Docker image on their

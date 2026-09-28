@@ -88,8 +88,8 @@ about Solo at $306 a month (about R4,999). Fair?"
        Open the letter. "Second paragraph names the company. Check the CV — same facts,
        reordered. It's forbidden from inventing."
 12-15  The tap. Approve one. Reject one. "Deleted. Untouched cards die at 72 hours."
-15-18  The three fears, unprompted: no auto-send, no invention, no spam (own mailbox,
-       20/day cap).
+15-18  The three fears, unprompted: no auto-send, no invention, no spam (your mailbox,
+       capped per candidate and per day). Then: "and when they reply, I hear about it."
 18-20  "Price is $306 a month (about R4,999) for three candidates when you're ready. The demo is free forever
        with one. I'll set it up now or send the link — your call."
 ```
@@ -212,8 +212,8 @@ that's a design guarantee, not a setting. The demo will show you the ❌ working
 mirrors two real requirements. Now show me the letter they wrote at 11pm — same one,
 thirty employers. That's generic."
 
-**"My Gmail will get flagged."** → "Sends go from the candidate's own address, to real ads,
-human-approved, capped at 20 a day. That's cleaner than most manual spraying — the cap
+**"My Gmail will get flagged."** → "Sends go from your mailbox to real ads, human-approved,
+capped at 20 per candidate and 150 per mailbox a day. That's cleaner than most manual spraying — the cap
 is the feature."
 
 **"It's expensive."** → "The demo is R0 forever. Solo is $306/mo (about R4,999) — two or three bundled CV-and-letter
@@ -224,8 +224,8 @@ no email needed."
 sweeps the boards at 06:00? Who purges the PDFs? Who keeps the three countries' CV
 formats current? Hunta is the difference between a prompt and a pipeline."
 
-**"My candidates won't trust it."** → "The employer gets a normal email from the
-candidate's own address. The candidate sees their own letter in the card before it flies.
+**"My candidates won't trust it."** → "The employer gets a normal email signed by the
+candidate, and the reply goes straight to them as well as you. The candidate sees their own letter in the card before it flies.
 The only new thing in their life is that Tuesday got shorter."
 
 **"We're an agency, data can't leave."** → "Sovereign. Your box, your cloud, licence

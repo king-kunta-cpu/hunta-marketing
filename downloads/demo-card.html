@@ -96,7 +96,7 @@
         </div>
       </div>
       <div class="foot">This is exactly what lands in a real coach's Discord. In production, ✅ sends the
-      application from the candidate's own Gmail and ❌ deletes both PDFs on the spot — untouched drafts
+      application from the coach's mailbox, signed as the candidate (replies reach both), and ❌ deletes both PDFs on the spot — untouched drafts
       self-destruct after 72 hours. Nothing ever sends without the tap. The job lines here are
       illustrative demo ads; the downloadable PDFs are genuine Hunta render output.
       <a href="../demo.html" target="_top">hunta-marketing/demo.html</a> · <span id="ctr"></span></div>
@@ -210,7 +210,7 @@
     $("approve").style.opacity = $("reject").style.opacity = ".4";
     st.className = (kind === "ok") ? "sent" : "rej";
     st.innerHTML = (kind === "ok")
-      ? "✅ Sent to " + j.mail + " from thabo.nkosi@example.com — the candidate's own Gmail, reply-to them. PDFs deleted after send (zero retention)."
+      ? "✅ Sent to " + j.mail + " as \u201cThabo Nkosi (via your practice)\u201d — replies go to Thabo and to you. PDFs deleted after send (zero retention)."
       : "❌ Rejected — both PDFs deleted on the spot. The pipeline learns your taste; rejections cost nothing.";
     setTimeout(function(){ i = (i + 1) % JOBS.length; paint(); }, 2800);
   }

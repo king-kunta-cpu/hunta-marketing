@@ -11,7 +11,8 @@ It sweeps 17 job boards by default (22 supported) on a schedule — PNet, Career
 iHarareJobs, GoZambiaJobs and more — matches every ad against your candidate's real profile,
 scores the fit, then drafts a tailored cover letter and a country-formatted CV as PDFs.
 The whole thing lands in your Discord as a single card with a ✅ and a ❌. Tap approve and it
-sends the application from the candidate's own Gmail. Nothing ever goes out without your tap.
+sends the application from your mailbox, signed as the candidate. When the employer answers,
+the reply reaches the candidate and you, and Hunta flags interview invites. Nothing ever goes out without your tap.
 
 ## One-liner (15 s)
 
@@ -40,7 +41,8 @@ its own work product after 72 hours** — so you scale your judgement instead of
 - 0 auto-sends by design — every application is a human tap
 - PDFs purged at 72 h; deleted the moment you send or reject
 - $0 hosting: two GitHub Actions workflows, no server, no credit card
-- 20 sends/day/candidate hard cap to protect the candidate's own Gmail reputation
+- 20 sends/day/candidate and 150/day/mailbox hard caps to protect your mailbox's reputation
+- Reply alerts: interview invites, questions, no's and bounces flagged in Discord; monthly interview report
 
 ## Don't say
 

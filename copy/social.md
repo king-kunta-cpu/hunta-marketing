@@ -86,8 +86,9 @@ That's the difference between a tool and a liability.
 with both PDFs attached.
 The coach is the product. The tap is the product.
 
-6/ Tap ✅ → it sends from the CANDIDATE's own Gmail, 20/day cap,
-so nobody's mailbox gets flagged.
+6/ Tap ✅ → it sends from YOUR mailbox, signed as the candidate, capped
+so your mailbox never gets flagged. Replies reach the candidate AND you,
+and Hunta pings you when one is an interview invite.
 Tap ❌ → the PDFs are deleted on the spot.
 Untouched drafts self-destruct at 72 hours. Zero-retention by design.
 
