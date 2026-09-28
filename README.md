@@ -34,7 +34,7 @@ All CTAs point at `demo.html`. Paid (USD/mo, confirmed by owner 2026-09-19): Sol
 
 ## Before any campaign
 
-- Live: downloads/hunta-demo-1.0.0.zip (+.sha256) · setup.html (screenshot guide + §12
+- Live: downloads/hunta-demo-1.0.1.zip (+.sha256) · setup.html (screenshot guide + §12
   conversion playbook) · samples/cv-{classic,indigo,emerald,sunset}.pdf — CV designs are a
   per-candidate field, four looks.
 - Numbers: state-store-verified 2026-09-19 (runs 09-16→18: 72 drafted, 3 candidates, 0 auto-sends).

@@ -36,7 +36,7 @@ jobs:
       - name: Smoke
         run: |
           set -e
-          for u in / /demo /setup /downloads/hunta-demo-1.0.0.zip; do
+          for u in / /demo /setup /downloads/hunta-demo-1.0.1.zip; do
             code=$(curl -s -o /dev/null -w '%{http_code}' -L "https://gethunta.pages.dev$u")
             echo "$code $u"; [ "$code" = 200 ]
           done

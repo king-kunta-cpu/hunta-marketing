@@ -88,26 +88,26 @@
 No card, no account, no telemetry: the download IS the product.</p>
 
 <div class="btns">
- <a class="btn" href="downloads/hunta-demo-1.0.0.zip">⬇ Download the demo (116 KB .zip)</a>
- <a class="btn alt" href="downloads/hunta-demo-1.0.0.zip.sha256">sha256 file</a>
+ <a class="btn" href="downloads/hunta-demo-1.0.1.zip">⬇ Download the demo (173 KB .zip)</a>
+ <a class="btn alt" href="downloads/hunta-demo-1.0.1.zip.sha256">sha256 file</a>
 </div>
 
 <h2><span class="n">1</span> Download, then prove the bytes</h2>
 <p>Two files: the pack and its signature hash. Check the download matches the hash before installing —
 if it ever differs, you did not get our file:</p>
 <pre class="term"><span class="dim"># Linux / Mac — in the folder you downloaded to:</span>
-sha256sum -c hunta-demo-1.0.0.zip.sha256
-<span class="c">hunta-demo-1.0.0.zip: OK</span>
+sha256sum -c hunta-demo-1.0.1.zip.sha256
+<span class="c">hunta-demo-1.0.1.zip: OK</span>
 
 <span class="dim"># Windows PowerShell:</span>
-(Get-FileHash hunta-demo-1.0.0.zip).Hash -eq (Get-Content hunta-demo-1.0.0.zip.sha256).Substring(0,64)
+(Get-FileHash hunta-demo-1.0.1.zip).Hash -eq (Get-Content hunta-demo-1.0.1.zip.sha256).Substring(0,64)
 <span class="c">True</span></pre>
-<p class="sub">Expected digest: <code>1d61c7566916266b8db510333364b6d0cf8079c1cc7b62d5a7c6e178b404edeb</code></p>
+<p class="sub">Expected digest: <code>9f2b33e033a9cde21b131487180f598770426797efe97361e4c1e75c0a0f33a8</code></p>
 
 <h2><span class="n">2</span> Install (Python 3.11+)</h2>
-<pre class="term">unzip hunta-demo-1.0.0.zip -d hunta-demo && cd hunta-demo
+<pre class="term">unzip hunta-demo-1.0.1.zip -d hunta-demo && cd hunta-demo
 python3 -m venv .venv && source .venv/bin/activate      <span class="dim"># Windows: .venv\Scripts\activate</span>
-pip install hunta-1.0.0-py3-none-any.whl
+pip install hunta-1.0.1-py3-none-any.whl
 
 hunta doctor        <span class="dim"># self-check: config, files, data dir, LLM key, Discord, SMTP</span>
 <span class="c">✔ flavour: demo (25 drafts / 5 sends / 30-day window)</span>
@@ -328,7 +328,7 @@ docker compose -f docker-compose.sovereign.yml exec hunta hunta licence-status</
 </ol>
 
 <footer><div class="wrap" style="padding:0">
- hunta-demo 1.0.0 · the free demo is the real wheel with a counted leash ·
+ hunta-demo 1.0.1 · the free demo is the real wheel with a counted leash ·
  support: <b>simalidudu@gmail.com</b> · <b>+263 78 460 0904</b> (WhatsApp) · <a href="https://gethunta.pages.dev/">home</a> ·
  <a href="demo.html">free demo page</a><br>
  LICENSE: redistribution of the UNMODIFIED demo build is encouraged (that's how it spreads);
