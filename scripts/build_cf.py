@@ -20,6 +20,7 @@ PAGES = {  # source -> path on the site
     "gethunta/index.html": "index.html",
     "demo.html": "demo.html",
     "setup.html": "setup.html",
+    "domain.html": "domain.html",
 }
 DIRS = ["downloads", "brand", "graphics", "samples", "press/img"]
 FILES = ["16e37daa71b14add9de53ec65d64e01a.txt"]  # IndexNow key
@@ -53,7 +54,7 @@ ROBOTS = f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n"
 
 
 def sitemap() -> str:
-    urls = [f"{SITE}/", f"{SITE}/demo", f"{SITE}/setup"]
+    urls = [f"{SITE}/", f"{SITE}/demo", f"{SITE}/setup", f"{SITE}/domain"]
     body = "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "</urlset>\n")
@@ -94,7 +95,7 @@ def build() -> Path:
 # project, not linked from gethunta, and marked noindex. (The repo is public, so this adds no exposure.)
 BIBLE_OUT = ROOT / "_cf_bible"
 BIBLE_SITE = "https://hunta-bible.pages.dev"
-_SITE_PATHS = {"demo.html": "/demo", "setup.html": "/setup"}
+_SITE_PATHS = {"demo.html": "/demo", "setup.html": "/setup", "domain.html": "/domain"}
 
 
 def _absolute(m: "re.Match") -> str:
