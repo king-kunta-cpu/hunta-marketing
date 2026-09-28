@@ -2,11 +2,13 @@
 
 2026-09-27: GitHub Pages was unreliable on phones, so the buyer-facing pages moved to
 Cloudflare Pages. The site root is the landing page (gethunta/index.html); the internal
-marketing bible (repo-root index.html) is NOT published here. Old GitHub Pages URLs
+marketing bible (repo-root index.html) is NOT published here; it builds into _cf_bible/ for its own
+project, hunta-bible.pages.dev (see build_bible). Old GitHub Pages URLs
 redirect to the matching page on this host (see the redirect snippet in each page head).
 """
 from __future__ import annotations
 
+import re
 import shutil
 from pathlib import Path
 
@@ -87,6 +89,43 @@ def build() -> Path:
     return OUT
 
 
+# ---- the marketing bible: its own Pages project (hunta-bible.pages.dev), kept off the buyer site ----
+# 2026-09-28 (owner): host the bible on Cloudflare. It is internal sales material, so it is a separate
+# project, not linked from gethunta, and marked noindex. (The repo is public, so this adds no exposure.)
+BIBLE_OUT = ROOT / "_cf_bible"
+BIBLE_SITE = "https://hunta-bible.pages.dev"
+_SITE_PATHS = {"demo.html": "/demo", "setup.html": "/setup"}
+
+
+def _absolute(m: "re.Match") -> str:
+    attr, url = m.group(1), m.group(2)
+    if re.match(r"^(https?:|#|mailto:|tel:|data:|lightning:|javascript:)", url):
+        return m.group(0)
+    path, _, frag = url.partition("#")
+    path = _SITE_PATHS.get(path, "/" + path.lstrip("./"))
+    return f'{attr}="{SITE}{path}{"#" + frag if frag else ""}"'
+
+
+def build_bible() -> Path:
+    if BIBLE_OUT.exists():
+        shutil.rmtree(BIBLE_OUT)
+    BIBLE_OUT.mkdir()
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    html = re.sub(r'\b(href|src|content)="([^"]+\.(?:html|pdf|zip|svg|ico|png|jpg)(?:#[^"]*)?)"', _absolute, html)
+    html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
+    left = re.findall(r'\b(?:href|src)="(?!https?:|#|mailto:|tel:|data:|lightning:|javascript:)([^"]+)"', html)
+    if left:
+        raise SystemExit(f"bible still has relative links: {sorted(set(left))[:10]}")
+    (BIBLE_OUT / "index.html").write_text(html, encoding="utf-8")
+    shutil.copyfile(ROOT / "brand" / "favicon.ico", BIBLE_OUT / "favicon.ico")
+    (BIBLE_OUT / "_headers").write_text("/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n"
+                                        "  Referrer-Policy: no-referrer\n")
+    (BIBLE_OUT / "robots.txt").write_text("User-agent: *\nDisallow: /\n")
+    return BIBLE_OUT
+
+
 if __name__ == "__main__":
     out = build()
     print(f"built {sum(1 for _ in out.rglob('*') if _.is_file())} files into {out}")
+    bo = build_bible()
+    print(f"built the bible into {bo}")

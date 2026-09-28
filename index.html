@@ -106,9 +106,20 @@
   <h1>The Hunta marketing bible</h1>
   <p class="lede">Every asset, script, number and rule for selling Hunta, on one page.
   Copy buttons everywhere. Numbers are live production data, verified 2026-09-23 against the running
-  pipeline (state branch, current Actions runs) — refresh from the latest hunt log before each campaign.
+  pipeline (state branch, current Actions runs); pricing, payment and Sovereign delivery updated
+  2026-09-28 — refresh from the latest hunt log before each campaign.
   The offer on the table is always the
   <b>free demo: 1 candidate, free forever, no card</b>.</p>
+
+  <div class="banner" style="background:#fff7e6;border-color:#f0c36d">🆕 <b>What changed (27–28 Sep 2026):</b>
+  prices are exactly <b>$306 / $613 / $920</b> a month and the first charge is the price (no intro fee) ·
+  buyers can <b>pay in rands</b> on Whop: <b>R4,999 / R9,999 / R15,000</b> a month ·
+  <b>annual is one tap</b>: one bank-wire payment on Whop, 25% off, <b>$2,754 / $5,517 / $8,280</b>
+  (Whop only takes cards up to $2,500) · <b>Sovereign is self-hosted</b>: after checkout the buyer runs
+  <code>/claim</code> in their Discord and gets a signed licence + install steps in a private channel
+  (WhatsApp backup); the Docker image is public, the licence is the lock ·
+  Solo wording: <b>"approve in Discord (web dashboard + Telegram when self-hosted)"</b> ·
+  the site lives at <a href="https://gethunta.pages.dev/">gethunta.pages.dev</a>. Offer tab has every buy link.</div>
 
   <div class="banner">🎁 <b>Free demo for everyone, forever.</b> One candidate, the full
   pipeline — caps enforced in code, not policy: 25 drafts + 5 sends per rolling 30 days,
@@ -120,7 +131,7 @@
   behind the product ships as essays too: <a href="https://dev.to/simali_dud_b97add4154d7a6/i-treat-job-applications-as-a-pipeline-not-a-resume-problem-a34">Job applications as a pipeline, not a resume problem</a> and <a href="https://dev.to/simali_dud_b97add4154d7a6/six-prompts-that-do-the-boring-80-of-your-job-search-copy-paste-1bf9">Six prompts for the boring 80%</a> (both mirrored on Nostr).</div>
 
   <div class="grid">
-    <div class="card"><div class="stat">18</div><div class="sub">board integrations · ZA ZW ZM + remote<br>11 returning live results on the last run</div></div>
+    <div class="card"><div class="stat">22</div><div class="sub">boards registered · 17 used by default · ZA ZW ZM + remote</div></div>
     <div class="card"><div class="stat">72</div><div class="sub">drafted applications awaiting a tap · 3 candidates · 2026-09-16→18 · each with CV + letter PDFs</div></div>
     <div class="card"><div class="stat">0</div><div class="sub">auto-sends — every application is a human tap, by design</div></div>
     <div class="card"><div class="stat">72 h</div><div class="sub">draft self-destruct; deleted instantly on send/reject</div></div>
@@ -152,7 +163,8 @@ the log streaming the whole way.</pre></div>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>1. The human is the hero. Hunta is the tool. Never "our AI got her the job."
 2. Lead with the card (the product) and the tap (the trust).
 3. Show the 72 h purge and the 20/day cap unprompted — they answer the two fears.
-4. The demo is free forever; say so in every CTA. Never "free trial."
+4. The demo is free forever; say so in every CTA. Never call the demo a "free trial".
+   (The separate HOSTED trial is 7 days, 1 candidate, 5 sends; call it "the 7-day hosted trial".)
 5. No "revolutionise / game-changer / guaranteed interviews / bot."
 6. Southern-African specifics (SAIPA, SARS eFiling, VAT201, NRC, EcoCash) signal we know the market.
 7. One CTA per post: the demo link. A reply keyword is allowed as the secondary.
@@ -281,30 +293,59 @@ runs, and it's a line item, not an expense. The demo is R0. The maths sells itse
   <h1>Offer & pricing (decided)</h1>
   <div class="grid">
     <div class="card" style="border:2px solid var(--purple);background:var(--lilac)"><div class="stat">R0</div><b>Demo — free forever</b><div class="sub">1 candidate · 25 drafts + 5 sends / rolling 30 days · the real wheel, caps in code · the funnel's front door</div></div>
-    <div class="card"><div class="stat">$306 (about R4,999)</div><b>Solo</b> <span class="sub">/ month</span><div class="sub">3 candidates · 100 sends/mo · priority hunt slots · <b>$2,754/yr (about R45,000)</b></div></div>
-    <div class="card"><div class="stat">$613 (about R9,999)</div><b>Studio</b> <span class="sub">/ month</span><div class="sub">15 candidates · white-label PDFs · fair-use sends · <b>$5,517/yr (about R90,000)</b></div></div>
-    <div class="card"><div class="stat">$920 (about R15,000)</div><b>Sovereign</b> <span class="sub">/ month</span><div class="sub">self-hosted · unlimited · licence delivered in Discord · <b>$8,280/yr</b> by wire</div></div>
+    <div class="card"><div class="stat">$306 (about R4,999)</div><b>Solo</b> <span class="sub">/ month</span><div class="sub">3 candidates · 100 sends/mo · priority hunt slots · approve in Discord (web dashboard + Telegram when self-hosted) · or R4,999/mo in rands · <b>$2,754/yr</b> by wire</div></div>
+    <div class="card"><div class="stat">$613 (about R9,999)</div><b>Studio</b> <span class="sub">/ month</span><div class="sub">15 candidates · white-label PDFs · fair-use sends · or R9,999/mo in rands · <b>$5,517/yr</b> by wire</div></div>
+    <div class="card"><div class="stat">$920 (about R15,000)</div><b>Sovereign</b> <span class="sub">/ month</span><div class="sub">self-hosted Docker · unlimited · signed licence + install steps delivered in the buyer's Discord · or R15,000/mo in rands · <b>$8,280/yr</b> by wire</div></div>
   </div>
-  <div class="pillrow"><span class="pill">annual = 25% off ($918 saved on Solo)</span><span class="pill">affiliates 30% / 12 mo via Whop</span><span class="pill">USD at the rand value · sats via Lightning (coinos)</span><span class="pill">Mukuru/EFT = manual grant</span></div>
-  <p class="sub"><b>Pricing (owner decision 2026-09-27: USD at the rand value of the 2026-09-23 memo tiers):</b> Solo $306/mo (about R4,999),
-  Studio $613/mo (about R9,999), Sovereign $920/mo (about R15,000); annual prepay saves 25% (Solo $2,754/yr, about R45,000). Lightning is LIVE
-  (SharkSkin@coinos.io, LUD-16-verified); Mukuru/EFT carries the real number. <b>Whop one-tap checkouts
-  are LIVE</b> — Solo ch_abZZn55zTTq9VO0, Studio ch_xXwDxquSJP2Ctwu, store whop.com/jacaranda-labs.
-  Billing enforcement (FREE_MODE) is now FAIL-CLOSED: every tenant hunts on a real grant
-  (`hunta billing grant`), starting with the seeded founder record. Manual rails stay honoured.</p>
+  <div class="pillrow"><span class="pill">annual = 25% off, one bank-wire payment</span><span class="pill">pay in dollars or rands</span><span class="pill">first charge = the price</span><span class="pill">affiliates 30% / 12 mo via Whop</span><span class="pill">USD at the rand value · sats via Lightning (coinos)</span><span class="pill">Mukuru/EFT = manual grant</span></div>
+  <p class="sub"><b>Pricing (owner decisions 2026-09-27):</b> USD at the rand value of the 2026-09-23 memo tiers —
+  Solo $306, Studio $613, Sovereign $920 a month — <b>or the same plans in rands</b> (R4,999 / R9,999 / R15,000).
+  Annual = 25% off as <b>one bank-wire payment on Whop</b> ($2,754 / $5,517 / $8,280). Whop refuses card or
+  recurring plans above $2,500 on this account, so annual is wire-only and there is no rand annual (owner can ask
+  Whop to raise the limit). Every plan's first charge equals its price. Lightning (SharkSkin@coinos.io) and
+  Mukuru/EFT (+263 78 460 0904) stay honoured with a manual grant. Billing is fail-closed: every tenant hunts on a
+  real grant. Source of truth for every number: <code>hunta/demo.py → BILLING</code>.</p>
+
+  <h2>Buy links (one tap each; use the tracked link so the click is counted)</h2>
+  <table>
+    <tr><th>Tier</th><th>Monthly, dollars</th><th>Monthly, rands</th><th>Annual, bank wire</th></tr>
+    <tr><td><b>Solo</b></td><td><a href="https://hunta-mint.simalidudu.workers.dev/g/s1/bible">$306/mo</a> · <code>/g/?1</code></td><td><a href="https://hunta-mint.simalidudu.workers.dev/g/s7/bible">R4,999/mo</a> · <code>/g/?7</code></td><td><a href="https://hunta-mint.simalidudu.workers.dev/g/s4/bible">$2,754</a> · <code>/g/?4</code></td></tr>
+    <tr><td><b>Studio</b></td><td><a href="https://hunta-mint.simalidudu.workers.dev/g/s2/bible">$613/mo</a> · <code>/g/?2</code></td><td><a href="https://hunta-mint.simalidudu.workers.dev/g/s8/bible">R9,999/mo</a> · <code>/g/?8</code></td><td><a href="https://hunta-mint.simalidudu.workers.dev/g/s5/bible">$5,517</a> · <code>/g/?5</code></td></tr>
+    <tr><td><b>Sovereign</b></td><td><a href="https://hunta-mint.simalidudu.workers.dev/g/s3/bible">$920/mo</a> · <code>/g/?3</code></td><td><a href="https://hunta-mint.simalidudu.workers.dev/g/s9/bible">R15,000/mo</a> · <code>/g/?9</code></td><td><a href="https://hunta-mint.simalidudu.workers.dev/g/s6/bible">$8,280</a> · <code>/g/?6</code></td></tr>
+  </table>
+  <p class="sub">Link format: <code>https://hunta-mint.simalidudu.workers.dev/g/&lt;rail&gt;&lt;code&gt;/&lt;topic&gt;</code>;
+  rails: <code>s</code> site, <code>o</code> outreach, <code>w</code> WhatsApp, <code>l</code> LinkedIn (see press docs).
+  Every checkout sends the buyer to the setup page after paying. The 7-day hosted trial:
+  <a href="https://hunta-mint.simalidudu.workers.dev/g/st/bible">/g/st/…</a>. Store: whop.com/jacaranda-labs.</p>
+
+  <h2>What each purchase does (so you can promise it)</h2>
+  <ul>
+    <li><b>Solo / Studio:</b> hosted for them; checkout → setup page → add the Hunta bot to their Discord →
+      <code>/claim</code> → private channels + a start-here checklist. Monthly buys 31 days, annual 366. A trial
+      with the same email upgrades in place; next year's annual by the same email extends the same workspace.</li>
+    <li><b>Sovereign:</b> never hosted. After <code>/claim</code> a private <b>#🔐-hunta-sovereign</b> channel opens
+      with a signed licence (valid to paid-until + 7 days), <code>docker pull ghcr.io/king-kunta-cpu/hunta:latest</code>,
+      the compose file and the install guide (<a href="https://gethunta.pages.dev/setup#sovereign">setup §13</a>).
+      Each renewal posts a fresh licence; a cancelled plan simply isn't renewed and the box turns read-only at
+      expiry — never deleted. Help: <code>/help</code> in that channel, WhatsApp +263 78 460 0904 as backup.</li>
+    <li><b>Manual rails (Lightning / Mukuru):</b> owner confirms receipt, then <code>hunta billing grant</code>
+      (hosted) or <code>hunta licence-issue</code> (Sovereign).</li>
+  </ul>
 
   <h2>Rationale (so every seller believes the numbers)</h2>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>• Demo R0 forever is the marketing budget: ~1 hunt-minute/day on Actions, cents of LLM on
   the customer's own key. Upgrade trigger is natural — the second candidate.
 • Solo $306/mo (about R4,999) ≈ 3–5 CV-and-letter bundles at prevailing coach rates (R600–R1500) plus the
   8–12 h of hunt-and-rewrite time it deletes. The memo's month-1 maths: 4 × $306 (about R4,999) ≈ R20k.
-• Annual prepay is the close that funds the build: $2,754/yr (about R45,000, 25% off) — one deal ≈ $2.75k,
-  cash now beats MRR while the runway is $0. Offer it everywhere; never discount monthly.
+• Annual prepay is the close that funds the build: $2,754 / $5,517 / $8,280 (25% off), one bank-wire
+  payment on Whop — one Solo deal ≈ $2.75k, cash now beats MRR while the runway is $0. Offer it everywhere;
+  never discount monthly.
+• Rands remove the "dollars?" objection for ZA buyers: the same plans bill R4,999 / R9,999 / R15,000.
 • Studio $613 (about R9,999) is priced for throughput: a studio earns it back in one extra order a week;
   white-label PDFs are the wedge (studios sell their brand).
 • Sovereign $920 (about R15,000) undercuts a junior recruiter-day and kills the two real agency
-  objections: data residency and lock-in. Onboarding day included because self-host
-  failures are support tickets.
+  objections: data residency and lock-in. Delivery is self-serve (licence + install steps
+  in their Discord, ~15 minutes with Docker); install help is /help in that channel or WhatsApp.
 • Never discount monthly in public; annual is the only lever. Private discounts for
   universities, NGOs, cohorts of 10+.
 • Never per-send pricing — it incentivises spam and contradicts the guard-rails story.</pre></div>
@@ -312,7 +353,8 @@ runs, and it's a line item, not an expense. The demo is R0. The maths sells itse
   <h2>Money one-liners</h2>
   <div class="copyblock"><button class="copybtn">Copy</button><pre>• "The demo is free forever. You upgrade when your second candidate asks for it — that's the whole sales funnel."
 • "Solo is $306 a month (about R4,999) for three candidates — two or three CV bundles at your rates, and the 8–12 hours of typing is gone. If it doesn't earn its keep, cancel in the app, no retention call."
-• "Annual prepay is $2,754 (about R45,000) — three months free. One payment, and we provision you same day."
+• "Annual prepay is $2,754 — three months free. One bank transfer through Whop, and you're set for the year."
+• "Rather pay in rands? Same plan, R4,999 a month, same checkout."
 • "Sovereign costs less than a junior recruiter's Tuesday."
 • "No server, no card: ~100 GitHub Actions minutes a month. Your margin is the coaching, not the compute."</pre></div>
 </section>
@@ -539,9 +581,9 @@ If not your world, carry on 🙂</pre></div>
   <table>
   <tr><th>Tier</th><th>Price</th><th>What</th></tr>
   <tr><td><b>Demo</b></td><td>R0 forever</td><td>1 candidate, full pipeline, 5 sends/month, Discord card + PDFs</td></tr>
-  <tr><td><b>Solo</b></td><td>$306/mo (about R4,999); annual $2,754/yr (about R45,000)</td><td>3 candidates, 100 sends/mo</td></tr>
-  <tr><td><b>Studio</b></td><td>$613/mo (about R9,999); annual $5,517/yr (about R90,000)</td><td>15 candidates, white-label PDFs</td></tr>
-  <tr><td><b>Sovereign</b></td><td>$920/mo (about R15,000); annual $8,280/yr by bank wire</td><td>agency self-hosted, unlimited seats, onboarding day</td></tr>
+  <tr><td><b>Solo</b></td><td>$306/mo or R4,999/mo; annual $2,754 by bank wire</td><td>3 candidates, 100 sends/mo, approve in Discord (web dashboard + Telegram when self-hosted)</td></tr>
+  <tr><td><b>Studio</b></td><td>$613/mo or R9,999/mo; annual $5,517 by bank wire</td><td>15 candidates, white-label PDFs</td></tr>
+  <tr><td><b>Sovereign</b></td><td>$920/mo or R15,000/mo; annual $8,280 by bank wire</td><td>self-hosted Docker, unlimited, signed licence + install steps delivered in their Discord</td></tr>
   </table>
 
   <p>Anchor line: <i>"The demo is free forever. You upgrade when your second candidate asks for it — that's the whole sales funnel."</i></p>
@@ -702,7 +744,11 @@ Link in my bio / here: https://gethunta.pages.dev/demo. AMA about the guard-rail
 
   <p><b>"My candidates won't trust it."</b> → "The employer gets a normal email from the candidate's own address. The candidate sees their own letter in the card before it flies. The only new thing in their life is that Tuesday got shorter."</p>
 
-  <p><b>"We're an agency, data can't leave."</b> → "Sovereign. Your box, your cloud, licence checked daily, read-only on expiry, never bricked. Data never leaves."</p>
+  <p><b>"We're an agency, data can't leave."</b> → "Sovereign. Your box, your cloud. The licence is signed and checked offline, so nothing phones home; if it lapses the box goes read-only, never bricked. Data never leaves."</p>
+
+  <p><b>"Dollars? We pay in rands."</b> → "Same plans in rands: R4,999, R9,999 or R15,000 a month, same Whop checkout."</p>
+
+  <p><b>"Can we pay once for the year?"</b> → "Yes, 25% off: $2,754 for Solo, one bank transfer through Whop. Whop caps cards at $2,500, which is why annual goes by wire."</p>
 
   <p><b>"Boards will block it."</b> → "They try; we degrade gracefully. Each hunter fails alone — last run, one board 403'd and the other ten delivered. You never get a dead pipeline, just a shorter list that day."</p>
 
@@ -734,7 +780,8 @@ Link in my bio / here: https://gethunta.pages.dev/demo. AMA about the guard-rail
 
   <div class="copyblock"><button class="copybtn">Copy</button><pre>Week one: {{cards}} cards, {{sends}} sends. Question — how many candidates are
 sitting on your bench right now without a pipeline? Solo puts two more on this
-exact machine for $306 a month (about R4,999). One tap: https://whop.com/checkout/ch_abZZn55zTTq9VO0/</pre></div>
+exact machine for $306 a month (or R4,999 in rands). One tap: https://whop.com/checkout/ch_abZZn55zTTq9VO0/
+In rands: https://whop.com/checkout/ch_kx2q8S9aYZtNTbX/</pre></div>
 
   <h3>Upsell Solo→Studio</h3>
 
@@ -863,6 +910,11 @@ Your files were never hostage; they're YAMLs, they're yours. Same free demo, no 
   <details><summary>Cost to run?</summary><p>$0 default — GitHub Actions. Customer brings a free-tier LLM key + a Gmail app password. No cloud console, no card.</p></details>
   <details><summary>Why is the demo free forever?</summary><p>Because the demo IS the marketing budget and the upgrade trigger is natural: your second candidate. "Free trial" implies a bill; "free forever" implies confidence.</p></details>
   <details><summary>What does upgrading unlock?</summary><p>More candidates (3/15/unlimited), more sends, white-label PDFs (Studio), self-hosting (Sovereign). The pipeline itself is identical at R0.</p></details>
+  <details><summary>Can I pay in rands?</summary><p>Yes. Every plan has a rand checkout on Whop: Solo R4,999, Studio R9,999, Sovereign R15,000 a month.</p></details>
+  <details><summary>Can I pay yearly?</summary><p>Yes, 25% off in one bank-wire payment on Whop: $2,754 / $5,517 / $8,280. Whop only takes cards up to $2,500, so annual goes by wire.</p></details>
+  <details><summary>Where do I approve?</summary><p>Hosted plans (trial, Solo, Studio): in Discord. Self-hosted (demo pack, Sovereign): Discord, the web dashboard, or Telegram.</p></details>
+  <details><summary>How does Sovereign arrive?</summary><p>In the buyer's Discord: after <code>/claim</code> a private channel holds the signed licence, the <code>docker pull</code> line and the install guide; every renewal posts a fresh licence. The image is public; the licence is the lock. WhatsApp +263 78 460 0904 is the backup.</p></details>
+  <details><summary>Is there a trial?</summary><p>Two front doors: the self-hosted demo is free forever (1 candidate, 25 drafts + 5 sends / 30 days); the 7-day hosted trial needs no install (1 candidate, 5 sends) and upgrades in place when they buy with the same email.</p></details>
   <details><summary>What if a board dies?</summary><p>Hunters fail alone. The run logs "[hunter:x] 0 jobs" and the rest deliver. Coverage degrades gracefully.</p></details>
   <details><summary>Can it run unsupervised without getting stuck?</summary><p>That's the 2026-09-19 hardening: every URL gets a 45 s total budget, every LLM provider 30 s of politeness before instant failover, every run a 35-minute cap — and logs stream live from the first second. A hung hunt is a logged failure, never a silent freeze.</p></details>
   <details><summary>Is the free demo a crippled app?</summary><p>No fork, no watermarks — the identical wheel and the same 22 supported boards (17 on by default). The ledger caps output at 25 drafts + 5 sends per rolling 30 days; at the cap, the pipeline itself tells you what upgrading buys. Licence flips the flavour env; nothing else changes.</p></details>
@@ -1051,7 +1103,7 @@ VAT201, NRC, EcoCash). Demo persona only — never screenshot a real candidate.<
 • demo-card.html — live tappable replica of the Discord card
 • samples/sample-cv-za.pdf + sample-cover-letter.pdf — real engine output
 • quickstart.md — 10-minute setup (webhook + app password, no card, no console)
-• pricing.md — R0 / $306 (about R4,999) / $613 (about R9,999) / $920 (about R15,000) with rationale
+• pricing.md — R0 / $306 / $613 / $920 a month (or R4,999 / R9,999 / R15,000 in rands; annual by wire) with rationale
 • README.txt — the 5-step tour
 • hunta-demo-1.0.0.zip + .sha256 — LIVE: the FULL installable demo: unzip, pip install the
   wheel inside, `hunta doctor`. Four CV designs included; demo01 ships indigo, demo02 sunset.
@@ -1071,7 +1123,7 @@ VAT201, NRC, EcoCash). Demo persona only — never screenshot a real candidate.<
     <tr><td>"Human approval before sending"</td><td>TRUE — nothing sends without a human tap. That gate is the product.</td></tr>
     <tr><td>"No auto-apply"</td><td>TRUE — there is no auto-send code path anywhere in the pipeline.</td></tr>
     <tr><td>"72 h data purge"</td><td>TRUE for rendered PDFs (<code>pdf_ttl_hours: 72</code>). Candidate YAML stays until the file is deleted (delete = erasure).</td></tr>
-    <tr><td>"Runs on $0"</td><td>TRUE for the operator (GitHub Actions free + Fly free allowance). The only consumable is LLM tokens, keyed to the customer where possible.</td></tr>
+    <tr><td>"Runs on $0"</td><td>TRUE for the operator (GitHub Actions + Cloudflare free tiers; no server, no card). The only consumable is LLM tokens, keyed to the customer where possible.</td></tr>
   </table>
 
   <h2>Guardrails that exist in code (say these unprompted)</h2>
@@ -1093,7 +1145,7 @@ VAT201, NRC, EcoCash). Demo persona only — never screenshot a real candidate.<
     <li><b>Pre-score</b> — free rule/domain/seniority/country filters before any LLM spend. Zero-cost triage is the margin.</li>
     <li><b>Match & draft</b> — the LLM scores each role against the candidate's truth file and drafts a tailored letter. Groq 429s auto-failover to Gemini.</li>
     <li><b>Render</b> — country-formatted PDFs (cv_za with ID/EE/licence, cv_zw, cv_zm) plus cover letters.</li>
-    <li><b>Approve</b> — the card lands on Discord/Telegram with ✅/❌; the human tap is the only trigger for a send.</li>
+    <li><b>Approve</b> — the card lands in Discord with ✅/❌ (self-hosted installs can also use the web dashboard or Telegram); the human tap is the only trigger for a send.</li>
     <li><b>Send</b> — SMTP from the <i>customer's own mailbox</i>; results persist to the <code>hunta-state</code> branch and rendered PDFs purge after 72 h.</li>
   </ol>
   <p class="sub">Nothing between draft and send is automatic. That single human gate is what we sell —
@@ -1134,7 +1186,7 @@ VAT201, NRC, EcoCash). Demo persona only — never screenshot a real candidate.<
 
   <h2>House rules for everything we publish</h2>
   <ul class="tick">
-    <li>R0 demo is the front door, always. Paid tiers are quoted in US dollars with the rand figure as "about": $306 (about R4,999) / $613 (about R9,999) / $920 (about R15,000).</li>
+    <li>R0 demo is the front door, always. Paid tiers are quoted in US dollars with the rand figure as "about": $306 (about R4,999) / $613 (about R9,999) / $920 (about R15,000) — and say buyers can pay in rands (R4,999 / R9,999 / R15,000 on Whop). Annual = "one bank-wire payment, 25% off".</li>
     <li>Every posted number cites a hunt-log date; numbers older than three days get refreshed or removed.</li>
     <li>No "guaranteed", no "AI-powered future", no auto-apply promises. (See Brand → voice.)</li>
     <li>Process over promises: "coverage, drafts, approval, retention" — never placements.</li>
@@ -1161,9 +1213,10 @@ VAT201, NRC, EcoCash). Demo persona only — never screenshot a real candidate.<
   <table>
     <tr><th>Piece</th><th>Cost</th><th>What it does</th></tr>
     <tr><td>GitHub Actions</td><td>Free</td><td>the hunt engine + the press autopilot</td></tr>
-    <tr><td>Fly.io</td><td>Free allowance</td><td>optional dashboard container (region jnb)</td></tr>
-    <tr><td>Cloudflare Workers + D1</td><td>Free</td><td>lead capture + lead storage (separate repo)</td></tr>
-    <tr><td>Discord / Telegram</td><td>Free</td><td>approval cards + community</td></tr>
+    <tr><td>Cloudflare Pages</td><td>Free</td><td>the site (gethunta.pages.dev) and this bible</td></tr>
+    <tr><td>Cloudflare Workers + D1</td><td>Free</td><td>mint (Whop webhook, onboarding bot, trials, tracked links, licence signing) + the lead store</td></tr>
+    <tr><td>Discord</td><td>Free</td><td>approval cards, onboarding (/claim), Sovereign licence delivery (Telegram: self-hosted only)</td></tr>
+    <tr><td>GHCR</td><td>Free (public)</td><td>the Sovereign Docker image, <code>ghcr.io/king-kunta-cpu/hunta</code></td></tr>
     <tr><td>LLM tokens</td><td>cents/run</td><td>the only consumable; customer-keyed</td></tr>
   </table>
 
@@ -1193,6 +1246,7 @@ stalls at "talked, no install" = a pitch problem. Fix the stage, not the people.
   <ul class="tick">
     <li><b>Whop</b> — one-tap checkout, subscriptions, 30%/12mo affiliate programme. (Plans charge $306 / $613 / $920 every 30 days, or R4,999 / R9,999 / R15,000 in rands; annual is a one-time bank-wire plan: $2,754 / $5,517 / $8,280. hunta's press health step alerts if any drift.)</li>
     <li><b>Lightning</b> — coinos invoice, payer puts name+tier in the note; manual grant on settle.</li>
+    <li><b>Sovereign licences</b> — signed automatically by mint on every Whop payment (CA key held only in secrets); manual-rail Sovereign sales use <code>hunta licence-issue</code>.</li>
     <li><b>Mukuru / EFT</b> — manual grant via WhatsApp; ref = your tenant id. No public merchant API, by design.</li>
   </ul>
 
@@ -1213,13 +1267,15 @@ stalls at "talked, no install" = a pitch problem. Fix the stage, not the people.
   <h2>Now</h2>
   <ul>
     <li><b>Service-first.</b> Sell attributable placements per customer per month, not software seats.</li>
-    <li><b>Sovereign self-host</b> is the trust story: HLT1-signed licences, 3-day grace, read-only on expiry — never a bricked box.</li>
+    <li><b>Sovereign self-host</b> is the trust story and now self-serve: pinned-CA HLT1 licences delivered in Discord, 7 days' grace after paid-until, read-only on expiry — never a bricked box. Image v1.0.0 is public.</li>
     <li><b>Lead capture is live</b> — the demo page arms a real card into the lead database, no email farming.</li>
   </ul>
 
   <h2>Next</h2>
   <ul>
-    <li>Whop plans must charge $306 / $613 / $920 (owner raises them in the Whop dashboard; the press health step alerts until they match).</li>
+    <li><b>First paying customers.</b> Zero so far; the next 60 days are conversations and demos, not features.</li>
+    <li>Ask Whop to raise the $2,500 limit → card and rand annual plans.</li>
+    <li>Whop product-page FAQ items (dashboard only; text in <code>whop/product_faq.md</code>).</li>
     <li>Rotate the Discord webhook and settle admin-token custody.</li>
     <li>Unified DNC enforcement + email/social-only leads.</li>
     <li>Self-serve onboarding — spin-up that does not need you on the call.</li>
@@ -1240,6 +1296,7 @@ stalls at "talked, no install" = a pitch problem. Fix the stage, not the people.
   removed — coverage degrades, legality doesn't.
 • Marketing claims: never promise outcomes (interviews/placements). Promise process:
   coverage, drafts, approval, retention.
+• The 7-day hosted trial ends without billing (no card is taken); buying is a separate Whop checkout.
 • The demo is a product tier, not a trial — say "free forever", never "free trial", to
   avoid auto-billing expectations and refund disputes.</pre></div>
 
@@ -1252,7 +1309,9 @@ tenant      one coaching practice (hosted) or one org (self-hosted)
 candidate   one YAML profile; delete file = erasure
 demo        the R0-forever tier: 1 candidate, 25 drafts + 5 sends per rolling 30 days —
             same wheel as paid, caps enforced by an atomic ledger
-Sovereign   self-hosted tier; licence checked daily; read-only on expiry, never bricked</pre></div>
+Sovereign   self-hosted tier; signed licence checked offline, delivered in Discord;
+            read-only on expiry, never bricked
+licence     HLT1.… blob signed by our CA; the image refuses any other signer
 </section>
 
 <!-- ============ LAUNCH ============ -->
@@ -1260,20 +1319,20 @@ Sovereign   self-hosted tier; licence checked daily; read-only on expiry, never 
   <h1>Launch checklist</h1>
   <ul class="tick">
     <li>Numbers refreshed from the latest hunt log (Actions → hunt → run log)</li>
-    <li>Every CTA points at demo.html — one link, everywhere</li>
+    <li>Every CTA points at the site (gethunta.pages.dev) or a tracked /g link — one door, everywhere</li>
     <li>Discord webhook live and ROTATED (a previous value was exposed); "Hunta Leads" cards visible in your server</li>
     <li>demo-kit.zip downloads (test from a phone on data, not wifi); demo lead form → worker /capture → card fires</li>
     <li>og-image attached to social posts; one CTA per post</li>
     <li>Read the house rules (Start tab) and the "never" list (Brand tab)</li>
     <li>Follow-up cadence loaded; 24 h human reply promised and kept</li>
-    <li>Pilot terms written down: demo R0 forever; Solo $306/mo (about R4,999); annual $2,754/yr (about R45,000) when asked</li>
+    <li>Pilot terms written down: demo R0 forever; Solo $306/mo (or R4,999 in rands); annual $2,754 by bank wire when asked</li>
     <li>Product pack shipped: BILLING is wired to the live Whop checkouts (2026-09-20) → rebuilt
         (`python -m build &amp;&amp; python scripts/make_demo_pack.py`) →
         `cp dist/hunta-demo-1.0.0.zip* downloads/` → refresh sha256 anywhere quoted</li>
     <li>Pipeline current: audit build live (origin/main 8bd7ff5); hang fix 1c5a54e pushed and
         verified — one run shows live per-board log lines and a dry run under ~10 min</li>
   </ul>
-  <div class="foot">hunta-marketing · the bible v2.1 · palette #7B5EA7 / #2B2B2B / #F4EEF9 ·
+  <div class="foot">hunta-marketing · the bible v2.2 (2026-09-28: rands, annual by wire, Sovereign via Discord) · palette #7B5EA7 / #2B2B2B / #F4EEF9 ·
   production numbers verified 2026-09-23 against live runs · <a href="demo.html">demo.html</a> · <a href="https://github.com/king-kunta-cpu/hunta-marketing">repo</a></div>
 </section>
 
