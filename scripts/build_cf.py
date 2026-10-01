@@ -102,6 +102,8 @@ def _absolute(m: "re.Match") -> str:
     attr, url = m.group(1), m.group(2)
     if re.match(r"^(https?:|#|mailto:|tel:|data:|lightning:|javascript:)", url):
         return m.group(0)
+    if url.split("#")[0].startswith("bible-assets/"):
+        return m.group(0)  # served by the bible project itself (copied in build_bible)
     path, _, frag = url.partition("#")
     path = _SITE_PATHS.get(path, "/" + path.lstrip("./"))
     return f'{attr}="{SITE}{path}{"#" + frag if frag else ""}"'
@@ -114,11 +116,17 @@ def build_bible() -> Path:
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     html = re.sub(r'\b(href|src|content)="([^"]+\.(?:html|pdf|zip|svg|ico|png|jpg)(?:#[^"]*)?)"', _absolute, html)
     html = html.replace("<head>", '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
-    left = re.findall(r'\b(?:href|src)="(?!https?:|#|mailto:|tel:|data:|lightning:|javascript:)([^"]+)"', html)
+    left = [u for u in re.findall(
+        r'\b(?:href|src)="(?!https?:|#|mailto:|tel:|data:|lightning:|javascript:)([^"]+)"', html)
+        if not u.split("#")[0].startswith("bible-assets/")]
     if left:
         raise SystemExit(f"bible still has relative links: {sorted(set(left))[:10]}")
     (BIBLE_OUT / "index.html").write_text(html, encoding="utf-8")
     shutil.copyfile(ROOT / "brand" / "favicon.ico", BIBLE_OUT / "favicon.ico")
+    # 2026-10-01 (v3.0): the bible now serves its own image/materials vault
+    ba = ROOT / "bible-assets"
+    if ba.is_dir():
+        shutil.copytree(ba, BIBLE_OUT / "bible-assets")
     (BIBLE_OUT / "_headers").write_text("/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n"
                                         "  Referrer-Policy: no-referrer\n")
     (BIBLE_OUT / "robots.txt").write_text("User-agent: *\nDisallow: /\n")
