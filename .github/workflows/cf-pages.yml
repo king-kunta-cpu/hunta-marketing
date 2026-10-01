@@ -36,8 +36,15 @@ jobs:
       - name: Smoke (bible fatal; gethunta informational)
         run: |
           set -e
-          curl -fsSL https://hunta-bible.pages.dev/ | grep -q "AUTO-SECTIONS" || { echo "bible missing the vault sections"; exit 1; }
-          curl -fsSL "https://hunta-bible.pages.dev/bible-assets/cards/$(curl -fsSL https://hunta-bible.pages.dev/ | grep -o 'bible-assets/cards/[a-z0-9-]*-x.png' | head -1 | cut -d/ -f3)" >/dev/null || { echo "bible card asset 404"; exit 1; }
+          for i in 1 2 3 4 5 6; do
+            body=$(curl -fsSL https://hunta-bible.pages.dev/) || true
+            card=$(echo "$body" | grep -o 'bible-assets/cards/[a-z0-9-]*-x.png' | head -1 || true)
+            ok=1
+            echo "$body" | grep -q "AUTO-SECTIONS" || ok=0
+            [ -n "$card" ] && curl -fsSL -o /dev/null "https://hunta-bible.pages.dev/$card" || ok=0
+            [ "$ok" = 1 ] && { echo "bible vault live"; break; }
+            echo "edge not converged (attempt $i)"; [ "$i" = 6 ] && { echo "bible smoke failed"; exit 1; }; sleep 15
+          done
           for u in / /demo /setup /downloads/hunta-demo-1.0.1.zip; do
             code=$(curl -s -o /dev/null -w '%{http_code}' -L "https://gethunta.pages.dev$u")
             echo "gethunta $code $u (owner: hunta repo; informational only)"
