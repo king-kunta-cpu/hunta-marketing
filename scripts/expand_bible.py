@@ -937,12 +937,12 @@ def main() -> None:
         text = text.replace("</main>", block + "\n</main>", 1)
 
     text = re.sub(r"the marketing bible · v[0-9.]+[^<]*(?=</span>)",
-                  "the marketing bible · v3.1 · 2026-10-01 — the vault expansion: every copy file, "
-                  "92 topics, 129 promo cards, media vault, demo kit, storefront ops, the machine, "
-                  "playbooks, the published record (whop forum + 400-post dev.to index)",
+                  "the marketing bible · v3.2 · 2026-10-01 — vault + published record + cartoon illustrations + "
+                  "copy expansion: 92 topics · 129 cards · 400-post dev.to index · 6 cartoons · "
+                  "advanced scripts/outreach/social/lifecycle vol.2",
                   text, count=1)
     text = re.sub(r"the bible v[0-9.]+ \([^)]*\)",
-                  "the bible v3.1 (2026-10-01: the vault expansion — 10 new tabs)", text, count=1)
+                  "the bible v3.2 (2026-10-01: vault + record + illustrations + copy vol.2)", text, count=1)
 
     page.write_text(text, encoding="utf-8")
     total = words_of(re.sub(r"data:image/[^\"]{80,}", "", text))
