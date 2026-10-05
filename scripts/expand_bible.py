@@ -446,6 +446,9 @@ def sec_media() -> str:
         ("cartoon-before-after-desk.png", "The before/after desk split — the pain visual for ads, decks and comparison posts"),
         ("cartoon-jacaranda-mail.png", "Under the jacaranda tree: the graduate, the mailbox, the paper plane — the hope shot"),
         ("cartoon-approval-gate.png", "The approval gate itself: nothing passes without the guard's hand — the trust visual"),
+        ("cartoon-rand-pricing.png", "Three plan boxes on a shelf with coins and a banknote — the honest-pricing visual"),
+        ("cartoon-affiliate-handshake.png", "Handshake over a jacaranda branch with coin sparkles — the affiliate/referral visual"),
+        ("cartoon-trial-seven-days.png", "Seven calendar tabs lifting off as paper planes — the 7-day trial visual"),
     ]]
     out.append(group("Cartoon promo illustrations (bible-assets/illustrations/)",
                      "2026-10-01 set: text-free, flat jacaranda-palette cartoons — legal for ads, safe next to any caption, "
@@ -937,12 +940,12 @@ def main() -> None:
         text = text.replace("</main>", block + "\n</main>", 1)
 
     text = re.sub(r"the marketing bible · v[0-9.]+[^<]*(?=</span>)",
-                  "the marketing bible · v3.2 · 2026-10-01 — vault + published record + cartoon illustrations + "
-                  "copy expansion: 92 topics · 129 cards · 400-post dev.to index · 6 cartoons · "
+                  "the marketing bible · v3.3 · 2026-10-05 — vault + published record + cartoon illustrations + "
+                  "copy expansion: 92 topics · 129 cards · 400-post dev.to index · 9 cartoons (6 recompressed ~60 percent lighter) · "
                   "advanced scripts/outreach/social/lifecycle vol.2",
                   text, count=1)
     text = re.sub(r"the bible v[0-9.]+ \([^)]*\)",
-                  "the bible v3.2 (2026-10-01: vault + record + illustrations + copy vol.2)", text, count=1)
+                  "the bible v3.3 (2026-10-05: vault + record + illustrations + copy vol.2 + 3 promo cartoons, all recompressed)", text, count=1)
 
     page.write_text(text, encoding="utf-8")
     total = words_of(re.sub(r"data:image/[^\"]{80,}", "", text))
